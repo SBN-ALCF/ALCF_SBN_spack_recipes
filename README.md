@@ -1,6 +1,13 @@
 This is a list of temporary expoloits to get around errors in building sbn packages with spack. It is as much a todo list for me as it is a cheatsheet for others...
 
 Error: 
+    >> build error ELF load command address/offset not properly aligned
+
+Solution:
+Generally, this has indicated compiler versioning errors. I recommend using gcc-12.3.0. YMMV with other compilers. 
+
+
+Error: 
 
     >> 1498    CMake Error at /lus/grand/projects/neutrinoGPU/spack_builds/spack/opt/spack/linux-sles15-zen3/gcc-12.3.0/cetmodules-3.25.00-ublvkzinygsrjc6f7qcxwm4zbfnutphc/Modules/CetMakeLibrary.cmake:456 (target_l 
                ink_libraries):                                                                                                                                                                                         

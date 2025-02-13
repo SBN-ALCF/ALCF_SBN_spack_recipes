@@ -1,4 +1,5 @@
 import os
+import sys
 
 def find_version_info(github_url, requested_version):
     direct_output = os.popen("git -c 'versionsort.suffix=-' ls-remote --tags --sort='v:refname' " + github_url + ".git").read()
@@ -24,19 +25,30 @@ def find_version_info(github_url, requested_version):
                 print("Could not grab: ", matching_version)
     if not match_found:
         print("Version not found!")
-        quit()
+        return 'searching', 'searching'
 
 def find_spack_package(package_name):
-    directories = os.popen("find . -type d -name *"+package_name+"*").read().split()
+    directories = os.popen("find . -type d -name \"*"+package_name+"*\"").read().split()
     print(directories)
-    for directory in directories:
-        print("Found directory: ", directory)
-        if(input("Use this directory? (y/n): ") == "y"): return directory
+    if(len(directories) == 0):
+        print("No matching directories found!")
+        sys.exit()
+    else:
+        for directory in directories:
+            print("Found directory: ", directory)
+            if(input("Use this directory? (y/n): ") == "y"): return directory
 
 if __name__ == "__main__":
-    github_url = input("Enter github url: ")
-    version = input("Enter new version: ")
-    checksum, commit = find_version_info(github_url, version)
+    if len(sys.argv) > 1:
+        if(sys.argv[1] == '-h' or sys.argv[1] == "--help"):
+            print("Usage: No inputs currently. Runs in CLI.")
+        else:
+            print("Unknown parameter(s): ", sys.argv)
+    checksum = 'searching'
+    while(checksum == 'searching'):
+        github_url = input("Enter github url: ")
+        version = input("Enter new version: ")
+        checksum, commit = find_version_info(github_url, version)
     package = input("Enter spack package name: ")
     directory = find_spack_package(package)
     file = directory+"/package.py"
@@ -47,10 +59,10 @@ if __name__ == "__main__":
                "# Requested Version: " + version +"\n"+\
                "# Found Checksum: " + checksum +"\n"+\
                "# Found Commit: " + commit +"\n"+\
+               "# version(\""+version+"\", sha256=\""+checksum+"\")\n"+\
                "###################### DELETE ME WHEN DONE ###############################\n"+\
                "##########################################################################\n"
     tmp_file_str = "/tmp/"+file.split("/")[-1]+".tmp"
     os.system("{ echo -n '"+new_text+"'; cat "+file+"; } > " + tmp_file_str)
     os.system("mv "+tmp_file_str+" "+ file)
     os.system("vim "+file)
-    #checksum("https://github.com/SBNSoftware/sbndcode", "v09_93_01_02")
