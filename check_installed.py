@@ -5,6 +5,15 @@ import json
 import argparse
 from versioning_tools import *
 
+g4data = {
+        "g4neutron" : "g4ndl", # G4NDL
+        "g4nucleonxs" : "g4saiddata", # G4SAIDDATA
+        "g4nuclide" : "g4ensdfstate", # G4ENSDFSTATE
+        "g4photon" : "g4photonevaporation", # G4PhotonEvaporation
+        "g4radiative" : "g4radioactivedecay", # G4RadioactiveDecay
+        "g4surface" : "g4realsurface" # G4RealSurface
+        }
+
 def GetSpackLoc(name):
     print("Searching for "+name)
     # Check ALCF_SBN_spack_recipes for undr
@@ -87,6 +96,8 @@ def GetPackages(input_file):
         for line in f:
             if line:
                 name = line.split()[0]
+                if name in g4data.keys():
+                    name = g4data[name]
                 package = line.split()[1]
                 Manifest.append(Package(name, package))
     return Manifest

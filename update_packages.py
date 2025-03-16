@@ -88,10 +88,10 @@ def auto_inputs(input_file):
         checksum = 'searching'
         github_url = ''
         while((checksum == 'searching' or checksum == "BadURL") and github_url != "s"):
+            version = input_file[package][0]['new_version']
             checksum = 'searching' # reset checksum in while loop in case we had BadURL
-            github_url = input_with_prefill("Enter "+package+" github url or skip using \"s\": ", "https://github.com/")
+            github_url = input_with_prefill("Enter "+package+" "+version+" github url or skip using \"s\": ", "https://github.com/")
             if github_url != "s":
-                version = input_file[package][0]['new_version']
                 for v in [dot_to_undr(version), undr_to_dot(version), undr_to_dash(version)]:
                     if checksum != "BadURL": # if we have a bad url, don't bother with different version formats.
                         checksum, commit = find_version_info(github_url, v)
