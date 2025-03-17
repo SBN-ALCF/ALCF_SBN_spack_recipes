@@ -5,17 +5,60 @@ import json
 import argparse
 from versioning_tools import *
 
-g4data = {
+ignorable_packages = ["cigetcert", "cigetcertlibs", "jobsub_client", 
+                      "kx509", "mrb", "sbndutil","ups", "gitflow", "larbatch"]
+
+# some packages have slightly different names on ups vs spack
+renamed_packages = {
         "g4neutron" : "g4ndl", # G4NDL
         "g4nucleonxs" : "g4saiddata", # G4SAIDDATA
         "g4nuclide" : "g4ensdfstate", # G4ENSDFSTATE
         "g4photon" : "g4photonevaporation", # G4PhotonEvaporation
         "g4radiative" : "g4radioactivedecay", # G4RadioactiveDecay
-        "g4surface" : "g4realsurface" # G4RealSurface
+        "g4surface" : "g4realsurface", # G4RealSurface
+        "catch" : "catch2", 
+        "delaunator" : "delaunator-cpp",
+        "fhiclcpp" : "fhicl-cpp",
+        "gojsonnet" : "go-jsonnet",
+        "libtorch" : "py-torch", # libtorch comes with py-torch
+        "pythia" : "pythia6",
+        "range" : "range-v3",
+        "tbb" : "intel-tbb",
+        "TRACE" : "trace"
+        }
+
+# this is done in a way that agrees with scisoft spack builds
+renamed_versions = {
+        "cry" : {"v1_7q" : "v1_7"},
+        "dk2nudata" : {"v01_10_01h" : "v01_10_01"},
+        "dk2nugenie" : {"v01_10_01r" : "v01_10_01"},
+        "eigen" : {"v23_08_01_66e8f" : "3.4.0"},
+        "geant4" : {"v4_10_6_p01g" : "10.6.1"},
+        "genie" : {"v3_04_02a" : "v3_04_02"},
+        "grpc" : {"v1_35_0c" : "v1_35_0"},
+        "hdf5" : {"v1_12_2a" : "1.14.3"}, # match version used in their spack builds
+        "jsoncpp" : {"v1_9_5a" : "v1_9_5"},
+        "py-torch" : {"v2_1_1b" : "v2_1_1"}, # also disagrees btwn spack and ups?
+        "libwda" : {"v2_30_0a" : "v2_30_0"},
+        "log4cpp" : {"v1_1_3e" : "v1_1_3"},
+        "marley" : {"v1_2_1d" : "v1_2_1"},
+        "pandora" : {"v03_16_00l" : "v03_16_00"},
+        "protobuf" : {"v3_21_12a" : "v3_21_12"},
+        "pygccxml" : {"v2_2_1b" : "v2_2_1"},
+        "pythia8" : {"v8_3_10" : "8.311"},
+        "pythia6" : {"v6_4_28x" : "v6_4_28"},
+        "range-v3" : {"v3_0_12_0" : "v0_12_0"},
+        "rstartree" : {"v2016_07" : "0.2"},
+        "scitokens" : {"v1_0_1a" : "1.1.1"}, # also disagrees btwn spack and ups
+        "sqlite" : {"v3_40_01_00" : "3.43.2"}, # also disagrees btwn spack and ups
+        "srproxy" : {"v00.44" : "00.44"}, 
+        "torch_scatter" : {"v2_1_2a" : "2_1_2"}, 
+        "triton" : {"v2_25_0d" : "23.09"}, # don't understand this naming convention... 
+        "xerces_c" : {"v3_2_3e" : "v3_2_3"}, 
+        "xrootd" : {"v5_5_5a" : "5.6.9"} # also disagrees btwn spack and ups
         }
 
 def GetSpackLoc(name):
-    print("Searching for "+name)
     # Check ALCF_SBN_spack_recipes for undr
     tmp = os.popen("find . -type d -name \'"+name+"\'").read()
     if(tmp):
@@ -59,11 +102,11 @@ def GetSpackLoc(name):
     return None
 
 def GetSpackVersion(self):
-    tmp = os.popen("grep \"version(\\\""+ self.version_undr + "\" " + self.spack_loc + "/package.py").read()
+    tmp = os.popen("grep -oz \"version(\\s*\\\""+ self.version_undr + "\" " + self.spack_loc + "/package.py").read()
     if(tmp):
         return self.version_undr
     elif(not tmp):
-        tmp = os.popen("grep \"version(\\\""+ self.version_dot + "\" " + self.spack_loc + "/package.py").read()
+        tmp = os.popen("grep  -oz \"version(\\s*\\\""+ self.version_dot + "\" " + self.spack_loc + "/package.py").read()
         if(tmp):
             return self.version_dot
         else:
@@ -96,10 +139,14 @@ def GetPackages(input_file):
         for line in f:
             if line:
                 name = line.split()[0]
-                if name in g4data.keys():
-                    name = g4data[name]
-                package = line.split()[1]
-                Manifest.append(Package(name, package))
+                if name in renamed_packages.keys():
+                    name = renamed_packages[name]
+                if(not name in ignorable_packages):
+                    package = line.split()[1]
+                    if name in renamed_versions:
+                        if package in renamed_versions[name]:
+                            package = renamed_versions[name][package]
+                    Manifest.append(Package(name, package))
     return Manifest
 
 # Output json with info for packages which need updates

@@ -6,4 +6,3 @@ def dot_to_undr(version):
 
 def undr_to_dash(version):
     return version.replace("_","-")
-
