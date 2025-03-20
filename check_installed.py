@@ -5,8 +5,25 @@ import json
 import argparse
 from versioning_tools import *
 
-ignorable_packages = ["cigetcert", "cigetcertlibs", "jobsub_client", 
-                      "kx509", "mrb", "sbndutil","ups", "gitflow", "larbatch"]
+ignorable_packages = [
+        "cigetcert",
+        "cigetcertlibs",
+        "jobsub_client",
+        "kx509",
+        "mrb",
+        "sbndutil",
+        "ups",
+        "upd",
+        "gitflow",
+        "larbatch",
+        "toyExperiment", # https://github.com/drbenmorgan/fnal-toyExperiment/tree/develop
+        "fhiclpy", # literally just 4 cmake files, not in official larsoft spack
+        "larutils", # scripts only, not in offical larsoft spack
+        "golang", # not in official larsoft spack
+        "guideline_sl", # not in offifial larsoft spack
+        "studio", # not in offifial larsoft spack
+        "inclxx", # putting this here for now... unsure if needed or not.
+        ]
 
 # some packages have slightly different names on ups vs spack
 renamed_packages = {
@@ -156,23 +173,29 @@ def OutputUnfinishedJson(input_file, output_file):
         if package.spack_version == None:
             OutDict.update({package.name: [{"new_version":package.version_dot,
                                            "location":package.spack_loc}]})
-    if not (output_file == None):
-        with open("NeedsUpdate-"+output_file, 'w') as f:
-            json.dump(OutDict, f, indent=4)
+    if len(OutDict) > 0:
+        if not (output_file == None):
+            print("Some packages need updates. Saved these to: NeedsUpdate-" + output_file)
+            with open("NeedsUpdate-"+output_file+".json", 'w') as f:
+                json.dump(OutDict, f, indent=4)
+        else:
+            print("Some packages need updates. Printing since no output given.")
+            print(json.dumps(OutDict))
+        return True
     else:
-        print(json.dumps(OutDict))
+        return False
 
-# Output json with info for found packages
-def OutputFinishedJson(input_file, output_file):
-    OutDict = {}
-    for package in input_file:
-        if package.spack_version != None:
-            OutDict.update({package.name: package.spack_version})
-    if not (output_file == None):
-        with open(output_file, 'w') as f:
-            json.dump(OutDict, f, indent=4)
-    else:
-        print(json.dumps(OutDict))
+def OutputFinishedSpec(packages, output_file):
+    return_str = ''
+    for package in packages:
+        if not package.spack_version == None:
+            if package.name == "sbndcode" or package.name == "icaruscode":
+                print("Creating spec for " + package.name)
+                return_str = package.name + "@"+ package.spack_version + return_str
+            else:
+                return_str += " ^" + package.name + "@"+ package.spack_version + return_str
+    with open(output_file, 'w') as f:
+        f.write(return_str)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Script for checking for \
@@ -181,15 +204,21 @@ if __name__ == "__main__":
     parser.add_argument('-i', '--input', type=str, help="Input manifest from \
                         pullProducts. Might change to another input format later...")
 
-    parser.add_argument('-o', '--output', type=str, help="Output json file. \
+    parser.add_argument('-o', '--output', type=str, help="Output file. \
                         Two files output: NeedsUpdate-{your output} and \
                         {your output} corresponding to packages which need \
                         an update and all packages. These are inputs to \
                         update_packages.py and spec_maker.py respectively.")
 
+    parser.add_argument('-f', '--force', action=argparse.BooleanOptionalAction, 
+                        help="Force output spec. Normally, a spec will only \
+                        be output if no packages or versions are missing. \
+                        This argument overrides it.")
+
     args = parser.parse_args()
 
     if args.input is not None:
         Manifest = GetPackages(args.input)
-        OutputUnfinishedJson(Manifest, args.output)
-        OutputFinishedJson(Manifest, args.output)
+        returned_unfinished = OutputUnfinishedJson(Manifest, args.output)
+        if not returned_unfinished or args.force:
+            OutputFinishedSpec(Manifest, args.output)
