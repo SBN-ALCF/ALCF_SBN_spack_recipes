@@ -16,6 +16,7 @@ ignorable_packages = [
         "upd",
         "gitflow",
         "larbatch",
+        "scitokens_cpp",
         "toyExperiment", # https://github.com/drbenmorgan/fnal-toyExperiment/tree/develop
         "fhiclpy", # literally just 4 cmake files, not in official larsoft spack
         "larutils", # scripts only, not in offical larsoft spack
@@ -119,16 +120,17 @@ def GetSpackLoc(name):
     return None
 
 def GetSpackVersion(self):
-    tmp = os.popen("grep -oz \"version(\\s*\\\""+ self.version_undr + "\" " + self.spack_loc + "/package.py").read()
-    if(tmp):
-        return self.version_undr
-    elif(not tmp):
-        tmp = os.popen("grep  -oz \"version(\\s*\\\""+ self.version_dot + "\" " + self.spack_loc + "/package.py").read()
+    for variation in [self.version_undr, self.version_dot, 
+                      patch(self.version_undr), patch(self.version_dot)]:
+
+        tmp = os.popen("grep -oz \"version(\\s*\\\""+ variation\
+                + "\" " + self.spack_loc + "/package.py").read()
+
         if(tmp):
-            return self.version_dot
-        else:
-            print("No spack version match found for: ", self.name , self.version_undr)
-            return None
+            return variation
+
+    print("No spack version match found for: ", self.name , self.version_undr)
+    return None
 
 @dataclass
 class Package:

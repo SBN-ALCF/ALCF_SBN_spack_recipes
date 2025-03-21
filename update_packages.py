@@ -38,7 +38,7 @@ def find_version_info(github_url, requested_version):
             except:
                 print("Could not grab: ", matching_version)
     if not match_found:
-        print("Version not found!")
+        print("Version "+requested_version+" not found!")
         return 'searching', 'searching'
 
 def find_spack_package(package_name):
@@ -92,7 +92,10 @@ def auto_inputs(input_file):
             checksum = 'searching' # reset checksum in while loop in case we had BadURL
             github_url = input_with_prefill("Enter "+package+" "+version+" github url or skip using \"s\": ", "https://github.com/")
             if github_url != "s":
-                for v in [dot_to_undr(version), undr_to_dot(version), undr_to_dash(version)]:
+                for v in [dot_to_undr(version), undr_to_dot(version), undr_to_dash(version),
+                          patch(dot_to_undr(version)), patch(undr_to_dot(version)), 
+                          patch(undr_to_dash(version))]: # a lot of permutations to try...
+
                     if checksum != "BadURL": # if we have a bad url, don't bother with different version formats.
                         checksum, commit = find_version_info(github_url, v)
                         if checksum != 'searching': 
