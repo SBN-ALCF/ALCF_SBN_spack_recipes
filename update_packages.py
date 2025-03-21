@@ -4,6 +4,11 @@ import json
 from versioning_tools import *
 import readline
 import argparse
+import requests
+import hashlib
+from urllib.request import urlretrieve
+from urllib.request import urlparse
+from urllib.request import urlsplit
 
 def input_with_prefill(prompt, text):
     def hook():
@@ -15,31 +20,39 @@ def input_with_prefill(prompt, text):
     return result
 
 def find_version_info(github_url, requested_version):
-    direct_output = os.popen("git -c 'versionsort.suffix=-' ls-remote --tags --sort='v:refname' " + github_url + ".git").read()
-    if direct_output == "": return "BadURL", "BadURL" # return BadURL for case of bad github url
-    match_found = False
-    for item in direct_output.split("\n"):
-        if requested_version in item:
-            match_found = True
-            commit = item.strip().split()[0]
-            matching_version = item.strip().split()[1]
-            print("Attempting Grab: ", matching_version)
-
-            try:
-                os.system("curl -s -L " + github_url + "/archive/"+matching_version+".tar.gz --output "+requested_version+".tar.gz")
-                if(os.path.isfile(requested_version+".tar.gz")):
-                    checksum = os.popen("sha256sum "+requested_version+".tar.gz").read().split()[0]
-                    print("Found checksum: ", checksum)
-                    done = input("Use this tag/checksum? (y/n): ")
-                    if(done=="y"): return checksum, commit
-                    os.system("rm "+requested_version+".tar.gz")
-                else:
-                    print("Missing file:", matching_version)
-            except:
-                print("Could not grab: ", matching_version)
-    if not match_found:
-        print("Version "+requested_version+" not found!")
-        return 'searching', 'searching'
+    if not "github" in github_url:
+        split = urlsplit(github_url)
+        filename = "/tmp/" + split.path.split("/")[-1]
+        filename, headers = urlretrieve(github_url, filename)
+        checksum = os.popen('sha256sum '+filename).read().split()[0]
+        print(checksum)
+        sys.exit()
+    else:
+        direct_output = os.popen("git -c 'versionsort.suffix=-' ls-remote --tags --sort='v:refname' " + github_url + ".git").read()
+        if direct_output == "": return "BadURL", "BadURL" # return BadURL for case of bad github url
+        match_found = False
+        for item in direct_output.split("\n"):
+            if requested_version in item:
+                match_found = True
+                commit = item.strip().split()[0]
+                matching_version = item.strip().split()[1]
+                print("Attempting Grab: ", matching_version)
+    
+                try:
+                    os.system("curl -s -L " + github_url + "/archive/"+matching_version+".tar.gz --output "+requested_version+".tar.gz")
+                    if(os.path.isfile(requested_version+".tar.gz")):
+                        checksum = os.popen("sha256sum "+requested_version+".tar.gz").read().split()[0]
+                        print("Found checksum: ", checksum)
+                        done = input("Use this tag/checksum? (y/n): ")
+                        if(done=="y"): return checksum, commit
+                        os.system("rm "+requested_version+".tar.gz")
+                    else:
+                        print("Missing file:", matching_version)
+                except:
+                    print("Could not grab: ", matching_version)
+        if not match_found:
+            print("Version "+requested_version+" not found!")
+            return 'searching', 'searching'
 
 def find_spack_package(package_name):
     directories = os.popen("find . -type d -name \"*"+package_name+"*\"").read().split()
