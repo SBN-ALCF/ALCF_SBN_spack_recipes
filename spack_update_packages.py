@@ -8,6 +8,8 @@ from llnl.util import tty
 from llnl.string import plural
 from spack.util.format import get_version_lines
 from spack.cmd.checksum import add_versions_to_package
+from spack.version import VersionList, GitVersion
+import spack.fetch_strategy as fs
 
 def all_versioning_styles(v):
     return [dot_to_undr(v), undr_to_dot(v), undr_to_dash(v), patch(dot_to_undr(v))]
@@ -31,13 +33,26 @@ def patch(version):
             ret += "p"+splt[i]
     return ret
 
-def custom_checksum(package, version):
+def add_checksum(package, version):
     spec = spack.spec.Spec(package)
     pkg: PackageBase = spack.repo.PATH.get_pkg_class(spec.name)(spec)
+
+    pkg_cls = spack.repo.PATH.get_pkg_class(spec.name)
+    pref = VersionList(pkg_cls.versions).preferred()
+    if isinstance(fs.for_package_version(pkg, pref), spack.fetch_strategy.GitFetchStrategy):
+        print("Git package found: ", package)
+        print("Please update manually for now.")
+        return True
+
     url_dict: Dict[StandardVersion, str] = {} 
     url = pkg.find_valid_url_for_version(version)
+
     if url is not None:
         url_dict[version] = url
+    else:
+        remote_versions = pkg.fetch_remote_versions()
+        if version in remote_versions:
+            url_dict[version] = remote_versions[version]
 
     url_changed_for_version = set()
     for version, url in url_dict.items():
@@ -77,9 +92,10 @@ def custom_checksum(package, version):
 
 def auto_inputs(input_file):
     for package in input_file.keys():
-        version = input_file[package][0]['new_version']
+        version = input_file[package]
+        print("Grabbing: ", package, version)
         for v in all_versioning_styles(version):
-            if(custom_checksum(package, v)):
+            if(add_checksum(package, v)):
                 break
 
 if __name__ == "__main__":
