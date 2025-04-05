@@ -67,6 +67,10 @@ def GetSpackVersion(self, manifest_version):
     pkg = pkg_cls(spec)
     avail = pkg.versions.keys()
 
+    print("name: ", self.name)
+    print("version: ", version)
+    print("avail: ", [a.string for a in avail])
+
     if version in [a.string for a in avail]:
         return version, True
 
@@ -150,9 +154,9 @@ def OutputFinishedSpec(packages, output_file):
     for package in packages:
         if package.name == "sbndcode" or package.name == "icaruscode":
             print("Creating spec for " + package.name)
-            return_str = package.name + "@"+ package.spack_version + return_str
+            return_str = package.name + "@"+ package.version + return_str
         else:
-            return_str += " ^" + package.name + "@"+ package.spack_version + return_str
+            return_str += " ^" + package.name + "@"+ package.version + return_str
 
     with open(output_file, 'w') as f:
         f.write(return_str)

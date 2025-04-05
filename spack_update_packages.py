@@ -24,8 +24,8 @@ def UpdateGH(pkg, github_url, version):
     checksum = 'searching'
     commit, tag = find_version_info(github_url, version)
     version_lines = "    version(\""+version+"\",commit=\""+commit+"\", tag=\""+tag+"\")"
-    add_versions_to_package(pkg, version_lines, False)
-    sys.exit()
+    add_versions_to_package(pkg, version_lines, True)
+    print("Using GitHub update for: ", pkg.name)
 
 def find_version_info(github_url, requested_version):
    direct_output = os.popen("git -c 'versionsort.suffix=-' ls-remote --tags --sort='v:refname' " + github_url).read()
@@ -48,11 +48,20 @@ def add_checksum(package, version):
     pkg_cls = spack.repo.PATH.get_pkg_class(spec.name)
     pref = VersionList(pkg_cls.versions).preferred()
     if isinstance(fs.for_package_version(pkg, pref), spack.fetch_strategy.GitFetchStrategy):
-        UpdateGH(pkg, pkg_cls.git_base, version)
+        if hasattr(pkg_cls, 'git_base'):
+            UpdateGH(pkg, pkg_cls.git_base, version)
+        elif hasattr(pkg_cls, 'git'):
+            UpdateGH(pkg, pkg_cls.git, version)
+        elif hasattr(pkg_cls, 'homepage'):
+            UpdateGH(pkg, pkg_cls.homepage, version)
+        else:
+            print("Git package expected, but no repo provided!")
+            sys.exit()
         return True
 
     url_dict: Dict[StandardVersion, str] = {} 
     url = pkg.find_valid_url_for_version(version)
+    print(url)
 
     if url is not None:
         url_dict[version] = url
@@ -73,6 +82,7 @@ def add_checksum(package, version):
                 url_changed_for_version.add(version)
 
     if not url_dict:
+        print("Couldn't find URL!")
         return False
     elif len(url_dict) > 1:
         filtered_url_dict = spack.stage.interactive_version_filter(
@@ -91,11 +101,10 @@ def add_checksum(package, version):
         url_dict, pkg.name, keep_stage=False, fetch_options=pkg.fetch_options
     )
     version_lines = get_version_lines(version_hashes, url_dict)
+    print(version_lines)
     path = spack.repo.PATH.filename_for_package_name(pkg.name)
 
-    add_versions_to_package(pkg, version_lines, False)
-    sys.exit()
-
+    add_versions_to_package(pkg, version_lines, True)
     return True
 
 def auto_inputs(input_file):
