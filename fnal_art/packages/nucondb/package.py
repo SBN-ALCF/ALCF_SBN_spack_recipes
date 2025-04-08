@@ -14,6 +14,7 @@ class Nucondb(MakefilePackage):
     url = "https://cdcvs.fnal.gov/cgi-bin/git_archive.cgi/cvs/projects/nucondb.v2_2_10.tbz2"
     git = "https://cdcvs.fnal.gov/projects/ifdhc-nucondb"
 
+    version("2.6.2", sha256="5d1b8e7a11a9f6b0305282052683478c25fcb606f97fb020bc2a57626e00a87b") # FIXME
     version("2.6.1", sha256="fbf59259e8cd75334b4ad17d3da46519d35c5c81ccf55b8df2d19f664fe016b9")
     version("2.5.23", sha256="30399133b64548affd3522eb16346a1fc85f36ba4300fce51730a208a8022f24")
     version("2.5.22", sha256="bd468d5b64909e3951342eacef30440e1eaca5d32add991fe6cc36b46f1c5f65")
@@ -47,6 +48,7 @@ class Nucondb(MakefilePackage):
 
     def url_for_version(self, version):
         url = "https://cdcvs.fnal.gov/cgi-bin/git_archive.cgi/cvs/projects/{0}.v{1}.tbz2"
+        print(url.format("ifdhc-" + self.name, version.underscored))
         return url.format("ifdhc-" + self.name, version.underscored)
 
     @property

@@ -66,9 +66,6 @@ class Cetmodules(CMakePackage):
         "perl-task-perl-critic": ("build", "test"),
     }
 
-#    for pkg, types in perl_deps.items():
-#        depends_on(pkg, type=types)
-
     conflicts("@:3.19.01", when="^cmake@3.24.0:")
 
     if "SPACK_CMAKE_GENERATOR" in os.environ:
@@ -103,3 +100,7 @@ class Cetmodules(CMakePackage):
                 ),
             ]
         return options
+
+    def url_for_version(self, version):
+        url = "https://github.com/FNALssi/{0}/archive/refs/tags/v{1}.tar.gz"
+        return url.format(self.name, version.underscored)

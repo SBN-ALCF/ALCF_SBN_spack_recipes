@@ -49,6 +49,7 @@ class Sbnobj(CMakePackage):
         git=git_base,
         get_full_repo=True,
     )
+    version("10.00.07", sha256="46634ccb717fc2875c9e84435c85678d72d1d63d95dc85636a55b6839b14d5f7") # FIXME
     version("09.19.05", sha256="2e520d8cf0433790964bbb911e4f7d36cc4b0cc29133c11df838684fdbe195c0")
     version("09.19.04", sha256="78b7c15159ec33db8beb5105795ff026a5e251dc0a1bbe4845725e1a02633ba1")
     version("09.19.02", sha256="292e37da8f10549d4cdfbfef4743419d974076b4c0333823c9539faa780414bc")
@@ -67,6 +68,7 @@ class Sbnobj(CMakePackage):
         description="Use the specified C++ standard when building.",
     )
 
+    patch("spack.patch")
     patch("v09_19_05.patch", when="@09.19.05")
     patch("v09_19_04.patch", when="@09.19.04")
     patch("v09_19_02.patch", when="@09.19.02")

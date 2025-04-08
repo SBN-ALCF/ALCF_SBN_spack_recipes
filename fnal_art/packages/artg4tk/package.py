@@ -63,8 +63,8 @@ class Artg4tk(CMakePackage):
         return args
 
     def url_for_version(self, version):
-        url = "https://cdcvs.fnal.gov/cgi-bin/git_archive.cgi/cvs/projects/{0}.v{1}.tbz2"
-        return url.format(self.name, version.underscored)
+        url = "https://github.com/art-framework-suite/art-g4tk/archive/v{0}.tar.gz"
+        return url.format(version.underscored)
 
     def flag_handler(self, name, flags):
         if name == "cxxflags" and self.spec.compiler.name == "gcc":

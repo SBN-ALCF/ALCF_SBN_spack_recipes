@@ -13,6 +13,7 @@ class Geant4reweight(CMakePackage, FnalGithubPackage):
     repo = "NuSoftHEP/Geant4Reweight"
     version_patterns = ["v01_20_00", "01.20.05"]
 
+    version("01.20.09", sha256="faf02a010a25627221d3ee14a4deb5c3f6e3cd0ebfd51887003de51109ce83a7") # FIXME
     version("01.20.00", sha256="f8d30f2a1426ee9e100694d4d19d58a7b98af93c8e71ff0a52cb0a1e7a6d3d96")
 
     cxxstd_variant("17", "20", default="17")

@@ -9,7 +9,6 @@ from spack.package import *
 class Wirecell(Package, CudaPackage):
     """Toolkit for Liquid Argon TPC Reconstruction and Visualization ."""
 
-    # FIXME: Add a proper url for your package's homepage here.
     homepage = "https://wirecell.github.io/"
     url      = "https://github.com/WireCell/wire-cell-toolkit/archive/refs/tags/0.23.0.tar.gz"
     git      = "https://github.com/WireCell/wire-cell-toolkit.git"
@@ -19,6 +18,7 @@ class Wirecell(Package, CudaPackage):
     maintainers = ['brettviren']
 
     version("master", branch="master")
+    version("0.29.5", sha256="2a16ae4b4e69bb570d79881f32ceb4868d2a9a16699419dd097765d45da06d03") # FIXME
     version("0.28.0", sha256="62f07ad8bf726ef8aaec428a84cae0ca61ca7b33d5c58f35d2c056f342fdc22c")
     version("0.27.1", sha256="a8410a9e0524570e811f5cca2ea9fc636e48c048a5e67c5cee567b935515e176")
     version("0.27.0", sha256="c4d1dc438b685bc54004425922f9435d8cb7f928a6b080b910cff021392571b2")
@@ -95,7 +95,7 @@ class Wirecell(Package, CudaPackage):
     # use of operator<<() is implicit 
     depends_on('fmt @:8.1.1', when='@:0.27.1')  
     # need specialization based on ostream_formatter
-    depends_on('fmt @9.0.0:', when='@0.28.0:')  
+    #depends_on('fmt @9.0.0:', when='@0.28.0:')  
 
     depends_on('fftw @3.3.10: ~mpi')
     ## seems jsoncpp builder only supports this variant up to 1.9.2???

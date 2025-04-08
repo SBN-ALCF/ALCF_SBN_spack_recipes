@@ -40,7 +40,7 @@ class Sbndcode(CMakePackage):
     git_base = "https://github.com/SBNSoftware/sbndcode.git"
 
     version("develop", branch="develop", git=git_base, get_full_repo=True)
-    version("test", tag="v09_93_01_02rc0", git=git_base, get_full_repo=True)
+    version("10.04.06.01",tag="v10_04_06_01", git=git_base, get_full_repo=True)
     version("09.93.01.02.01", tag="v09_93_01_02p01", git=git_base, get_full_repo=True)
     version("09.93.01.02", tag="v09_93_01_02rc0", git=git_base, get_full_repo=True)
     version("09.93.01.01", tag="v09_93_01_01", git=git_base, get_full_repo=True)
@@ -52,6 +52,7 @@ class Sbndcode(CMakePackage):
     version("09.10.00", tag="v09_10_00", git=git_base, get_full_repo=True)
     version("09.10.01", tag="v09_10_01", git=git_base, get_full_repo=True)
 
+    patch("spack.patch")
     patch("v09_32_00.patch", when="@9.32.00")
     patch("v09_90_00.patch", when="@9.90.00")
     patch("v09_91_02_02.patch", when="@9.91.02.02")
@@ -107,6 +108,7 @@ class Sbndcode(CMakePackage):
     depends_on("py-torch", type=("build", "run"))
     depends_on("larreco", type=("build", "run"))
     depends_on("larrecodnn", type=("build", "run"))
+    #depends_on("protobuf", type=("build", "run"))
     depends_on("larsim", type=("build", "run"))
     depends_on("libwda", type=("build", "run"))
     depends_on("marley", type=("build", "run"))
@@ -154,6 +156,14 @@ class Sbndcode(CMakePackage):
         generator = os.environ["SPACKDEV_GENERATOR"]
         if generator.endswith("Ninja"):
             depends_on("ninja", type="build")
+
+    def patch(self):
+        cetmodules_version = self.spec['cetmodules'].version.string
+        sbndcode_version = self.version.string
+        print("cetmodules_version: ", cetmodules_version)
+        print("sbndcode_version: ", sbndcode_version)
+        filter_file('cetmodules REQUIRED', 'cetmodules '+cetmodules_version+' REQUIRED','CMakeLists.txt')
+        filter_file('sbndcode LANGUAGES', 'sbndcode VERSION '+sbndcode_version+' LANGUAGES','CMakeLists.txt')
 
     def url_for_version(self, version):
         # url = 'https://cdcvs.fnal.gov/cgi-bin/git_archive.cgi/cvs/projects/{0}.v{1}.tbz2'

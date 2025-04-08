@@ -13,8 +13,9 @@ from spack.package import *
 class GeniePhyopt(Package):
     """Phyopt files used by genie."""
 
-    homepage = "https://www.example.com"
-    url = "file://" + os.path.dirname(__file__) + "/../../config/junk.xml"
+    #url = "file://" + os.path.dirname(__file__) + "/../../config/junk.xml"
+    url = "https://scisoft.fnal.gov/scisoft/packages/genie_phyopt/v2_12_0/genie_phyopt-2.12.0-noarch-dkcharm.tar.bz2" 
+    version("3.04.00", sha256="c4a5360e379d371df2b2e845aee673b984a2f0f6ba62dae682f8cb0223e84a0f") # FIXME
     version(
         "2.12.10", "2cae8b754a9f824ddd27964d11732941fd88f52f0880d7f685017caba7fea6b7", expand=False
     )
@@ -28,20 +29,6 @@ class GeniePhyopt(Package):
     )
 
     baseurl = "https://scisoft.fnal.gov/scisoft/packages/genie_phyopt/v2_12_10/genie_phyopt-2.12.10-noarch-"
-    resource(
-        name="dkcharm",
-        when="phyopt_name=dkcharm",
-        url=baseurl + "dkcharm.tar.bz2",
-        sha256="5764cc6e7fc23f721177761526b75725b73970cd941064c23563d9ccaa3de0dc",
-    )
-
-    resource(
-        name="dkcharmtau",
-        when="phyopt_name=dkcharmtau",
-        url=baseurl + "dkcharmtau.tar.bz2",
-        sha256="ff0ecafd9a9455e8c20963c608c666f7229324c3f43e69fa58902584de08532a",
-    )
-
     def install(self, spec, prefix):
         val = spec.variants["phyopt_name"].value
         install_tree(
@@ -50,3 +37,10 @@ class GeniePhyopt(Package):
             ),
             "{0}/{1}".format(prefix, val),
         )
+
+    def url_for_version(self, version):
+        url = "https://scisoft.fnal.gov/scisoft/packages/genie_phyopt/v{0}/genie_phyopt-{1}-noarch-{2}.tar.bz2"
+        try:
+            return url.format(version.underscored, version.dotted, self.spec.variants["phyopt_name"].value)
+        except:
+            return url.format(version.underscored, version.dotted, "dkcharm")

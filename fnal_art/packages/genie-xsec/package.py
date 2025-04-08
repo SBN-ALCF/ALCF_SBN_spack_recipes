@@ -113,7 +113,7 @@ class GenieXsec(Package):
 
     def setup_run_environment(self, run_env):
         val = self.spec['genie-xsec'].variants['xsec_name'].value
-        data_str = "{0}/v{1}/NULL/{2}/data".format(self.spec['genie-xsec'].prefix, self.version.underscored, val)
+        data_str = "{0}/v{1}/NULL/{2}/data".format(self.spec['genie-xsec'].prefix, self.version.underscored.string.replace('v', ''), val)
         raw_str = self.spec['genie-xsec'].variants['xsec_name'].value
         comb_str = raw_str.split(':')[0].split('-')[0]
         tune_str = comb_str[:-8]+"_"+comb_str[-8:-5]+"_"+comb_str[-5:-3]+"_"+comb_str[-3:] 

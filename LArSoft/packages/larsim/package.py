@@ -34,11 +34,12 @@ class Larsim(CMakePackage):
     url = "https://github.com/LArSoft/larsim/archive/v01_02_03.tar.gz"
     list_url = "https://api.github.com/repos/LArSoft/larsim/tags"
 
-    # version("10.00.00", sha256="9f4369420f5250ebbf3b8c32927c9d4aaaab69a7383a43451b0ee54a106a8d30")
+    version("10.02.02", sha256="e6d72ea1a54a876022e16bd4371e883fdefeb391b7e1233d38baa59e1807994e") # FIXME
+    version("10.00.00", sha256="9f4369420f5250ebbf3b8c32927c9d4aaaab69a7383a43451b0ee54a106a8d30")
     version("09.45.00", sha256="71a8a0f5db0aae4d18057d55735ec4ef03be23b98c03f09fce0c3eab8ac8322f")
     version("09.44.01", sha256="862619a46a871c199be6b07da4ff544d399887a9725750b3a5fe2997e2add48e")
     version("09.38.06", sha256="be8cc87ea901a5efdcfb91bb9810eee94a0cf860316174ab6ab1cf20c147883b")
-    version("09.38.03", sha256="e16fd69ed9acc368563334efbc986d73fb7a085c8201670822d97a314566f52b") # FIX ME
+    version("09.38.03", sha256="e16fd69ed9acc368563334efbc986d73fb7a085c8201670822d97a314566f52b") 
     version("09.38.00", sha256="7f68cacf3cc838f4d5e94f8cc9a59f678fea202694f5c837295d5682e09bd5aa")
     version(
         "09.30.00.rc1", sha256="8371ab32c43b702337d7022fee255eb2a86164a7ee8edc91781f4b0494890142"

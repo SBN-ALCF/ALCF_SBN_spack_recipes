@@ -38,8 +38,8 @@ class Sbncode(CMakePackage):
     list_url = "https://api.github.com/repos/SBNSoftware/sbncode/tags"
 
     version("develop", branch="develop", git=git_base, get_full_repo=True)
-    # version("09.91.02.02", commit="2f5452ff614c474f7de3d53fb11da3afe7247ee6681552e702772a663363fcc2", submodules=True)
-    version("09.93.01", commit="ccdf1cbf7570564cff544edc5c39037e790b4817", submodules=True)
+    version("v10_04_06_p01",commit="41ef8493069b0f07287e43ed66873484c0a203d5", submodules=True)
+    #version("09.93.01", commit="ccdf1cbf7570564cff544edc5c39037e790b4817", submodules=True)
     version("v09_93_01_p01", commit="b67723df67c57e7325c4baf3825760c6683f1c7a", submodules=True)
     version("v09_93_01_p02", commit="45baa22ccf40934ca65f5c5229df4c52ad1f7fbb", submodules=True)
     version("09.91.02.01", commit="bf374b540b658d2d175e048da6f43ce2e4d9c509", submodules=True)
@@ -54,15 +54,16 @@ class Sbncode(CMakePackage):
     )
     version("09.35.00", sha256="6dc753dcc24e9583a261a70da99a1275835b70091c816dbbb0ddee60ad698686")
 
+    patch("spack.patch")
     patch("v09_35_00.patch", when="@09.35.00")
     patch("v09_37_02_03.patch", when="@09.37.02.03")
     patch("v09_37_01_02.patch", when="@09.37.01.02")
     patch("v09_37_01_03.patch", when="@09.37.01.03")
     patch("v09_91_01.patch", when="@09.91.01")
-    patch("v09_91_02_01.patch", when="@09.91.02.01")
-    patch("v09_91_02_01.patch", when="@v09_93_01_p01")
-    patch("v09_91_02_01.patch", when="@v09_93_01_p02")
-    patch("v09_91_02_01.patch", when="@09.93.01")
+    #patch("v09_91_02_01.patch", when="@09.91.02.01")
+    #patch("v09_91_02_01.patch", when="@v09_93_01_p01")
+    #patch("v09_91_02_01.patch", when="@v09_93_01_p02")
+    #patch("v09_91_02_01.patch", when="@09.93.01")
 
     variant(
         "cxxstd",
@@ -153,7 +154,6 @@ class Sbncode(CMakePackage):
             depends_on("ninja", type="build")
 
     def url_for_version(self, version):
-        # url = 'https://cdcvs.fnal.gov/cgi-bin/git_archive.cgi/cvs/projects/{0}.v{1}.tbz2'
         url = "https://github.com/SBNSoftware/{0}/archive/v{1}.tar.gz"
         return url.format(self.name, version.underscored)
 

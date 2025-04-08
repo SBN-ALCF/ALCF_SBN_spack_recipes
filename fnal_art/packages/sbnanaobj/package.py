@@ -30,6 +30,7 @@ class Sbnanaobj(CMakePackage):
     homepage = "https://www.example.com"
     url = "https://github.com/SBNSoftware/sbnanaobj/archive/refs/tags/v09_17_04.tar.gz"
 
+    version("10.00.00", sha256="268492c6394a8090e1ac93bc5a47abcaac8b808d972d1bb57de25d3887802b28")
     version("09.23.02.01", sha256="88bf520e81e96311e62487efa4b01baed07e17ed4ab097ed31eaea792db0fea9")
     version("09.23.02", sha256="be2ea1ab0f6e99e30608b41b851694d7e14e1d30abbd66f18d11956c78700bbf")
     version(
@@ -62,6 +63,12 @@ class Sbnanaobj(CMakePackage):
     depends_on("castxml")
     depends_on("py-pygccxml")
     depends_on("cetmodules", type="build")
+
+    def patch(self):
+        filter_file('/sbnanaobj/sbnanaobj/StandardRecord/','/sbnanaobj/StandardRecord/',
+                    'sbnanaobj/StandardRecord/Flat/CMakeLists.txt')
+        filter_file('/sbnanaobj/sbnanaobj/StandardRecord/','/sbnanaobj/StandardRecord/',
+                     'sbnanaobj/StandardRecord/Proxy/CMakeLists.txt')
 
     def url_for_version(self, version):
         # url = 'https://cdcvs.fnal.gov/cgi-bin/git_archive.cgi/cvs/projects/{0}.v{1}.tbz2'
