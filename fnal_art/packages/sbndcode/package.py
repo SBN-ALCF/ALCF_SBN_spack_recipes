@@ -57,7 +57,6 @@ class Sbndcode(CMakePackage):
     patch("v09_90_00.patch", when="@9.90.00")
     patch("v09_91_02_02.patch", when="@9.91.02.02")
     patch("v09_91_02_01.patch", when="@9.91.02.01")
-    # patch("v09_93_01.patch", when="@09.93.01")
     patch("v09_93_01_01.patch", when="@09.93.01.01")
     patch("v09_93_01_02.patch", when="@09.93.01.02")
 
@@ -73,7 +72,6 @@ class Sbndcode(CMakePackage):
     depends_on("cmake@3.11:")
     depends_on("cetmodules", type="build")
     depends_on("cetbuildtools", type="build")
-    depends_on("py-tensorflow", type="build")
     depends_on("libjpeg", type="build")
     depends_on("libpng", type="build")
     depends_on("giflib", type="build")
@@ -102,13 +100,8 @@ class Sbndcode(CMakePackage):
     depends_on("lardataobj", type=("build", "run"))
     depends_on("lardata", type=("build", "run"))
     depends_on("larevt", type=("build", "run"))
-    depends_on("pandora", type=("build", "run"))
-    depends_on("larpandora", type=("build", "run"))
-    depends_on("larpandoracontent", type=("build", "run"))
-    depends_on("py-torch", type=("build", "run"))
     depends_on("larreco", type=("build", "run"))
-    depends_on("larrecodnn", type=("build", "run"))
-    #depends_on("protobuf", type=("build", "run"))
+    depends_on("larsimdnn", type=("build", "run"))
     depends_on("larsim", type=("build", "run"))
     depends_on("libwda", type=("build", "run"))
     depends_on("marley", type=("build", "run"))
@@ -116,7 +109,6 @@ class Sbndcode(CMakePackage):
     depends_on("genie", type=("build", "run"))
     depends_on("ifdhc", type=("build", "run"))
     depends_on("libxml2", type=("build", "run"))
-    # depends_on('nurandom', type=('build','run'))  ???
     depends_on("nutools", type=("build", "run"))
     depends_on("postgresql", type=("build", "run"))
     depends_on("range-v3", type=("build", "run"))
@@ -147,7 +139,7 @@ class Sbndcode(CMakePackage):
     depends_on("genie-xsec", type=("build", "run"))
     depends_on("nugen", type=("build", "run"))
     depends_on("larsimdnn", type=("build", "run"))
-    depends_on("sbnd-data", type=("build", "run"))# Made from scratch
+    depends_on("sbnd-data", type=("build", "run"))
     depends_on("vdt", type=("build", "run"))
 
     depends_on("sbncode", type=("build", "run"))
@@ -160,13 +152,10 @@ class Sbndcode(CMakePackage):
     def patch(self):
         cetmodules_version = self.spec['cetmodules'].version.string
         sbndcode_version = self.version.string
-        print("cetmodules_version: ", cetmodules_version)
-        print("sbndcode_version: ", sbndcode_version)
         filter_file('cetmodules REQUIRED', 'cetmodules '+cetmodules_version+' REQUIRED','CMakeLists.txt')
         filter_file('sbndcode LANGUAGES', 'sbndcode VERSION '+sbndcode_version+' LANGUAGES','CMakeLists.txt')
 
     def url_for_version(self, version):
-        # url = 'https://cdcvs.fnal.gov/cgi-bin/git_archive.cgi/cvs/projects/{0}.v{1}.tbz2'
         url = "https://github.com/SBNSoftware/{0}/archive/v{1}.tar.gz"
         return url.format(self.name, version.underscored)
 
@@ -177,11 +166,11 @@ class Sbndcode(CMakePackage):
             "-DCMAKE_CXX_STANDARD={0}".format(self.spec.variants["cxxstd"].value),
             "-Dsbndcode_FW_DIR=fw",
             "-Dsbndcode_WP_DIR={0}".format(self.spec["wirecell"].prefix),
+            "-DCMAKE_PREFIX_PATH={0}".format(
+                self.spec["sbnanaobj"].prefix),
             "-DCMAKE_PREFIX_PATH={0}/lib/python{1}/site-packages/torch".format(
                 self.spec["py-torch"].prefix, self.spec["python"].version.up_to(2)
             ),
-            "-DTorch_DIR={0}/lib/python{1}/site-packages/torch/share/cmake/Torch".format(
-                    self.spec["py-torch"].prefix, "3.11"),
             "-DTensorFlow_INCLUDE_DIR={0}/lib/python{1}/site-packages/tensorflow/include".format(
                     self.spec["py-tensorflow"].prefix, "3.9"),
             "-DTensorFlow_LIBRARIES={0}/lib/python{1}/site-packages/tensorflow".format(
@@ -212,7 +201,6 @@ class Sbndcode(CMakePackage):
         spack_env.prepend_path("GENIE_INC", str(self.spec["genie"].prefix.include))
         spack_env.prepend_path("hep_hpc_DIR", str(self.spec["hep-hpc"].prefix))
         spack_env.prepend_path("LD_LIBRARY_PATH", "{0}/lib/python{1}/site-packages/tensorflow".format(self.spec["py-tensorflow"].prefix, "3.9"))
-        # spack_env.prepend_path("ROOT_INCLUDE_PATH", os.path.join(self.spec["sbndaq-artdaq-core"].prefix, "sbndaq-artdaq-core/Obj/SBND"))
         # Cleaup.
         sanitize_environments(spack_env)
 

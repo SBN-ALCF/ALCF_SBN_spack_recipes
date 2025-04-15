@@ -49,6 +49,8 @@ class Larpandora(CMakePackage, FnalGithubPackage):
     depends_on("pandorasdk")
     depends_on("py-torch")
     depends_on("root")
+    depends_on("clhep")
+    depends_on("cetmodules")
 
     @cmake_preset
     def cmake_args(self):
