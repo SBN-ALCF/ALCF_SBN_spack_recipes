@@ -1,6 +1,0 @@
-icarus_signal_processing v09_88_00_02    icarus_signal_processing-09.88.00.02-slf7-x86_64-e26-prof.tar.bz2
-icarus_test v09_88_00_02    icarus_signal_processing-09.88.00.02-slf7-x86_64-e26-prof.tar.bz2
-genie_xsec v09_88_00_02    icarus_signal_processing-09.88.00.02-slf7-x86_64-e26-prof.tar.bz2
-icarusalg            09.91.02.01       icarusalg-09.90.00-slf7-x86_64-e26-prof.tar.bz2             
-icaruscode           v09_90_00       icaruscode-09.90.00-slf7-x86_64-e26-prof.tar.bz2            
-icarusutil           v09_88_00_02    icarusutil-09.88.00.02-slf7-x86_64-e26-prof.tar.bz2         
