@@ -28,6 +28,11 @@ def GetSpackStyle(package, manifest_version):
         ret = undr_to_dot(ret)
     elif '_' in spack_pkg:
         ret = dot_to_undr(ret)
+        if(spack_pkg[0] == 'v' and ret[0] != 'v'):
+            ret = 'v' + ret
+        elif(spack_pkg[0] != 'v' and ret[0] == 'v'):
+            ret = ret[1:]
+
     return ret
 
 def GetSpackName(name):
@@ -66,10 +71,6 @@ def GetSpackVersion(self, manifest_version):
     pkg_cls = spack.repo.PATH.get_pkg_class(spec.fullname)
     pkg = pkg_cls(spec)
     avail = pkg.versions.keys()
-
-    print("name: ", self.name)
-    print("version: ", version)
-    print("avail: ", [a.string for a in avail])
 
     if version in [a.string for a in avail]:
         return version, True
@@ -152,12 +153,14 @@ def CheckLocalSpack(ManifestPackages):
 def OutputFinishedSpec(packages, output_file):
     return_str = ''
     for package in packages:
-        if package.name == "sbndcode" or package.name == "icaruscode":
-            print("Creating spec for " + package.name)
-            return_str = package.name + "@"+ package.version + return_str
-        else:
-            return_str += " ^" + package.name + "@"+ package.version + return_str
+        if(not package.name+"@" in return_str):
+           if package.name == "sbndcode" or package.name == "icaruscode":
+               print("Creating spec for " + package.name)
+               return_str = package.name + "@"+ package.version + return_str
+           else:
+               return_str += " ^" + package.name + "@"+ package.version
 
+    print("Final spec output to:", output_file)
     with open(output_file, 'w') as f:
         f.write(return_str)
 
@@ -184,6 +187,5 @@ if __name__ == "__main__":
         else:
             OutputUnfinishedJson(MissingVersions, args.output)
             if len(MissingPackages) > 0:
-                print("Missing Packages:")
                 for m in MissingPackages:
                     print(m)

@@ -61,7 +61,6 @@ def add_checksum(package, version):
 
     url_dict: Dict[StandardVersion, str] = {} 
     url = pkg.find_valid_url_for_version(version)
-    print(url)
 
     if url is not None:
         url_dict[version] = url
