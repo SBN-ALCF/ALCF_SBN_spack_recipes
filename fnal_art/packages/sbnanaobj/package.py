@@ -51,6 +51,12 @@ class Sbnanaobj(CMakePackage):
         description="Use the specified C++ standard when building.",
     )
 
+    variant("ml", default=False,
+        description="Enable features for sbn-ml-cafmaker.",
+    )
+
+    patch("justin_ml.patch", when="+ml")
+    patch("Nate_ml.patch", when="+ml")
     patch("v09_23_02.patch", when="@09.23.02")
     patch("v09_17_06_06.patch", when="@09.17.06.06")
     patch("v09_17_06_02.patch", when="@09.17.06.02")
