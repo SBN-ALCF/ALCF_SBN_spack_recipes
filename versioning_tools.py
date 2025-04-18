@@ -116,6 +116,5 @@ renamed_versions = {
         "cppunit" : {"v1_15_1f" : "1.15.1"}, # diff convention than spack build 
         "tauola" : {"v1_1_8l" : "1.1.8"},
         "h5cpp" : {"v1_10_4_6c" : "1.10.4-6"},
-        "github" : {"v1_10_4_6c" : "1.10.4-6"}, # manifest version is deprecated
         }
 
