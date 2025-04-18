@@ -157,6 +157,8 @@ def OutputFinishedSpec(packages, output_file):
            if package.name == "sbndcode" or package.name == "icaruscode":
                print("Creating spec for " + package.name)
                return_str = package.name + "@"+ package.version + return_str
+           elif package.name == "root":
+                return_str = package.name + "@" + package.version +" cxxstd==17 ~jemalloc"
            else:
                return_str += " ^" + package.name + "@"+ package.version
 

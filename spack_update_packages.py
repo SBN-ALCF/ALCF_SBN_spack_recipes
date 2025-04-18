@@ -21,6 +21,7 @@ sys.path.insert(1, '/grand/neutrinoGPU/software/spack_builds/ALCF_SBN_spack_reci
 from versioning_tools import *
 
 def UpdateGH(pkg, github_url, version):
+    print("Using GitHub Fetch method for ", pkg)
     checksum = 'searching'
     commit, tag = find_version_info(github_url, version)
     version_lines = "    version(\""+version+"\",commit=\""+commit+"\", tag=\""+tag+"\")"

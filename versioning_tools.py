@@ -48,6 +48,17 @@ ignorable_packages = [
         "guideline-sl", # not in offifial larsoft spack
         "studio", # not in offifial larsoft spack
         "inclxx", # putting this here for now... unsure if needed or not.
+        # following is a list of packages which are not dependencies for spack build
+        "cetpkgsupport",
+        "cppunit",
+        "gh",
+        "g4tendl",
+        "gdb",
+        "geant4reweight",
+        "genie-phyopt",
+        "hub",
+        "iwyu"
+        "git"# version listed in manifest is deprecated, just grab whatever automatically
         ]
 
 # some packages have slightly different names on ups vs spack
@@ -105,5 +116,6 @@ renamed_versions = {
         "cppunit" : {"v1_15_1f" : "1.15.1"}, # diff convention than spack build 
         "tauola" : {"v1_1_8l" : "1.1.8"},
         "h5cpp" : {"v1_10_4_6c" : "1.10.4-6"},
+        "github" : {"v1_10_4_6c" : "1.10.4-6"}, # manifest version is deprecated
         }
 
