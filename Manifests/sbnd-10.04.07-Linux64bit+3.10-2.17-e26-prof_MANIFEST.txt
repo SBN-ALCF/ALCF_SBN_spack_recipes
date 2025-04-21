@@ -1,0 +1,185 @@
+sbndcode             v10_04_07       sbndcode-10.04.07-slf7-x86_64-e26-prof.tar.bz2              
+sbndutil             v10_04_07       sbndutil-10.04.07-slf7-x86_64-e26-prof.tar.bz2              
+sbnd_data          v01_29_00       sbnd_data-01.29.00-noarch.tar.bz2
+sbnalg               v10_04_07       sbnalg-10.04.07-slf7-x86_64-e26-prof.tar.bz2                
+sbnanaobj            v10_00_01       sbnanaobj-10.00.01-slf7-x86_64-e26-prof.tar.bz2             
+sbncode              v10_04_07       sbncode-10.04.07-slf7-x86_64-e26-prof.tar.bz2               
+sbndaq_artdaq_core   v1_10_06        sbndaq_artdaq_core-1.10.06-slf7-x86_64-e26-s131-prof.tar.bz2
+sbnobj               v10_00_08       sbnobj-10.00.08-slf7-x86_64-e26-prof.tar.bz2                
+ups                  v6_1_1          ups-6.1.1-Linux64bit+3.10-2.17.tar.bz2                       -f Linux64bit+3.10-2.17                       
+upd                  v5_0_1          upd-5.0.1-noarch.tar.bz2                                     -f NULL                                       
+ninja                v1_11_1         ninja-1.11.1-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+gcc                  v12_1_0         gcc-12.1.0-sl7-x86_64.tar.bz2                                -f Linux64bit+3.10-2.17                       
+cmake                v3_20_0         cmake-3.20.0-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+cmake                v3_22_2         cmake-3.22.2-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+cmake                v3_25_2         cmake-3.25.2-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+cmake                v3_26_4         cmake-3.26.4-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+cmake                v3_27_4         cmake-3.27.4-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+gmp                  v6_2_1          gmp-6.2.1-sl7-x86_64.tar.bz2                                 -f Linux64bit+3.10-2.17                       
+gdb                  v13_1           gdb-13.1-sl7-x86_64.tar.bz2                                  -f Linux64bit+3.10-2.17                       
+valgrind             v3_21_0         valgrind-3.21.0-sl7-x86_64.tar.bz2                           -f Linux64bit+3.10-2.17                       
+git                  v2_40_1         git-2.40.1-sl7-x86_64.tar.bz2                                -f Linux64bit+3.10-2.17                       
+gitflow              v1_12_3         gitflow-1.12.3-noarch.tar.bz2                                -f NULL                                       
+gh                   v2_25_1         gh-2.25.1-sl7-x86_64.tar.bz2                                 -f Linux64bit+3.10-2.17                       
+iwyu                 v0_19           iwyu-0.19-sl7-x86_64.tar.bz2                                 -f Linux64bit+3.10-2.17                       
+nlohmann_json        v3_11_2         nlohmann_json-3.11.2-noarch.tar.bz2                          -f NULL                                       
+range                v3_0_12_0       range-3.0.12.0-noarch.tar.bz2                                -f NULL                                       
+guideline_sl         v4_0_0          guideline_sl-4.0.0-noarch.tar.bz2                            -f NULL                                       
+libxml2              v2_9_12         libxml2-2.9.12-sl7-x86_64.tar.bz2                            -f Linux64bit+3.10-2.17                       
+fftw                 v3_3_10         fftw-3.3.10-sl7-x86_64.tar.bz2                               -f Linux64bit+3.10-2.17                       
+sqlite               v3_40_01_00     sqlite-3.40.01.00-sl7-x86_64.tar.bz2                         -f Linux64bit+3.10-2.17                       
+python               v3_9_15         python-3.9.15-sl7-x86_64.tar.bz2                             -f Linux64bit+3.10-2.17                       
+pybind11             v2_10_4         pybind11-2.10.4-noarch.tar.bz2                               -f NULL                                       
+postgresql           v15_3           postgresql-15.3-sl7-x86_64-p3915.tar.bz2                     -f Linux64bit+3.10-2.17    -q p3915           
+sphinx               v7_2_6          sphinx-7.2.6-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+catch                v3_3_2          catch-3.3.2-sl7-x86_64-e26.tar.bz2                           -f Linux64bit+3.10-2.17    -q e26             
+gsl                  v2_7            gsl-2.7-sl7-x86_64.tar.bz2                                   -f Linux64bit+3.10-2.17                       
+boost                v1_82_0         boost-1.82.0-sl7-x86_64-e26-prof.tar.bz2                     -f Linux64bit+3.10-2.17    -q e26:prof        
+jemalloc             v5_3_0d         jemalloc-5.3.0d-sl7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+cppunit              v1_15_1f        cppunit-1.15.1f-sl7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+tbb                  v2021_9_0       tbb-2021.9.0-sl7-x86_64-e26.tar.bz2                          -f Linux64bit+3.10-2.17    -q e26             
+openblas             v0_3_23         openblas-0.3.23-sl7-x86_64-e26.tar.bz2                       -f Linux64bit+3.10-2.17    -q e26             
+clhep                v2_4_7_1        clhep-2.4.7.1-sl7-x86_64-e26-prof.tar.bz2                    -f Linux64bit+3.10-2.17    -q e26:prof        
+pythia               v6_4_28x        pythia-6.4.28x-sl7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+abseil_cpp           v20230802_1     abseil_cpp-20230802.1-sl7-x86_64-e26.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26             
+protobuf             v3_21_12a       protobuf-3.21.12a-sl7-x86_64-e26.tar.bz2                     -f Linux64bit+3.10-2.17    -q e26             
+scitokens_cpp        v1_0_1a         scitokens_cpp-1.0.1a-sl7-x86_64-e26-sql34001.tar.bz2         -f Linux64bit+3.10-2.17    -q e26:sql34001    
+xrootd               v5_5_5a         xrootd-5.5.5a-sl7-x86_64-e26-p3915-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+numpy                v1_24_3         numpy-1.24.3-sl7-x86_64-e26-p3915.tar.bz2                    -f Linux64bit+3.10-2.17    -q e26:p3915       
+root                 v6_28_12        root-6.28.12-sl7-x86_64-e26-p3915-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+cetpkgsupport        v1_14_01        cetpkgsupport-1.14.01-noarch.tar.bz2                         -f NULL                                       
+cetmodules           v3_16_00        cetmodules-3.16.00-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+cetmodules           v3_21_00        cetmodules-3.21.00-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+cetmodules           v3_21_01        cetmodules-3.21.01-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+cetmodules           v3_21_02        cetmodules-3.21.02-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+cetmodules           v3_22_01        cetmodules-3.22.01-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+cetmodules           v3_22_02        cetmodules-3.22.02-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+cetmodules           v3_24_00        cetmodules-3.24.00-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+cetmodules           v3_24_01        cetmodules-3.24.01-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+mrb                  v6_09_06        mrb-6.09.06-slf7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+cmake                v3_14_3         cmake-3.14.3-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+cmake                v3_24_1         cmake-3.24.1-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+cry                  v1_7q           cry-1.7q-sl7-x86_64-e26-prof.tar.bz2                         -f Linux64bit+3.10-2.17    -q e26:prof        
+lhapdf               v6_5_4          lhapdf-6.5.4-sl7-x86_64-e26-p3915-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+xerces_c             v3_2_3e         xerces_c-3.2.3e-sl7-x86_64-e26.tar.bz2                       -f Linux64bit+3.10-2.17    -q e26             
+log4cpp              v1_1_3e         log4cpp-1.1.3e-sl7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+g4abla               v3_1            g4abla-3.1-noarch.tar.bz2                                    -f NULL                                       
+g4emlow              v7_9_1          g4emlow-7.9.1-noarch.tar.bz2                                 -f NULL                                       
+g4incl               v1_0            g4incl-1.0-noarch.tar.bz2                                    -f NULL                                       
+g4neutron            v4_6            g4neutron-4.6-noarch.tar.bz2                                 -f NULL                                       
+g4particlexs         v2_1            g4particlexs-2.1-noarch.tar.bz2                              -f NULL                                       
+g4nucleonxs          v2_0            g4nucleonxs-2.0-noarch.tar.bz2                               -f NULL                                       
+g4nuclide            v2_2            g4nuclide-2.2-noarch.tar.bz2                                 -f NULL                                       
+g4photon             v5_5            g4photon-5.5-noarch.tar.bz2                                  -f NULL                                       
+g4pii                v1_3            g4pii-1.3-noarch.tar.bz2                                     -f NULL                                       
+g4radiative          v5_4            g4radiative-5.4-noarch.tar.bz2                               -f NULL                                       
+g4surface            v2_1_1          g4surface-2.1.1-noarch.tar.bz2                               -f NULL                                       
+g4tendl              v1_3_2          g4tendl-1.3.2-noarch.tar.bz2                                 -f NULL                                       
+geant4               v4_10_6_p01g    geant4-4.10.6.p01g-sl7-x86_64-e26-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:prof        
+hepmc3               v3_2_7          hepmc3-3.2.7-sl7-x86_64-e26-p3915-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+pythia8              v8_3_10         pythia8-8.3.10-sl7-x86_64-e26-p3915-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+tauola               v1_1_8l         tauola-1.1.8l-sl7-x86_64-e26-p3915-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+genie                v3_04_02a       genie-3.04.02a-sl7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+genie                v3_04_02a       genie-3.04.02a-sl7-x86_64-e26-geant4-prof.tar.bz2            -f Linux64bit+3.10-2.17    -q e26:geant4:prof 
+inclxx               v5_2_9_5g       inclxx-5.2.9.5g-sl7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+genie                v3_04_02a       genie-3.04.02a-sl7-x86_64-e26-inclxx-prof.tar.bz2            -f Linux64bit+3.10-2.17    -q e26:inclxx:prof 
+dk2nudata            v01_10_01h      dk2nudata-01.10.01h-sl7-x86_64-e26-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:prof        
+dk2nugenie           v01_10_01r      dk2nugenie-01.10.01r-sl7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+castxml              v0_5_1          castxml-0.5.1-sl7-x86_64.tar.bz2                             -f Linux64bit+3.10-2.17                       
+pygccxml             v2_2_1b         pygccxml-2.2.1b-noarch-p3915.tar.bz2                         -f NULL                    -q p3915           
+pycurl               v7_45_2         pycurl-7.45.2-sl7-x86_64-p3915.tar.bz2                       -f Linux64bit+3.10-2.17    -q p3915           
+grpc                 v1_35_0c        grpc-1.35.0c-sl7-x86_64-e26.tar.bz2                          -f Linux64bit+3.10-2.17    -q e26             
+eigen                v23_08_01_66e8f eigen-23.08.01.66e8f-noarch.tar.bz2                          -f NULL                                       
+giflib               v5_2_1          giflib-5.2.1-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+libpng               v1_6_37         libpng-1.6.37-sl7-x86_64.tar.bz2                             -f Linux64bit+3.10-2.17                       
+libjpeg_turbo        v2_1_0          libjpeg_turbo-2.1.0-sl7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+tensorflow           v2_15_0         tensorflow-2.15.0-sl7-x86_64-e26-p3915.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:p3915       
+triton               v2_25_0d        triton-2.25.0d-sl7-x86_64-e26.tar.bz2                        -f Linux64bit+3.10-2.17    -q e26             
+libtorch             v2_1_1b         libtorch-2.1.1b-sl7-x86_64-e26.tar.bz2                       -f Linux64bit+3.10-2.17    -q e26             
+torch_scatter        v2_1_2a         torch_scatter-2.1.2a-sl7-x86_64-e26.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26             
+genie_phyopt         v3_04_00        genie_phyopt-3.04.00-noarch-dkcharm.tar.bz2                  -f NULL                    -q dkcharm         
+genie_phyopt         v3_04_00        genie_phyopt-3.04.00-noarch-dkcharmtau.tar.bz2               -f NULL                    -q dkcharmtau      
+genie_xsec           v3_04_00        genie_xsec-3.04.00-noarch-AR2320i00000-k250-e1000.tar.bz2    -f NULL                    -q AR2320i00000:k250:e1000
+genie_xsec           v3_04_00        genie_xsec-3.04.00-noarch-G1802a00000-k250-e1000.tar.bz2     -f NULL                    -q G1802a00000:k250:e1000
+genie_xsec           v3_04_00        genie_xsec-3.04.00-noarch-G1810a0211a-k250-e1000.tar.bz2     -f NULL                    -q G1810a0211a:k250:e1000
+genie_xsec           v3_04_00        genie_xsec-3.04.00-noarch-G1810a0211b-k250-e1000.tar.bz2     -f NULL                    -q G1810a0211b:k250:e1000
+genie_xsec           v3_04_00        genie_xsec-3.04.00-noarch-GDNu2001a00000-k120-e200.tar.bz2   -f NULL                    -q GDNu2001a00000:k120:e200
+studio               v1_02_00        studio-1.02.00-noarch.tar.bz2                                -f NULL                                       
+cetlib_except        v1_09_01        cetlib_except-1.09.01-slf7-x86_64-e26-prof.tar.bz2           -f Linux64bit+3.10-2.17    -q e26:prof        
+hep_concurrency      v1_09_02        hep_concurrency-1.09.02-slf7-x86_64-e26-prof.tar.bz2         -f Linux64bit+3.10-2.17    -q e26:prof        
+cetlib               v3_18_02        cetlib-3.18.02-slf7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+fhiclcpp             v4_18_04        fhiclcpp-4.18.04-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+messagefacility      v2_10_05        messagefacility-2.10.05-slf7-x86_64-e26-prof.tar.bz2         -f Linux64bit+3.10-2.17    -q e26:prof        
+canvas               v3_16_04        canvas-3.16.04-slf7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+art                  v3_14_04        art-3.14.04-slf7-x86_64-e26-prof.tar.bz2                     -f Linux64bit+3.10-2.17    -q e26:prof        
+libwda               v2_30_0a        libwda-2.30.0a-sl7-x86_64.tar.bz2                            -f Linux64bit+3.10-2.17                       
+ifdhc_config         v2_7_2          ifdhc_config-2.7.2-noarch.tar.bz2                            -f NULL                                       
+ifdhc                v2_7_2          ifdhc-2.7.2-sl7-x86_64-e26-p3915-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+ifbeam               v2_6_2          ifbeam-2.6.2-sl7-x86_64-e26-p3915-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+nucondb              v2_6_2          nucondb-2.6.2-sl7-x86_64-e26-p3915-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+cetmodules           v3_20_00        cetmodules-3.20.00-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+ifdh_art             v2_17_07        ifdh_art-2.17.07-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+hub                  v2_14_2         hub-2.14.2-sl7-x86_64.tar.bz2                                -f Linux64bit+3.10-2.17                       
+canvas_root_io       v1_13_06        canvas_root_io-1.13.06-slf7-x86_64-e26-prof.tar.bz2          -f Linux64bit+3.10-2.17    -q e26:prof        
+art_root_io          v1_13_06        art_root_io-1.13.06-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+cetmodules           v1_04_00        cetmodules-1.04.00-noarch.tar.bz2                            -f NULL                                       
+TRACE                v3_17_11        TRACE-3.17.11-noarch.tar.bz2                                 -f Linux64bit+3.10-2.17                       
+artdaq_core          v3_10_02        artdaq_core-3.10.02-slf7-x86_64-e26-s131-prof.tar.bz2        -f Linux64bit+3.10-2.17    -q e26:s131:prof   
+toyExperiment        v0_10_06        toyExperiment-0.10.06-slf7-x86_64-e26-s131-prof.tar.bz2      -f Linux64bit+3.10-2.17    -q e26:s131:prof   
+nufinder             v1_02_01        nufinder-1.02.01-noarch.tar.bz2                              -f NULL                                       
+nusimdata            v1_28_06        nusimdata-1.28.06-slf7-x86_64-e26-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:prof        
+nuevdb               v1_09_08        nuevdb-1.09.08-slf7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+nug4                 v1_16_06        nug4-1.16.06-slf7-x86_64-e26-prof.tar.bz2                    -f Linux64bit+3.10-2.17    -q e26:prof        
+geant4reweight       v01_20_09       geant4reweight-01.20.09-slf7-x86_64-e26-s131-prof.tar.bz2    -f Linux64bit+3.10-2.17    -q e26:s131:prof   
+nugen                v1_21_04        nugen-1.21.04-slf7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+nurandom             v1_11_05        nurandom-1.11.05-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+nutools              v3_17_00        nutools-3.17.00-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+systematicstools     v01_04_04       systematicstools-01.04.04-slf7-x86_64-e26-prof.tar.bz2       -f Linux64bit+3.10-2.17    -q e26:prof        
+nusystematics        v1_05_04        nusystematics-1.05.04-slf7-x86_64-e26-prof.tar.bz2           -f Linux64bit+3.10-2.17    -q e26:prof        
+ppfx                 v02_20_04       ppfx-02.20.04-slf7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+marley               v1_2_1d         marley-1.2.1d-sl7-x86_64-e26-prof.tar.bz2                    -f Linux64bit+3.10-2.17    -q e26:prof        
+pandora              v03_16_00l      pandora-03.16.00l-sl7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+rstartree            v2016_07        rstartree-2016.07-noarch.tar.bz2                             -f Linux64bit+3.10-2.17                       
+hdf5                 v1_12_2a        hdf5-1.12.2a-sl7-x86_64-e26-prof.tar.bz2                     -f Linux64bit+3.10-2.17    -q e26:prof        
+hep_hpc              v0_14_02        hep_hpc-0.14.02-sl7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+glpk                 v4_65           glpk-4.65-sl7-x86_64-prof.tar.bz2                            -f Linux64bit+3.10-2.17    -q prof            
+h5cpp                v1_10_4_6c      h5cpp-1.10.4.6c-noarch.tar.bz2                               -f NULL                                       
+jsoncpp              v1_9_5a         jsoncpp-1.9.5a-sl7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+golang               v1_17           golang-1.17-sl7-x86_64.tar.bz2                               -f Linux64bit+3.10-2.17                       
+gojsonnet            v0_18_0         gojsonnet-0.18.0-sl7-x86_64-e26.tar.bz2                      -f Linux64bit+3.10-2.17    -q e26             
+bxdecay0             v1_1_0          bxdecay0-1.1.0-sl7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+spdlog               v1_9_2          spdlog-1.9.2-sl7-x86_64-e26-prof.tar.bz2                     -f Linux64bit+3.10-2.17    -q e26:prof        
+wirecell             v0_30_2         wirecell-0.30.2-sl7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+delaunator           v1_0_0          delaunator-1.0.0-noarch.tar.bz2                              -f NULL                                       
+cmake                v3_21_4         cmake-3.21.4-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+cmake                v3_22_0         cmake-3.22.0-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+larsoft_data         v1_02_02        larsoft_data-1.02.02-noarch.tar.bz2                          -f NULL                                       
+mrb                  v6_09_09        mrb-6.09.09-slf7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+gallery              v1_22_06        gallery-1.22.06-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+artg4tk              v12_00_03       artg4tk-12.00.03-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+fhiclpy              v4_03_05        fhiclpy-4.03.05-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+larcoreobj           v10_00_00       larcoreobj-10.00.00-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+larcorealg           v10_00_02       larcorealg-10.00.02-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+lardataobj           v10_00_04       lardataobj-10.00.04-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+lardataalg           v10_00_04       lardataalg-10.00.04-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+larvecutils          v09_04_02       larvecutils-09.04.02-slf7-x86_64-e26-prof.tar.bz2            -f Linux64bit+3.10-2.17    -q e26:prof        
+larsoftobj           v10_00_05       larsoftobj-10.00.05-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+larpandoracontent    v04_14_01       larpandoracontent-04.14.01-slf7-x86_64-e26-prof.tar.bz2      -f Linux64bit+3.10-2.17    -q e26:prof        
+larcore              v10_00_02       larcore-10.00.02-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+lardata              v10_00_06       lardata-10.00.06-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+larevt               v10_00_06       larevt-10.00.06-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+larg4                v10_00_06       larg4-10.00.06-slf7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+larfinder            v09_00_02       larfinder-09.00.02-noarch.tar.bz2                            -f NULL                                       
+larsim               v10_02_02       larsim-10.02.02-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+larsimrad            v10_00_09       larsimrad-10.00.09-slf7-x86_64-e26-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:prof        
+larsimdnn            v10_00_08       larsimdnn-10.00.08-slf7-x86_64-e26-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:prof        
+larreco              v10_01_09       larreco-10.01.09-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+larrecodnn           v10_01_07       larrecodnn-10.01.07-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+larana               v10_00_13       larana-10.00.13-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+larpandora           v10_00_16       larpandora-10.00.16-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+larwirecell          v10_01_07       larwirecell-10.01.07-slf7-x86_64-e26-prof.tar.bz2            -f Linux64bit+3.10-2.17    -q e26:prof        
+larexamples          v10_00_09       larexamples-10.00.09-slf7-x86_64-e26-prof.tar.bz2            -f Linux64bit+3.10-2.17    -q e26:prof        
+lareventdisplay      v10_00_12       lareventdisplay-10.00.12-slf7-x86_64-e26-prof.tar.bz2        -f Linux64bit+3.10-2.17    -q e26:prof        
+larsoft              v10_04_07       larsoft-10.04.07-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+larbatch             v01_60_02       larbatch-01.60.02-noarch.tar.bz2                             -f NULL                                       
+larutils             v1_29_08        larutils-1.29.08-noarch.tar.bz2                              -f NULL                                       

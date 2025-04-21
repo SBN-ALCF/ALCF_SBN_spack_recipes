@@ -17,6 +17,7 @@ class Lardataalg(CMakePackage, FnalGithubPackage):
 
 
     version("10.00.04", sha256="153d5bd8377f03161380c6d794c8ec96112aa6c1dcbfaf1ecc7592aa2ee99ac6") # FIXME
+    version("10.00.03", sha256="781388868773ef29628d7aab13970dc714a601e59a71e0dcbe01278e280f1f8a") # FIXME
     version("09.17.07", sha256="34494af1bf6a7486cc1001fdce969decef8b070838eece1852cac85b57143aa1")
     version("09.17.03", sha256="51097ce209b23101a05ea4b50b7ec5e936ba1762985f5f996d5f4de6b9cbe911")
     version("develop", branch="develop", get_full_repo=True)

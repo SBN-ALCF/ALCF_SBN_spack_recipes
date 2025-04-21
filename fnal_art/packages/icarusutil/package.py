@@ -41,6 +41,7 @@ class Icarusutil(CMakePackage):
     url = "https://cdcvs.fnal.gov/projects/icarusutil"
     git_base = "https://github.com/SBNSoftware/icarusutil.git"
 
+    version("09.88.00.02", tag="v09_88_00_02", git=git_base, get_full_repo=True)
     version("08.36.00", tag="v08_36_00", git=git_base, get_full_repo=True)
     version("08.39.00", tag="v08_39_00", git=git_base, get_full_repo=True)
     version("08.41.00", tag="v08_41_00", git=git_base, get_full_repo=True)
@@ -54,13 +55,15 @@ class Icarusutil(CMakePackage):
         description="Use the specified C++ standard when building.",
     )
 
+    patch("spack.patch")
+
     depends_on("art-root-io")
     depends_on("larbatch")
     depends_on("py-pycurl")
     depends_on("cetmodules", type="build")
     depends_on("cetbuildtools", type="build")
 
-    patch("cetmodules2.patch")
+    #patch("cetmodules2.patch")
 
     def cmake_args(self):
         args = ["-DCMAKE_CXX_STANDARD={0}".format(self.spec.variants["cxxstd"].value)]
@@ -90,6 +93,7 @@ class Icarusutil(CMakePackage):
         ):
             run_env.prepend_path("ROOT_INCLUDE_PATH", str(self.spec[d.name].prefix.include))
             run_env.prepend_path("ROOT_INCLUDE_PATH", str(self.spec[d.name].prefix.include))
+
         run_env.prepend_path("ROOT_INCLUDE_PATH", self.prefix.include)
         run_env.append_path("FHICL_FILE_PATH", "{0}/job".format(self.prefix))
         run_env.append_path("FW_SEARCH_PATH", "{0}/gdml".format(self.prefix))

@@ -40,6 +40,7 @@ class Sbndcode(CMakePackage):
     git_base = "https://github.com/SBNSoftware/sbndcode.git"
 
     version("develop", branch="develop", git=git_base, get_full_repo=True)
+    version("10.04.07",commit="8735c93dc2e4604a91054afdfda4477a241bad0a", tag="v10_04_07") # FIXME
     version("10.04.06.01",tag="v10_04_06_01", git=git_base, get_full_repo=True)
     version("09.93.01.02.01", tag="v09_93_01_02p01", git=git_base, get_full_repo=True)
     version("09.93.01.02", tag="v09_93_01_02rc0", git=git_base, get_full_repo=True)
@@ -117,14 +118,6 @@ class Sbndcode(CMakePackage):
     depends_on("trace", type=("build", "run"))
     depends_on("dk2nudata", type=("build", "run"))
 
-
-    depends_on("sbncode@09.91.02.01", type=("build", "run"), when="@09.91.02.02")
-    depends_on("sbncode@09.91.02.01", type=("build", "run"), when="@09.91.02.01")
-    depends_on("cetmodules@3.24.01", type=("build", "run"), when="@09.91.02.01")
-    depends_on("sbnd-data@01.25.00", type=("build", "run"), when="@09.91.02.01")
-
-    depends_on("sbncode@09.91.02", type=("build", "run"), when="@09.90.00")
-    depends_on("sbnd-data@01.24.00", type=("build", "run"), when="@09.90.00")
     # added for polaris
     depends_on("larg4", type=("build", "run"))
     depends_on("larcorealg", type=("build", "run"))
@@ -179,9 +172,6 @@ class Sbndcode(CMakePackage):
                     self.spec["py-tensorflow"].prefix, "3.9"),
             "-DTensorFlow_framework_LIBRARY={0}/lib/python{1}/site-packages/tensorflow/libtensorflow_cc.so".format(
                     self.spec["py-tensorflow"].prefix, "3.9"),
-
-
-
             ]
         return args
 

@@ -19,6 +19,7 @@ class SbndaqArtdaqCore(CMakePackage):
 
     version("develop", git=git_base, branch="develop", get_full_repo=True)
     version("1.10.06", sha256="45a0d2fe62226c2111992bd0b0c020b3dcdd406a3fdf13db6bdc0fb1a1e3ee40") # FIXME
+    version("1.10.04", sha256="16d537f75e390a4f101f08c22181fb9fffcd5e2d282cd39865b86c9327f3596d") # FIXME
     version("1.09.02of1", sha256="cf38ad0bc0f3dc80fdca936b94b5e9f314ad235749632cd02cdc330397e66e97")
     version("1.10.03", sha256="de72fba489e5f15b89843a86d60e3fd75d5fd18993dc353017cc657be602323b")
     version("1.10.02", sha256="8ea8b5d545bd42eb0547e3745b6b076236205d771e9a8e95ba1649df5222f88b")

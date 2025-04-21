@@ -49,7 +49,9 @@ class Sbnobj(CMakePackage):
         git=git_base,
         get_full_repo=True,
     )
+    version("10.00.08", sha256="0f18aecb9a3d1da0a723b40efbfcfe289690bb15c4292a7dc1c4981ca996ff8d") # FIXME
     version("10.00.07", sha256="46634ccb717fc2875c9e84435c85678d72d1d63d95dc85636a55b6839b14d5f7") # FIXME
+    version("10.00.05", sha256="a979fa8f594fab978a3779a7ede92c04c8c44def3ce2c94ba553ee28cc1db2a9") # FIXME
     version("09.19.05", sha256="2e520d8cf0433790964bbb911e4f7d36cc4b0cc29133c11df838684fdbe195c0")
     version("09.19.04", sha256="78b7c15159ec33db8beb5105795ff026a5e251dc0a1bbe4845725e1a02633ba1")
     version("09.19.02", sha256="292e37da8f10549d4cdfbfef4743419d974076b4c0333823c9539faa780414bc")

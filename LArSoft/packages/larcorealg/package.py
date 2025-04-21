@@ -16,6 +16,7 @@ class Larcorealg(CMakePackage, FnalGithubPackage):
     version_patterns = ["v09_00_00", "09.13.00"]
 
     version("10.00.02", sha256="0ac325feca294c4fddd77a444aabdedd6f6351dd68632c5ec2b955aba21b6f1a") # FIXME
+    version("10.00.01", sha256="5cb5ba732b1a6273a7a7dadc2469f14e8040226c12d257beeab89c96914718dc") # FIXME
     version("09.13.02", sha256="f386d879d10633123963577ef29a563777051ce2b5796a73d69789dff869af98")
     version("develop", branch="develop", get_full_repo=True)
 

@@ -30,6 +30,7 @@ class Sbnanaobj(CMakePackage):
     homepage = "https://www.example.com"
     url = "https://github.com/SBNSoftware/sbnanaobj/archive/refs/tags/v09_17_04.tar.gz"
 
+    version("10.00.01", sha256="4047c801570d5a4a33d42fa7577fbc22eb8a62c7cfc8249e4d8e4e78067f8388") # FIXME
     version("10.00.00", sha256="268492c6394a8090e1ac93bc5a47abcaac8b808d972d1bb57de25d3887802b28")
     version("09.23.02.01", sha256="88bf520e81e96311e62487efa4b01baed07e17ed4ab097ed31eaea792db0fea9")
     version("09.23.02", sha256="be2ea1ab0f6e99e30608b41b851694d7e14e1d30abbd66f18d11956c78700bbf")

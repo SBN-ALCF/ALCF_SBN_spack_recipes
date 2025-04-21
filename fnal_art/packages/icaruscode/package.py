@@ -49,6 +49,8 @@ class Icaruscode(CMakePackage):
         get_full_repo=True,
     )
 
+    version("Mar25Production", branch="Mar25Production", git=git_base, get_full_repo=True)
+    version("10.04.04", sha256="0b59e6ee4b1c04a6d146514a4e574882bf70de4c8956d08e357e2dee4de595e5")
     version("09.91.02.01", "77048becd1a960b9e4e19e110d05fca135457b224507f9feaada8d98d2f1cc2b")
     version(
         "09.37.02.03", sha256="1762e5a05ebac100032b2bc46244a63f3bc454f51a583da03b935a6827d7df6f"
@@ -73,6 +75,10 @@ class Icaruscode(CMakePackage):
     patch("v09_37_01_02p02_larvecutils.patch", when="@09.37.01.vec02p02")
     patch("v09_37_01_03p02_larvecutils.patch", when="@09.37.01.vec03p02")
     patch("v09_37_02_03.patch", when="@09.37.02.03")
+    patch("spack.patch")
+
+    def patch(self):
+        filter_file('find_package\(icarusutil REQUIRED \)','','CMakeLists.txt')
 
     variant(
         "cxxstd",
@@ -110,7 +116,7 @@ class Icaruscode(CMakePackage):
     depends_on("tbb", type=("build", "run"))
     depends_on("geant4", type=("build", "run"))
     depends_on("icarus-signal-processing", type=("build", "run"))
-    depends_on("icarusutil", type=("build", "run"))
+    #depends_on("icarusutil", type=("build", "run"))
     depends_on("larsoft", type=("build", "run"))
     depends_on("larana", type=("build", "run"))
     depends_on("larcoreobj", type=("build", "run"))
@@ -149,7 +155,7 @@ class Icaruscode(CMakePackage):
     depends_on("genie", type=("build", "run"))
     depends_on("log4cpp", type=("build", "run"))
     depends_on("rstartree", type=("build", "run"))
-    depends_on("root@06.28.06+spectrum", type=("build", "run"))
+    depends_on("root@6.28.12", type=("build", "run"))
 
     if "SPACKDEV_GENERATOR" in os.environ:
         generator = os.environ["SPACKDEV_GENERATOR"]
@@ -167,21 +173,24 @@ class Icaruscode(CMakePackage):
             "-DCMAKE_CXX_STANDARD={0}".format(self.spec.variants["cxxstd"].value),
             "-Dicaruscode_FW_DIR=fw",
             "-Dicaruscode_WP_DIR={0}".format(self.spec["wirecell"].prefix),
-            "-DCMAKE_PREFIX_PATH={0}/lib/python{1}/site-packages/torch".format(
-                self.spec["py-torch"].prefix, self.spec["python"].version.up_to(2)
+            "-DCMAKE_PREFIX_PATH={0}/lib/python{1}/site-packages/torch:".format(
+                self.spec["py-torch"].prefix, self.spec["python"].version.up_to(2),
+                #self.spec["icarusutil"].prefix
             ),
             "-DCPPGSL_INC={0}".format(self.spec["cppgsl"].prefix.include),
             "-DTRACE_INC={0}".format(self.spec["trace"].prefix.include),
             "-DLIBWDA_INC={0}".format(self.spec["libwda"].prefix.include),
-           #  self.define(
-           #      "CMAKE_PREFIX_PATH",
-           #      join_path(
-           #     self.spec["py-tensorflow"].prefix.lib,
-           #     "python{0}/site-packages/tensorflow".format(
-           #         self.spec["python"].version.up_to(2)
-           #     ),
-           #   )
-           # ),
+            "-DVDT_INCLUDE_DIR={0}".format(self.spec["vdt"].prefix.include),
+            "-DVDT_LIBRARY={0}".format(self.spec["vdt"].prefix.lib),
+            self.define(
+                "CMAKE_PREFIX_PATH",
+                join_path(
+               self.spec["py-tensorflow"].prefix.lib,
+               "python{0}/site-packages/tensorflow".format(
+                   self.spec["python"].version.up_to(2)
+               ),
+             )
+           ),
            self.define(
                "TensorFlow_LIBRARIES",
                join_path(
@@ -211,8 +220,15 @@ class Icaruscode(CMakePackage):
         spack_env.prepend_path("PERL5LIB", os.path.join(self.build_directory, "perllib"))
         # FW search path
         spack_env.append_path("FW_SEARCH_PATH", os.path.join(self.build_directory, "fw"))
+        #spack_env.append_path("CMAKE_PREFIX_PATH", self.spec['icarusutil'].prefix)
         # Cleaup.
-        sanitize_environments(spack_env)
+        spack_env.set(
+                "Torch_DIR",
+                "{0}/lib/python{1}/site-packages/torch/share/cmake/Torch".format(
+                    self.spec["py-torch"].prefix, self.spec["python"].version.up_to(2)
+                ))
+
+        #sanitize_environments(spack_env)
 
     def setup_run_environment(self, run_env):
         # Binaries.

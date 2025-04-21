@@ -16,6 +16,7 @@ class Larevt(CMakePackage, FnalGithubPackage):
     version_patterns = ["v09_00_00", "09.10.00"]
 
     version("10.00.06", sha256="cb0720f23589d757ef00876b3898a87e0fad451191553b145e398c686614e9d6") # FIXME
+    version("10.00.05", sha256="772d2c9cf891d1abc3920c8e9f627560feec2871c9c9a0763d68832033259444") # FIXME
     version("09.10.07", sha256="f8827eee1aec519a7b13c11460b505278df00fcd911abd008001fdf64dcf5762")
     version("09.10.03", sha256="3165ae94c7dab00d5e783be9c63a485ebbca435d9d43f0e19d6b822e98a17c3c")
     version("develop", branch="develop", get_full_repo=True)

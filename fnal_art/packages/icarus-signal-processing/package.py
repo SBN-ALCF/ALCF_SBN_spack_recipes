@@ -36,6 +36,7 @@ class IcarusSignalProcessing(CMakePackage):
     git_base = "https://github.com/SBNSoftware/icarus_signal_processing.git"
     list_url = "https://api.github/repos/SBNSoftware/icarus_signal_processing/tags"
 
+    version("09.91.02.02", sha256="bd9551ece7c0f0bd0b8315a2773a6cdd0ae728ddfc400e67e98f10b8fd81ad48") # FIXME
     version("09.88.00.02", sha256="5fba1ecd9dc454497b3e9235742a4715e3b0fea80f701ae57ed7c5ccd260d0f8")
     version("09.37.01", sha256="a6f09ef0bea681f77061094e5ca9691c8135b7e62e55f7a1b95a5b85f0d6cc57")
     version("09.32.01", sha256="220043d6cee8fd84b37f1cfc0a24e6a8b4b5febbc1cb50a4f56e891eb53d8241")
@@ -88,9 +89,19 @@ class IcarusSignalProcessing(CMakePackage):
             )
         )
 
+    def patch(self):
+        print("AAAAA")
+        filter_file('find_package\(FFTW3q REQUIRED EXPORT\)', '', 'CMakeLists.txt')
+        filter_file('find_package\(FFTW3l REQUIRED EXPORT\)', '', 'CMakeLists.txt')
+        filter_file('isnan', 'std::isnan','icarus_signal_processing/WaveformTools.h')
+
     def cmake_args(self):
         # Set CMake args.
-        args = ["-DCMAKE_CXX_STANDARD={0}".format(self.spec.variants["cxxstd"].value)]
+        args = [
+                "-DCMAKE_CXX_STANDARD={0}".format(self.spec.variants["cxxstd"].value),            
+                "-DVDT_INCLUDE_DIR={0}".format(self.spec["vdt"].prefix.include),
+                "-DVDT_LIBRARY={0}".format(self.spec["vdt"].prefix.lib)
+                ]
         return args
 
     def setup_build_environment(self, spack_env):
@@ -110,6 +121,8 @@ class IcarusSignalProcessing(CMakePackage):
 
     def setup_run_environment(self, run_env):
         # Binaries.
+        run_env.prepend_path("VDT_INCLUDE_DIR", self.spec['vdt'].prefix.include)
+        run_env.prepend_path("VDT_LIBRARY", self.spec['vdt'].prefix.lib)
         run_env.prepend_path("PATH", os.path.join(self.prefix, "bin"))
         # Ensure we can find plugin libraries.
         run_env.prepend_path("CET_PLUGIN_PATH", self.prefix.lib)

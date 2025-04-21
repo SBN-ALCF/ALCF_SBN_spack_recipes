@@ -57,7 +57,8 @@ ignorable_packages = [
         "geant4reweight",
         "genie-phyopt",
         "hub",
-        "iwyu"
+        "iwyu",
+        "py-pycurl",
         "git"# version listed in manifest is deprecated, just grab whatever automatically
         ]
 
@@ -116,5 +117,7 @@ renamed_versions = {
         "cppunit" : {"v1_15_1f" : "1.15.1"}, # diff convention than spack build 
         "tauola" : {"v1_1_8l" : "1.1.8"},
         "h5cpp" : {"v1_10_4_6c" : "1.10.4-6"},
+        "go-jsonnet" : {"v0_18_0" : "0.19.1"},
+        "py-pybind11" : {"v2_10_4" : "2.11.0"},
         }
 

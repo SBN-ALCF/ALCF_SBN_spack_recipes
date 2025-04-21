@@ -61,7 +61,6 @@ def GetSpackVersion(self, manifest_version):
     # If version has been identified as weird exception
     # just use what is in the dict verbatim. Otherwise
     # check style of previous versions.
- 
     if self.name in renamed_versions and manifest_version in renamed_versions[self.name].keys():
         version = renamed_versions[self.name][manifest_version]
     else:
@@ -137,10 +136,10 @@ def CheckLocalSpack(ManifestPackages):
     FoundVersions = []
     
     for package in ManifestPackages:
-        if package.name in ignorable_packages:
-            continue
-
         single_package = SpackPackage(package.name, package.version)
+
+        if single_package.name in ignorable_packages:
+            continue
 
         if(not single_package.found_package):
             MissingPackages.append(single_package.manifest_name)
@@ -158,7 +157,7 @@ def OutputFinishedSpec(packages, output_file):
                print("Creating spec for " + package.name)
                return_str = package.name + "@"+ package.version + return_str
            elif package.name == "root":
-                return_str = package.name + "@" + package.version +" cxxstd==17 ~jemalloc "
+                return_str += " ^" + package.name + "@" + package.version +" cxxstd==17 ~jemalloc "
            else:
                return_str += " ^" + package.name + "@"+ package.version
 
@@ -190,4 +189,5 @@ if __name__ == "__main__":
             OutputUnfinishedJson(MissingVersions, args.output)
             if len(MissingPackages) > 0:
                 for m in MissingPackages:
+                    print("Some packages do not have spack packages:")
                     print(m)

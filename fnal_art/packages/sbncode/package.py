@@ -38,8 +38,11 @@ class Sbncode(CMakePackage):
     list_url = "https://api.github.com/repos/SBNSoftware/sbncode/tags"
 
     version("develop", branch="develop", git=git_base, get_full_repo=True)
+    version("v10_04_07",commit="412514c73b41c88fcbd9ffcf0632ed186703a2d3", tag="v10_04_07") # FIXME
+    version("Mar25Production", branch="release/Mar25Production", git=git_base, get_full_repo=True)
     version("v10_04_06_p01",commit="41ef8493069b0f07287e43ed66873484c0a203d5", submodules=True)
     #version("09.93.01", commit="ccdf1cbf7570564cff544edc5c39037e790b4817", submodules=True)
+    version("v10_04_04",commit="d49df6743d95631d6c9edc2ae01ee3f3e3a5c01f", submodules=True)
     version("v09_93_01_p01", commit="b67723df67c57e7325c4baf3825760c6683f1c7a", submodules=True)
     version("v09_93_01_p02", commit="45baa22ccf40934ca65f5c5229df4c52ad1f7fbb", submodules=True)
     version("09.91.02.01", commit="bf374b540b658d2d175e048da6f43ce2e4d9c509", submodules=True)
@@ -147,6 +150,8 @@ class Sbncode(CMakePackage):
     depends_on("protobuf")
     depends_on("nusimdata")
     depends_on("sbndata")
+
+    depends_on("sbnalg", when="@v10_04_07:")
 
     if "SPACKDEV_GENERATOR" in os.environ:
         generator = os.environ["SPACKDEV_GENERATOR"]
