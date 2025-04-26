@@ -43,6 +43,7 @@ class SbndData(Package):
 
     def setup_run_environment(self, env):
         env.set("SBND_DATA_VERSION", "v%s" % self.version.underscored)
+        env.set("SBND_DATA_DIR", "%s" % self.prefix)
         env.prepend_path("WIRECELL_PATH", "%s/WireCell" % self.prefix)
         env.prepend_path("FW_SEARCH_PATH", "%s/sbnd-data" % self.prefix)
         env.prepend_path("FW_SEARCH_PATH", "%s/sbnd-data/CNNHitClassification" % self.prefix)
