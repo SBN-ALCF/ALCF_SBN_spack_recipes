@@ -24,6 +24,7 @@ from spack.package import *
 from spack.util.environment import EnvironmentModifications
 import os
 import platform
+from time import sleep
 
 class Larcv2(MakefilePackage):
     """Framework for data processing with APIs to interface deep neural network"""
@@ -37,26 +38,80 @@ class Larcv2(MakefilePackage):
     version("2_2_0", sha256="b70ebe95bea2b37644c45d48a8a402d3bdc83c44b743b69745ce9f29183a6e73")
 
     depends_on("root", type=("build", "run"))
+    depends_on("py-numpy", type=("build", "run"))
+    depends_on("python", type=("build", "run"))
 
     phases = ['build', 'install']
+    #patch('spack.patch')
 
     def setup_build_environment(self, env):
+        py_config = self.spec['python'].prefix.bin+"/python3-config" 
+        py = self.spec['python'].prefix.bin+"/python3" 
         self.stage.create()
         self.stage.fetch()
         self.stage.expand_archive()
-        env.extend(EnvironmentModifications.from_sourcing_file(self.stage.source_path+"/configure.sh"))
+        mkdirp(self.prefix+"/build")
+        mkdirp(self.prefix+"/build/lib")
+        mkdirp(self.prefix+"/build/bin")
+        env.set("LARCV_BASEDIR", self.prefix)
+        env.set("LARCV_BUILDDIR", self.prefix+"/build")
+        env.set("LARCV_PYTHON", py)
+        env.set("LARCV_PYTHON_CONFIG", py_config)
+        env.set("LARCV_COREDIR", self.prefix+"/larcv/core")
+        env.set("LARCV_APPDIR", self.prefix+"/larcv/app")
+        env.set("LARCV_LIBDIR", self.prefix+"/build/lib")
+        env.set("LARCV_INCDIR", self.prefix+"/build/include")
+        env.set("LARCV_BINDIR", self.prefix+"/build/bin")
+
+        INCLUDES_str = "-I"+self.prefix+"/build/include"
+        INCLUDES_str += " -I"+self.spec['python'].prefix.include+"/python3.9"
+        INCLUDES_str += " -I"+self.spec['py-numpy'].prefix.core.include
+
+        env.set("LARCV_INCLUDES", INCLUDES_str)
+        env.set("LARCV_LIBS", "-L"+self.prefix+"/build/lib -llarcv ")
+        env.set("LARCV_ROOT6", "1")
+        env.set("LARCV_NUMPY", "0")
+        env.set("LARCV_OPENCV", "0")
+        env.prepend_path("PATH", self.prefix+"/bin")
+        env.prepend_path("LD_LIBRARY_PATH", self.prefix+"/build/lib")
+        env.prepend_path("PYTHONPATH", self.prefix+"/python")
+        env.set("LARCV_CXX", "clang++")
 
     def build(self, spec, prefix):
+        os.system('cp -r '+self.stage.path+'/spack-src/* '+prefix)
+        os.chdir(prefix)
+        sleep(120)
         make()
-
+        
     def install(self, spec, prefix):
-        install_tree(self.stage.source_path+"/build", prefix)
-        install_tree(self.stage.source_path+"/python", prefix+"/python")# Either this or PYTHONPATH line fixed an issue
+        os.system('cp -r '+prefix+' /home/nathanielerowe/larcv_spack_tests/spack_out/')
+        #install_tree(self.stage.path+"/baddir", prefix)
+        os.system('rm '+prefix+'/spack-*.txt')
+        os.system('rm -rf '+prefix+'/Makefile')
 
-    def setup_run_environment(self, run_env):
-        run_env.prepend_path("LD_LIBRARY_PATH", self.prefix.lib)
-        run_env.prepend_path("LARCV2_LIBDIR", self.prefix.lib)
-        run_env.prepend_path("LARCV2_LIB", self.prefix.lib)
-        run_env.prepend_path("LARCV2_INCDIR", self.prefix.include)
-        run_env.prepend_path("LARCV2_INC", self.prefix.include)
-        run_env.prepend_path("PYTHONPATH", self.prefix.include.python)
+    def setup_run_environment(self, env):
+        py_config = self.spec['python'].prefix.bin+"/python3-config" 
+        py = self.spec['python'].prefix.bin+"/python3" 
+        env.set("LARCV_BASEDIR", self.prefix)
+        env.set("LARCV_BUILDDIR", self.prefix+"/build")
+        env.set("LARCV_PYTHON", py)
+        env.set("LARCV_PYTHON_CONFIG", py_config)
+        env.set("LARCV_COREDIR", self.prefix+"/larcv/core")
+        env.set("LARCV_APPDIR", self.prefix+"/larcv/app")
+        env.set("LARCV_LIBDIR", self.prefix+"/build/lib")
+        env.set("LARCV_INCDIR", self.prefix+"/build/include")
+        env.set("LARCV_BINDIR", self.prefix+"/build/bin")
+
+        INCLUDES_str = "-I"+self.prefix+"/build/include"
+        INCLUDES_str += " -I"+self.spec['python'].prefix.include+"/python3.9"
+        INCLUDES_str += " -I"+self.spec['py-numpy'].prefix.core.include
+
+        env.set("LARCV_INCLUDES", INCLUDES_str)
+        env.set("LARCV_LIBS", "-L"+self.prefix+"/build/lib -llarcv ")
+        env.set("LARCV_ROOT6", "1")
+        env.set("LARCV_NUMPY", "0")
+        env.set("LARCV_OPENCV", "0")
+        env.prepend_path("PATH", self.prefix+"/bin")
+        env.prepend_path("LD_LIBRARY_PATH", self.prefix+"/build/lib")
+        env.prepend_path("PYTHONPATH", self.prefix+"/python")
+        env.set("LARCV_CXX", "clang++")
