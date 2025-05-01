@@ -38,7 +38,7 @@ class Sbncode(CMakePackage):
     list_url = "https://api.github.com/repos/SBNSoftware/sbncode/tags"
 
     version("develop", branch="develop", git=git_base, get_full_repo=True)
-    version("v10_04_07",commit="412514c73b41c88fcbd9ffcf0632ed186703a2d3", tag="v10_04_07") # FIXME
+    version("v10_04_07", commit="412514c73b41c88fcbd9ffcf0632ed186703a2d3", submodules=True)
     version("Mar25Production", branch="release/Mar25Production", git=git_base, get_full_repo=True)
     version("v10_04_06_p01",commit="41ef8493069b0f07287e43ed66873484c0a203d5", submodules=True)
     #version("09.93.01", commit="ccdf1cbf7570564cff544edc5c39037e790b4817", submodules=True)
@@ -213,7 +213,7 @@ class Sbncode(CMakePackage):
     def setup_build_environment(self, spack_env):
         spack_env.prepend_path("LD_LIBRARY_PATH", self.spec["root"].prefix.lib)
         spack_env.prepend_path("ROOT_X3d", self.spec["root"].prefix.include)
-        spack_env.prepend_path("LD_LIBRARY_PATH", self.spec["larcv2"].prefix.lib)
+        #spack_env.prepend_path("LD_LIBRARY_PATH", self.spec["larcv2"].prefix.lib)
         # Binaries.
         spack_env.prepend_path("PATH", os.path.join(self.build_directory, "bin"))
         # Ensure we can find plugin libraries.
@@ -231,8 +231,8 @@ class Sbncode(CMakePackage):
         # Perl modules.
         spack_env.prepend_path("PERL5LIB", os.path.join(self.build_directory, "perllib"))
         # Larcv modules
-        spack_env.prepend_path("LARCV_LIBDIR", self.spec["larcv2"].prefix.lib)
-        spack_env.prepend_path("LARCV_INCDIR", self.spec["larcv2"].prefix.include)
+        #spack_env.prepend_path("LARCV_LIBDIR", self.spec["larcv2"].prefix.lib)
+        #spack_env.prepend_path("LARCV_INCDIR", self.spec["larcv2"].prefix.include)
         spack_env.set(
                 "Torch_DIR",
                 "{0}/lib/python{1}/site-packages/torch/share/cmake/Torch".format(
@@ -260,8 +260,8 @@ class Sbncode(CMakePackage):
         # Perl modules.
         run_env.prepend_path("PERL5LIB", os.path.join(self.prefix, "perllib"))
         # Larcv modules
-        run_env.prepend_path("LARCV_LIBDIR", self.spec["larcv2"].prefix.lib)
-        run_env.prepend_path("LARCV_INCDIR", self.spec["larcv2"].prefix.include)
+        #run_env.prepend_path("LARCV_LIBDIR", self.spec["larcv2"].prefix.lib)
+        #run_env.prepend_path("LARCV_INCDIR", self.spec["larcv2"].prefix.include)
         # fcl file prefix
         run_env.prepend_path("FHICL_FILE_PATH", self.prefix.fcl)
         run_env.prepend_path("FHICL_INCLUDE_PATH", self.prefix.fcl)
@@ -281,7 +281,7 @@ class Sbncode(CMakePackage):
         # Perl modules.
         spack_env.prepend_path("PERL5LIB", os.path.join(self.prefix, "perllib"))
         # Larcv modules
-        spack_env.prepend_path("LARCV_LIBDIR", self.spec["larcv2"].prefix.lib)
-        spack_env.prepend_path("LARCV_INCDIR", self.spec["larcv2"].prefix.include)
+        #spack_env.prepend_path("LARCV_LIBDIR", self.spec["larcv2"].prefix.lib)
+        #spack_env.prepend_path("LARCV_INCDIR", self.spec["larcv2"].prefix.include)
         # Cleanup.
         sanitize_environments(spack_env)

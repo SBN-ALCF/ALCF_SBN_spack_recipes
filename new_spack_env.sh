@@ -37,6 +37,18 @@ done
 . /lus/grand/projects/neutrinoGPU/software/spack_builds/spack/share/spack/setup-env.sh
 spack env create "${ENV}"
 spack env activate "${ENV}"
+### new and not tested ###
+spack add krb5
+spack concretize
+spack install
+spack load krb5
+export KRB5CCNAME=DIR:/home/nathanielerowe/krb5_cache
+kinit -fr 7d nrowe@FNAL.GOV
+ssh -D9000 -f -N nrowe@sbndbuild03.fnal.gov
+export ALL_PROXY=socks5://localhost:9000
+export NO_PROXY=github.com
+git config --global http.proxy 'socks5://127.0.0.1:9000'
+### ^new and not tested ###
 spack add "${INPUT}"
 spack concretize -f
 spack install

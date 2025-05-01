@@ -42,6 +42,8 @@ class Larwirecell(CMakePackage, FnalGithubPackage):
     depends_on("jsonnet")
     depends_on("spdlog")
     depends_on("tbb")
+    depends_on("dk2nugenie")
+    depends_on("marley")
 
     patch('10.00.00.patch', when='@10.00.00')
 
@@ -79,7 +81,10 @@ class Larwirecell(CMakePackage, FnalGithubPackage):
         return [
             self.define_from_variant("CMAKE_CXX_STANDARD", "cxxstd"),
             self.define("IGNORE_ABSOLUTE_TRANSITIVE_DEPENDENCIES", True),
-            self.define("jsoncpp_DIR", self.spec["jsoncpp"].prefix)
+            self.define("jsoncpp_DIR", self.spec["jsoncpp"].prefix),
+            self.define("dk2nugenie_INCLUDE_DIRS", self.spec["dk2nugenie"].prefix.include),
+            self.define("dk2nugenie_LIBRARY", self.spec["dk2nugenie"].prefix.lib),
+            self.define("MARLEY_LIBRARIES", self.spec["dk2nugenie"].prefix.lib)
         ]
 
     @sanitize_paths

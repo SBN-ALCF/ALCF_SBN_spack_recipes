@@ -158,6 +158,11 @@ def OutputFinishedSpec(packages, output_file):
                return_str = package.name + "@"+ package.version + return_str
            elif package.name == "root":
                 return_str += " ^" + package.name + "@" + package.version +" cxxstd==17 ~jemalloc "
+           elif package.name == "wirecell":
+                return_str += " ^" + package.name + "@" + package.version +" +root +cuda +torch "
+           elif package.name == "py-torch":
+                return_str += " ^" + package.name + "@" + package.version +" cuda_arch=80 "
+
            else:
                return_str += " ^" + package.name + "@"+ package.version
 

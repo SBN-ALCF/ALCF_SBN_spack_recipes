@@ -248,6 +248,8 @@ class Icaruscode(CMakePackage):
         run_env.prepend_path("PERL5LIB", os.path.join(self.prefix, "perllib"))
         # FW search path
         run_env.append_path("FW_SEARCH_PATH", os.path.join(self.prefix, "fw"))
+        # fcls
+        run_env.prepend_path("FHICL_FILE_PATH", self.prefix.fcl)
         # Cleaup.
         sanitize_environments(run_env)
 

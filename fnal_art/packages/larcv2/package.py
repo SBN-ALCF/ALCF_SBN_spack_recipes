@@ -38,7 +38,6 @@ class Larcv2(MakefilePackage):
     version("2_2_0", sha256="b70ebe95bea2b37644c45d48a8a402d3bdc83c44b743b69745ce9f29183a6e73")
 
     depends_on("root", type=("build", "run"))
-    depends_on("py-numpy", type=("build", "run"))
     depends_on("python", type=("build", "run"))
 
     phases = ['build', 'install']
@@ -65,7 +64,6 @@ class Larcv2(MakefilePackage):
 
         INCLUDES_str = "-I"+self.prefix+"/build/include"
         INCLUDES_str += " -I"+self.spec['python'].prefix.include+"/python3.9"
-        INCLUDES_str += " -I"+self.spec['py-numpy'].prefix.core.include
 
         env.set("LARCV_INCLUDES", INCLUDES_str)
         env.set("LARCV_LIBS", "-L"+self.prefix+"/build/lib -llarcv ")
@@ -104,7 +102,6 @@ class Larcv2(MakefilePackage):
 
         INCLUDES_str = "-I"+self.prefix+"/build/include"
         INCLUDES_str += " -I"+self.spec['python'].prefix.include+"/python3.9"
-        INCLUDES_str += " -I"+self.spec['py-numpy'].prefix.core.include
 
         env.set("LARCV_INCLUDES", INCLUDES_str)
         env.set("LARCV_LIBS", "-L"+self.prefix+"/build/lib -llarcv ")

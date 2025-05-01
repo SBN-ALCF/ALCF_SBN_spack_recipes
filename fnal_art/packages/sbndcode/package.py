@@ -40,7 +40,7 @@ class Sbndcode(CMakePackage):
     git_base = "https://github.com/SBNSoftware/sbndcode.git"
 
     version("develop", branch="develop", git=git_base, get_full_repo=True)
-    version("10.04.07",commit="8735c93dc2e4604a91054afdfda4477a241bad0a", tag="v10_04_07") # FIXME
+    version("10.04.07", tag="v10_04_07", git=git_base, get_full_repo=True)
     version("10.04.06.01",tag="v10_04_06_01", git=git_base, get_full_repo=True)
     version("09.93.01.02.01", tag="v09_93_01_02p01", git=git_base, get_full_repo=True)
     version("09.93.01.02", tag="v09_93_01_02rc0", git=git_base, get_full_repo=True)
@@ -103,6 +103,7 @@ class Sbndcode(CMakePackage):
     depends_on("larevt", type=("build", "run"))
     depends_on("larreco", type=("build", "run"))
     depends_on("larsimdnn", type=("build", "run"))
+    depends_on("larrecodnn", type=("build", "run"))# Apr26
     depends_on("larsim", type=("build", "run"))
     depends_on("libwda", type=("build", "run"))
     depends_on("marley", type=("build", "run"))

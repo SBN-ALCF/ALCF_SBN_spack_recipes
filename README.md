@@ -1,5 +1,11 @@
 This is a list of temporary expoloits to get around errors in building sbn packages with spack. It is as much a todo list for me as it is a cheatsheet for others...
 
+Error:
+Error in <TInterpreter::TCling::AutoLoad>: failure loading library libicaruscode_IcarusObj_dict.so for icarus::SimEnergyDepositSummary
+
+Solution:
+Somehow, reinstalling with -j1 seems to fix this problem... Might be related to "no dictionary for class sim::IDE is available" warning which always appears in icaruscode
+
 Error: 
     >> build error ELF load command address/offset not properly aligned
 

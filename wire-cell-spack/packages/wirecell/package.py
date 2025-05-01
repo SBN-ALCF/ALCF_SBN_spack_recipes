@@ -135,13 +135,18 @@ class Wirecell(Package, CudaPackage):
 
     depends_on('intel-tbb @2021.7.0: cxxstd=17', when='+tbb')
 
+    def patch(self):
+        wct_version = self.version.string
+        filter_file('VERSION = determine_version\(\)', 'VERSION = \"'+wct_version+'\"','wscript')
+        return
+
 
     # Optional:
 
     # ROOT is needed for wire-cell-toolkit/root
     # Turn off opengl as it brings in an entire copy of llvm (in addition to
     # llvm internal to root) and one which breaks spack environments based on GCC builds.
-    depends_on('root @6.28.06: ~opengl cxxstd=17', when='+root')
+    depends_on('root @6.28.06: cxxstd=17', when='+root')
 
     depends_on('hdf5 ~mpi+threadsafe', when='+hdf')
 
@@ -204,6 +209,10 @@ class Wirecell(Package, CudaPackage):
 
         else:
             cfg.append( "--with-libtorch=no" )
+
+        if spec.satisfies('+root'):
+            tdir = self.spec["root"].prefix
+            cfg += [ f'--with-root={tdir}' ]
 
         # The --notests flag is vestigial in more recent versions but doesn't
         # hurt to keep it in order to avoid making version dependency code here.
