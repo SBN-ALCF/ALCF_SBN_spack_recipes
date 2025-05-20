@@ -1,0 +1,1546 @@
+diff --git a/LArSoft/packages/larana/package.py b/LArSoft/packages/larana/package.py
+index c3155a4..d7ea55e 100644
+--- a/LArSoft/packages/larana/package.py
++++ b/LArSoft/packages/larana/package.py
+@@ -15,6 +15,7 @@ class Larana(CMakePackage, FnalGithubPackage):
+     repo = "LArSoft/larana"
+     version_patterns = ["v09_00_00", "09.14.19"]
+ 
++    version("10.00.16", sha256="0ac8413d3d2c9332886a80659a764b680d104260a2773056938bad2cd4278b57") # FIXME
+     version("10.00.13", sha256="29af05da9f487890330f48f325b23d37f4e370e75bd87abb78b62edef1b38f92") # FIXME
+     version("10.00.12", sha256="76595da45ed5bf6ffa20a833f6eb82c6edb5cbedaa119b0a1132d31acfba3bca")
+     version("10.00.10", sha256="d29e68ae6c558a215de2193d8d1ea2fccefbbc703cc08d1d20b436052b2603cb") # FIXME
+diff --git a/LArSoft/packages/lardata/package.py b/LArSoft/packages/lardata/package.py
+index 80ca548..a7bba25 100644
+--- a/LArSoft/packages/lardata/package.py
++++ b/LArSoft/packages/lardata/package.py
+@@ -15,6 +15,7 @@ class Lardata(CMakePackage, FnalGithubPackage):
+     repo = "LArSoft/lardata"
+     version_patterns = ["v09_00_00", "09.16.00"]
+ 
++    version("10.00.08", sha256="e6265a34e46207f584313d7002a1172d1ab35f36da3456a4da8a1402d9cb2969") # FIXME
+     version("10.00.06", sha256="53d90ad95614208d0f38e048faacba6f0d53905b331f3ef409194a5909495a08") # FIXME
+     version("10.00.05", sha256="48a05441e92f8f206f4bafa54db3973eed36499d21796bd773d055ce3311b090") # FIXME
+     version("09.17.00", sha256="040d2dc31a0fd842c79d52442e8ab779f0b92873e5e2ebcd5ef50e6a716d97aa")
+diff --git a/LArSoft/packages/lardataalg/package.py b/LArSoft/packages/lardataalg/package.py
+index 6be3baf..715855f 100644
+--- a/LArSoft/packages/lardataalg/package.py
++++ b/LArSoft/packages/lardataalg/package.py
+@@ -16,6 +16,7 @@ class Lardataalg(CMakePackage, FnalGithubPackage):
+     version_patterns = ["v09_00_00", "09.17.00"]
+ 
+ 
++    version("10.00.06", sha256="56666dae274fd9a8ca7e8b9f83be69894894b48689931b425944445df7071eb9") # FIXME
+     version("10.00.04", sha256="153d5bd8377f03161380c6d794c8ec96112aa6c1dcbfaf1ecc7592aa2ee99ac6") # FIXME
+     version("10.00.03", sha256="781388868773ef29628d7aab13970dc714a601e59a71e0dcbe01278e280f1f8a") # FIXME
+     version("09.17.07", sha256="34494af1bf6a7486cc1001fdce969decef8b070838eece1852cac85b57143aa1")
+diff --git a/LArSoft/packages/lardataobj/package.py b/LArSoft/packages/lardataobj/package.py
+index 04d32bb..1e8ee66 100644
+--- a/LArSoft/packages/lardataobj/package.py
++++ b/LArSoft/packages/lardataobj/package.py
+@@ -15,8 +15,9 @@ class Lardataobj(CMakePackage, FnalGithubPackage):
+     repo = "LArSoft/lardataobj"
+     version_patterns = ["v09_00_00", "09.18.00"]
+ 
+-    version("10.00.04", sha256="07be6a3d3f2b1d5eee905058b68066d39f2083c22ab2d9d595f5181b3a80e3ff") # FIXME
+-    version("10.00.03", sha256="b6fa481c9eb3a519b74731c85ba6697bf28f3623edbcdc02cef6c04d545cbc9d") # FIXME
++    version("10.01.00", sha256="1d0306c0c0ae270335bf869852295d5c25a95d2acb99c8836f7144bac06063ec")
++    version("10.00.04", sha256="07be6a3d3f2b1d5eee905058b68066d39f2083c22ab2d9d595f5181b3a80e3ff")
++    version("10.00.03", sha256="b6fa481c9eb3a519b74731c85ba6697bf28f3623edbcdc02cef6c04d545cbc9d")
+     version("09.19.00", sha256="8e689900cef678fb25c161f7fc676be25b64f1d79e65a9839d4c7e5b1a7c1040")
+     version("09.18.03", sha256="032a4c48473dc87c204c3aaef4bdf4953599de26cd1642cb51fd6f7692adcb6d")
+     version("develop", branch="develop", get_full_repo=True)
+diff --git a/LArSoft/packages/lareventdisplay/package.py b/LArSoft/packages/lareventdisplay/package.py
+index e477ba3..1d08435 100644
+--- a/LArSoft/packages/lareventdisplay/package.py
++++ b/LArSoft/packages/lareventdisplay/package.py
+@@ -14,6 +14,7 @@ class Lareventdisplay(CMakePackage, FnalGithubPackage):
+     repo = "LArSoft/lareventdisplay"
+     version_patterns = ["v09_00_00", "09.10.19"]
+ 
++    version("10.00.15", sha256="e58f098e4f82daa0116a20be1f5d40d5b90ec38ff0c921664d7d5ab99d6aa1fe") # FIXME
+     version("10.00.12", sha256="714839a4002f8045685f3e15f97d92657f7de8a9acffdc3c82254ea9517983d6") # FIXME
+     version("10.00.11", sha256="f6a0c694a97636ac79edafe884c8cf8a7674fbd985524328882029efdcf04f2e") # FIXME
+     version("10.00.09", sha256="dad20b9224e2778b4ec9b2e029490c4913efcc101cc6958f6c5de6c75339bc33") # FIXME
+diff --git a/LArSoft/packages/larevt/package.py b/LArSoft/packages/larevt/package.py
+index c97ca51..3dd9812 100644
+--- a/LArSoft/packages/larevt/package.py
++++ b/LArSoft/packages/larevt/package.py
+@@ -15,6 +15,7 @@ class Larevt(CMakePackage, FnalGithubPackage):
+     repo = "LArSoft/larevt"
+     version_patterns = ["v09_00_00", "09.10.00"]
+ 
++    version("10.00.08", sha256="026eeabce2b01c15fcd90effa6e05a2ebe125709b2b09d7ef5c1732eb09a5241") # FIXME
+     version("10.00.06", sha256="cb0720f23589d757ef00876b3898a87e0fad451191553b145e398c686614e9d6") # FIXME
+     version("10.00.05", sha256="772d2c9cf891d1abc3920c8e9f627560feec2871c9c9a0763d68832033259444") # FIXME
+     version("09.10.07", sha256="f8827eee1aec519a7b13c11460b505278df00fcd911abd008001fdf64dcf5762")
+diff --git a/LArSoft/packages/larexamples/package.py b/LArSoft/packages/larexamples/package.py
+index bfa6e92..3d568c1 100644
+--- a/LArSoft/packages/larexamples/package.py
++++ b/LArSoft/packages/larexamples/package.py
+@@ -15,6 +15,7 @@ class Larexamples(CMakePackage, FnalGithubPackage):
+     repo = "LArSoft/larexamples"
+     version_patterns = ["v09_00_00", "09.08.18"]
+ 
++    version("10.00.12", sha256="4e1e2b3c9eb82076d73f1bb0ca92540085a1ca8f898d5b4333770a7ad1fdef59") # FIXME
+     version("10.00.09", sha256="61e17e351d2fb8f7ecf0510c29f448f79e2d3c5bfbbc3f11455ce8be30dc89da")
+     version("10.00.08", sha256="ccf2de4edfb0f04dab419162521f2d2b0edab307b1a39eef2e89fafec397d49e") # FIXME
+     version("09.09.11", sha256="a5801b1e452fc873ab5a115897f6489e786edbbbd3366242b1c523254bd484f6")
+diff --git a/LArSoft/packages/larg4/package.py b/LArSoft/packages/larg4/package.py
+index 7577a48..00fddf7 100644
+--- a/LArSoft/packages/larg4/package.py
++++ b/LArSoft/packages/larg4/package.py
+@@ -15,6 +15,7 @@ class Larg4(CMakePackage, FnalGithubPackage):
+     repo = "LArSoft/larg4"
+     version_patterns = ["v09_00_00", "09.18.00"]
+ 
++    version("10.00.09", sha256="ffd8911bad84c0b48f441ef57091dd0a4b96abe1976dcb0ae4a8690b1206a086") # FIXME
+     version("10.00.06", sha256="3e6a786abc8c46b0ac3b28556a947fea6190bdfb887e45b46df03e7198afe6b9") # FIXME
+     version("10.00.05", sha256="39a0763f867d63c4c845a14cb9b048635c8bcb1b9a0ea1474670430c03eaaf94") # FIXME
+     version("09.19.08", sha256="f5b224885ad5f95b503596f95f06ee457ef8bca8869bfbd9d9f0141e6f2a1688")
+diff --git a/LArSoft/packages/larpandora/package.py b/LArSoft/packages/larpandora/package.py
+index b7b5183..a4114d5 100644
+--- a/LArSoft/packages/larpandora/package.py
++++ b/LArSoft/packages/larpandora/package.py
+@@ -15,6 +15,7 @@ class Larpandora(CMakePackage, FnalGithubPackage):
+     repo = "LArSoft/larpandora"
+     version_patterns = ["v09_00_00", "09.21.20"]
+ 
++    version("10.00.19", sha256="5e6545f40d3b95eb562eaae9953f5826a7a95c03694b6769f77a19fe4ed6ad34") # FIXME
+     version("10.00.16", sha256="c07a29dc5f6e6d99f44e89231df97519f98edeebd26de0ea0d1d7be952b61eff") # FIXME
+     version("10.00.15", sha256="8ce74273915b0a5e9fbdf038ad26f8ce3edbcce11506442793fe580e03fb93ba")
+     version("10.00.13", sha256="69934564560eb5d29b5c8197e21399d06be3d886b8f462d09c3f4121a8aa4155") # FIXME
+diff --git a/LArSoft/packages/larpandoracontent/package.py b/LArSoft/packages/larpandoracontent/package.py
+index 3e20189..2a1bfa9 100644
+--- a/LArSoft/packages/larpandoracontent/package.py
++++ b/LArSoft/packages/larpandoracontent/package.py
+@@ -14,6 +14,7 @@ class Larpandoracontent(CMakePackage, FnalGithubPackage):
+     repo = "LArSoft/larpandoracontent"
+     version_patterns = ["v02_07_02", "04.07.01"]
+ 
++    version("04.15.01", sha256="a0d89e0a163f600a0646e9db9a2b04363467d8e6a955eb5e894fc3f65285b5ca") # FIXME
+     version("04.14.01", sha256="4e9565801dc780c7da7ea09194c71ce31822211bd67fa58ff07eecf2789ea921") # FIXME
+     version("04.13.01", sha256="7bcdb5d053ce6a5362e0107af7ffdf640b9fdcbf0179688697fd1a7ecbb2d14e") # FIXME
+     version("04.10.00", sha256="6d09505f29835dd6f1c994491a67f4f04f06a5eb7724c9fe4f5364d2ff28ec32")
+diff --git a/LArSoft/packages/larreco/package.py b/LArSoft/packages/larreco/package.py
+index 995af2f..40b034b 100644
+--- a/LArSoft/packages/larreco/package.py
++++ b/LArSoft/packages/larreco/package.py
+@@ -15,6 +15,7 @@ class Larreco(CMakePackage, FnalGithubPackage):
+     repo = "LArSoft/larreco"
+     version_patterns = ["v09_00_00", "09.23.09"]
+ 
++    version("10.01.12", sha256="c6dfdcfd9e769a307d9f68b13689a4dbb5e22ebe76807a4192425b61c65eb128") # FIXME
+     version("10.01.09", sha256="095b37678ea454eb69096ffa39e9155ad95bf4cf58d4e5e002459c4f3d3ca446") # FIXME
+     version("10.01.08", sha256="31599864d63280b42d668c1af0b7deec919e64d7c7824b9660d56f12e925498b")
+     version("10.01.06", sha256="08a8d460fbfa2a9ebbfff38b639239adbee3c735dc3e239abacddff10808be36") # FIXME
+diff --git a/LArSoft/packages/larrecodnn/package.py b/LArSoft/packages/larrecodnn/package.py
+index bc32174..2e89982 100644
+--- a/LArSoft/packages/larrecodnn/package.py
++++ b/LArSoft/packages/larrecodnn/package.py
+@@ -14,6 +14,7 @@ class Larrecodnn(CMakePackage, FnalGithubPackage):
+     repo = "LArSoft/larrecodnn"
+     version_patterns = ["v09_00_00", "09.21.21"]
+ 
++    version("10.01.10", sha256="86a54b2cdf067a5bcf4e494c2be1162d1e8aa6f58ea37a446962792bc962d334") # FIXME
+     version("10.01.07", sha256="94d340407709deed9b334867559a624ddc69c5f006d610f63641afd8065fe2bd") # FIXME
+     version("10.01.06", sha256="b0938afb0cfa838bdcef51637ce3f969ef3145f3b6abab4906b2abca7e2df471")
+     version("10.01.04", sha256="20ff74a74696f3c9a847e36a05fd30d5fc25974c06278d44053686efae2d1f01") # FIXME
+diff --git a/LArSoft/packages/larsim/package.py b/LArSoft/packages/larsim/package.py
+index 35a26d1..dca222c 100644
+--- a/LArSoft/packages/larsim/package.py
++++ b/LArSoft/packages/larsim/package.py
+@@ -14,6 +14,7 @@ class Larsim(CMakePackage, FnalGithubPackage):
+ 
+     repo = "LArSoft/larsim"
+     version_patterns = ["v09_00_00", "09.40.01"]
++    version("10.04.00", sha256="96bb0c265631cbac56583aafea5a8a20d3bc8ba2de7deac356ff7053f6e3cc36") # FIXME
+     version("10.02.02", sha256="e6d72ea1a54a876022e16bd4371e883fdefeb391b7e1233d38baa59e1807994e")
+     version("10.02.01", sha256="9fe7579d14d08b8100dd751b66af7d9dd171e28a7b1170f15461cabe011b2050")
+     version("10.02.00", sha256="0b0fa0a1852ba6894acf27f3c1698238cd6d9a4faf80fcf246b669a7607f8ab5")
+diff --git a/LArSoft/packages/larsimdnn/package.py b/LArSoft/packages/larsimdnn/package.py
+index 10c25ad..7dfffe6 100644
+--- a/LArSoft/packages/larsimdnn/package.py
++++ b/LArSoft/packages/larsimdnn/package.py
+@@ -14,6 +14,7 @@ class Larsimdnn(CMakePackage, FnalGithubPackage):
+     repo = "LArSoft/larsimdnn"
+     version_patterns = ["v09_00_00", "09.05.18"]
+ 
++    version("10.00.11", sha256="1654f0995347543c00baef1325030d75c141cc08e86b5f9bd055e2150d860f74") # FIXME
+     version("10.00.08", sha256="56c3e1ad68d59100837c123d5145c94411902e2461f0140ad9623f197bb7878f") # FIXME
+     version("10.00.07", sha256="bf6a6b632ee8449edc9e505a96185b8b1db5396c3f629a46db35bc528b4c9b95") # FIXME
+     version("09.06.11", sha256="b220bbc3ee016ceb137a79a1445ec02a5ffc7ff4737e1c58b8b284c15d17a3b9")
+diff --git a/LArSoft/packages/larsimrad/package.py b/LArSoft/packages/larsimrad/package.py
+index 46fbd56..f00fc2c 100644
+--- a/LArSoft/packages/larsimrad/package.py
++++ b/LArSoft/packages/larsimrad/package.py
+@@ -14,6 +14,7 @@ class Larsimrad(CMakePackage, FnalGithubPackage):
+     repo = "LArSoft/larsimrad"
+     version_patterns = ["v09_00_00", "09.08.18"]
+ 
++    version("10.00.12", sha256="9d79deea2318d52e0974e9a53201756ee2ea8881a66779971de5c55264baf635") # FIXME
+     version("10.00.09", sha256="3c4683eac44d181fac57a083363f8e0d20f119bffc2d57f4156755cd91277ff6") # FIXME
+     version("10.00.08", sha256="8227cf6f65e54b482f34e7e254dd1261f0ea5808361e52374147ca9255d7cd64") # FIXME
+     version("09.09.11", sha256="f0a22b39fc77eeadb2a20bf0adc74813e680420b745cccd34fb2705a2e67656e")
+diff --git a/LArSoft/packages/larsoft/package.py b/LArSoft/packages/larsoft/package.py
+index 1e3f2d9..e787c45 100644
+--- a/LArSoft/packages/larsoft/package.py
++++ b/LArSoft/packages/larsoft/package.py
+@@ -17,6 +17,7 @@ class Larsoft(CMakePackage, FnalGithubPackage):
+     homepage = "https://larsoft.org"
+     version_patterns = ["v09_00_00", "09.85.00"]
+ 
++    version("10.06.00", sha256="4e475e7af8428f9292d3e0fd5e94e9aabc2574d779c9eae0e908ac43f4f925ea") # FIXME
+     version("10.04.07", sha256="07d2a7985a099e95b727d65ca169103de085754bb8eecba7f251bcd6117ec15c") # FIXME
+     version("10.04.06", sha256="7a00524ead70fdaf5e6dd93e66c1e706b2d50db723c6de7720e34cf76919541a") # FIXME
+     version("10.04.04", sha256="cef29ed5f94cfb80f28b51bbe2c115844d07a42cdbd9091ccc810e94ad6e09ba") # FIXME
+diff --git a/LArSoft/packages/larsoftobj/package.py b/LArSoft/packages/larsoftobj/package.py
+index 5e33988..bd49b41 100644
+--- a/LArSoft/packages/larsoftobj/package.py
++++ b/LArSoft/packages/larsoftobj/package.py
+@@ -19,6 +19,7 @@ class Larsoftobj(BundlePackage, FnalGithubPackage):
+     repo = "LArSoft/larsoftobj"
+     version_patterns = ["v09_00_00", "09.35.00"]
+ 
++    version("10.01.00")
+     version("10.00.05")
+     version("10.00.04")
+     version("09.36.00")
+diff --git a/LArSoft/packages/larwirecell/package.py b/LArSoft/packages/larwirecell/package.py
+index ad6ce67..ffbaefe 100644
+--- a/LArSoft/packages/larwirecell/package.py
++++ b/LArSoft/packages/larwirecell/package.py
+@@ -14,6 +14,7 @@ class Larwirecell(CMakePackage, FnalGithubPackage):
+     repo = "LArSoft/larwirecell"
+     version_patterns = ["v09_00_00", "09.18.00"]
+ 
++    version("10.01.10", sha256="a8342af4db82e4615ae1347c9371b816362edc8181044e3e6e72164b2b97cc3f") # FIXME
+     version("10.01.07", sha256="79743778ec85e1e74f862bf5d3a074332eee5e33ef7daf9ff664fdb205eb7d29") # FIXME
+     version("10.01.06", sha256="738e5a20e60679b9cc03484f0b2f609d2823fda1b6d6afacaa9856c3b760df20")
+     version("10.01.05", sha256="ab1a48364d84967a884a112c305e5e0138322bf55218194aebf87441f1fef915") # FIXME
+diff --git a/NuSoftHEP/packages/nuevdb/package.py b/NuSoftHEP/packages/nuevdb/package.py
+index 056340c..96bf8ee 100644
+--- a/NuSoftHEP/packages/nuevdb/package.py
++++ b/NuSoftHEP/packages/nuevdb/package.py
+@@ -16,6 +16,7 @@ class Nuevdb(CMakePackage, FnalGithubPackage):
+     version_patterns = ["v1_08_01", "1.09.03"]
+ 
+     version("develop", branch="develop", get_full_repo=True)
++    version("v1_09_10", sha256="9939e1467a91d09ef7c8edb2f6dcbea712909bf6423593bea0913827e3925719")
+     version("1.09.08", sha256="bc949e57ecc9a1658606decd884dc736fa130539d746211231d9b9a60a18a745")
+ 
+     cxxstd_variant("17", "20", default="17")
+diff --git a/NuSoftHEP/packages/nug4/package.py b/NuSoftHEP/packages/nug4/package.py
+index 2e28870..3f1e9b4 100644
+--- a/NuSoftHEP/packages/nug4/package.py
++++ b/NuSoftHEP/packages/nug4/package.py
+@@ -15,6 +15,7 @@ class Nug4(CMakePackage, FnalGithubPackage):
+     license("Apache-2.0")
+     version_patterns = ["v1_15_02", "1.16.03"]
+ 
++    version("v1_16_08", sha256="04f482f859a1da7ac98d0af55e91bb715d2db5e2b3e4ae91aab679c741753eab")
+     version("1.16.06", sha256="afee7472150df82121992db3f5b549f05a013e40debb491bff54c123e1944c37")
+     version("1.16.05", sha256="91d5cf3bfed7206e92193582b4dca48e9089042b959c088666c5c83cedbf0e56")
+     version("develop", branch="develop", get_full_repo=True)
+diff --git a/NuSoftHEP/packages/nugen/package.py b/NuSoftHEP/packages/nugen/package.py
+index 88b01bc..63a370f 100644
+--- a/NuSoftHEP/packages/nugen/package.py
++++ b/NuSoftHEP/packages/nugen/package.py
+@@ -16,7 +16,8 @@ class Nugen(CMakePackage, FnalGithubPackage):
+     license("Apache-2.0")
+     version_patterns = ["v1_19_06", "1.20.03"]
+ 
+-    version("1.21.04", sha256="779cb8243291f720346549515e565e9ed63d4c1920e2a2f39ef6345bd34e9e26") # FIXME
++    version("v1_21_07", sha256="f36bef54c992ab7d8bae2a9a6659f2c0efb1ab7dbcce64eebf22ac481a41f653")
++    version("1.21.04", sha256="779cb8243291f720346549515e565e9ed63d4c1920e2a2f39ef6345bd34e9e26")
+     version("1.21.02", sha256="11dfa220c53c7d6c7593a84e3e37f3af44964e3461c111667c40a341095a6e80")
+     version("1.21.00", sha256="84fab7eabe96a408c5927d6d948021866a8fcc7a1b6e342bce6ea5aaad9570f4")
+     version("1.20.07", sha256="d8de1e474189e8030f00f0b1c35dc11625d45e9cd902b048bf46b0956fc52f83")
+diff --git a/NuSoftHEP/packages/nusimdata/package.py b/NuSoftHEP/packages/nusimdata/package.py
+index bf275fc..462b409 100644
+--- a/NuSoftHEP/packages/nusimdata/package.py
++++ b/NuSoftHEP/packages/nusimdata/package.py
+@@ -16,6 +16,7 @@ class Nusimdata(CMakePackage, FnalGithubPackage):
+     version_patterns = ["v1_24_05", "1.27.02"]
+ 
+     version("develop", branch="develop", get_full_repo=True)
++    version("v1_29_00", sha256="d2b90045ed9fb094a1957a8a92dca2d71ef34010a6a6949b277040b463b63dbd")
+     version("1.28.06", sha256="da5c30b230b37f546612429688e3b4195bdd7b49beccf1f5001ed49cab8717c5")
+     version("1.28.05", sha256="edfc013a790e6f8633088931cd54b7a60adeb4197c87849c3cad124c3dfade9c")
+ 
+diff --git a/NuSoftHEP/packages/nutools/package.py b/NuSoftHEP/packages/nutools/package.py
+index 0f4ecf5..ca1a878 100644
+--- a/NuSoftHEP/packages/nutools/package.py
++++ b/NuSoftHEP/packages/nutools/package.py
+@@ -15,6 +15,7 @@ class Nutools(CMakePackage, FnalGithubPackage):
+     license("Apache-2.0")
+     version_patterns = ["v3_15_04", "3.16.03"]
+ 
++    version("v3_17_01", sha256="e3c44883387fe4242f8e68db398750d2a051372dfda38ff734d4143ce312b1df")
+     version("3.17.00", sha256="48b6be64291411d27878da5010415564fd658ecffc72e617fb8a11579ecaed0b")
+     version("3.16.06", sha256="f540be7b30eec357c5f65260be6da3ce6988e5b193c58770baaa36a913a513ac")
+                 
+diff --git a/Specs/icaruscode-v10_04_04-spec.txt b/Specs/icaruscode-v10_04_04-spec.txt
+index 7511078..433ec7b 100644
+--- a/Specs/icaruscode-v10_04_04-spec.txt
++++ b/Specs/icaruscode-v10_04_04-spec.txt
+@@ -1 +1 @@
+-icaruscode@10.04.04 ^icarusalg@10.04.04 ^icarus-signal-processing@09.91.02.02 ^sbnanaobj@10.00.00 ^sbncode@v10_04_04 ^sbndaq-artdaq-core@1.10.04 ^sbnobj@10.00.05 ^ninja@1.11.1 ^gcc@12.1.0 ^gmp@6.2.1 ^valgrind@3.21.0 ^nlohmann-json@3.11.2 ^range-v3@0.12.0 ^libxml2@2.9.12 ^fftw@3.3.10 ^sqlite@3.43.2 ^python@3.9.15 ^postgresql@15.3 ^py-sphinx@7.2.6 ^catch2@3.3.2 ^gsl@2.7 ^boost@1.82.0 ^jemalloc@5.3.0 ^intel-tbb@2021.9.0 ^openblas@0.3.23 ^clhep@2.4.7.1 ^pythia6@6.4.28 ^abseil-cpp@20230802.1 ^protobuf@3.21.12 cxxstd==17 ^xrootd@5.6.9 ^py-numpy@1.24.3 ^root@6.28.12 +spectrum cxxstd==17 ~jemalloc ^cry@1.7 ^lhapdf@6.5.4 ^xerces-c@3.2.3 ^log4cpp@1.1.3 ^g4abla@3.1 ^g4emlow@7.9.1 ^g4incl@1.0 ^g4ndl@4.6 ^g4particlexs@2.1 ^g4saiddata@2.0 ^g4ensdfstate@2.2 ^g4photonevaporation@5.5 ^g4pii@1.3 ^g4radioactivedecay@5.4 ^g4realsurface@2.1.1 ^geant4@10.6.1 ^hepmc3@3.2.7 ^pythia8@8.311 ^tauola@1.1.8 ^genie@3.04.02 ^dk2nudata@01.10.01 ^dk2nugenie@01.10.01 ^castxml@0.5.1 ^py-pygccxml@2.2.1 ^grpc@1.35.0 ^eigen@3.4.0 ^giflib@5.2.1 ^libpng@1.6.37 ^libjpeg-turbo@2.1.0 ^py-tensorflow@2.15.0 ^triton@23.09 ^py-torch@2.1.1 ^torch-scatter@2.1.2 ^genie-xsec@3_04_00 ^cetlib-except@1.09.01 ^hep-concurrency@1.09.02 ^cetlib@3.18.02 ^fhicl-cpp@4.18.04 ^messagefacility@2.10.05 ^canvas@3.16.04 ^art@3.14.04 ^libwda@2.30.0 ^ifdhc-config@2.7.2 ^ifdhc@2.7.2 ^ifbeam@2.6.2 ^nucondb@2.6.2 ^ifdh-art@2.17.07 ^canvas-root-io@1.13.06 ^art-root-io@1.13.06 ^trace@v3_17_11 ^nufinder@1.02.01 ^nusimdata@1.28.06 ^nuevdb@1.09.08 ^nug4@1.16.06 ^nugen@1.21.04 ^nurandom@1.11.05 ^nutools@3.17.00 ^systematicstools@v01_04_04 ^nusystematics@1.05.04 ^ppfx@02.20.04 ^marley@1.2.1 ^pandora@03.16.00 ^rstartree@0.2 ^hdf5@1.14.3 ^hep-hpc@v0_14_02 ^glpk@4.65 ^h5cpp@1.10.4-6 ^jsoncpp@1.9.5 ^bxdecay0@1.1.0 ^spdlog@1.9.2 ^wirecell@0.29.5 ^delaunator-cpp@1.0.0 ^larsoft-data@1.02.02 ^gallery@1.22.06 ^artg4tk@12.00.03 ^larcoreobj@10.00.00 ^larcorealg@10.00.01 ^lardataobj@10.00.03 ^lardataalg@10.00.03 ^larvecutils@09.04.02 ^larsoftobj@10.00.04 ^larpandoracontent@04.13.01 ^larcore@10.00.01 ^lardata@10.00.05 ^larevt@10.00.05 ^larg4@10.00.05 ^larfinder@09.00.02 ^larsim@10.02.01 ^larsimrad@10.00.08 ^larreco@10.01.06 ^larrecodnn@10.01.04 ^larana@10.00.10 ^larpandora@10.00.13 ^larwirecell@10.01.05 ^larexamples@10.00.08 ^lareventdisplay@10.00.09 ^larsoft@10.04.04
++icaruscode@10.04.04 ^icarusalg@10.04.04 ^icarus-signal-processing@09.91.02.02 ^sbnanaobj@10.00.00 ^sbncode@v10_04_04 ^sbndaq-artdaq-core@1.10.04 ^sbnobj@10.00.05 ^ninja@1.11.1 ^gcc@12.1.0 ^gmp@6.2.1 ^valgrind@3.21.0 ^nlohmann-json@3.11.2 ^range-v3@0.12.0 ^libxml2@2.9.12 ^fftw@3.3.10 ^sqlite@3.43.2 ^python@3.9.15 ^postgresql@15.3 ^py-sphinx@7.2.6 ^catch2@3.3.2 ^gsl@2.7 ^boost@1.82.0 ^jemalloc@5.3.0 ^intel-tbb@2021.9.0 ^openblas@0.3.23 ^clhep@2.4.7.1 ^pythia6@6.4.28 ^abseil-cpp@20230802.1 ^protobuf@3.21.12 cxxstd==17 ^xrootd@5.6.9 ^py-numpy@1.24.3 ^root@6.28.12 +spectrum cxxstd==17 ~jemalloc ^cry@1.7 ^lhapdf@6.5.4 ^xerces-c@3.2.3 ^log4cpp@1.1.3 ^g4abla@3.1 ^g4emlow@7.9.1 ^g4incl@1.0 ^g4ndl@4.6 ^g4particlexs@2.1 ^g4saiddata@2.0 ^g4ensdfstate@2.2 ^g4photonevaporation@5.5 ^g4pii@1.3 ^g4radioactivedecay@5.4 ^g4realsurface@2.1.1 ^geant4@10.6.1 ^hepmc3@3.2.7 ^pythia8@8.311 ^tauola@1.1.8 ^genie@3.04.02 ^dk2nudata@01.10.01 ^dk2nugenie@01.10.01 ^castxml@0.5.1 ^py-pygccxml@2.2.1 ^grpc@1.35.0 ^eigen@3.4.0 ^giflib@5.2.1 ^libpng@1.6.37 ^libjpeg-turbo@2.1.0 ^py-tensorflow@2.15.0 ^triton@23.09 ^py-torch@2.1.1 cuda_arch=80 ^torch-scatter@2.1.2 ^genie-xsec@3_04_00 ^cetlib-except@1.09.01 ^hep-concurrency@1.09.02 ^cetlib@3.18.02 ^fhicl-cpp@4.18.04 ^messagefacility@2.10.05 ^canvas@3.16.04 ^art@3.14.04 ^libwda@2.30.0 ^ifdhc-config@2.7.2 ^ifdhc@2.7.2 ^ifbeam@2.6.2 ^nucondb@2.6.2 ^ifdh-art@2.17.07 ^canvas-root-io@1.13.06 ^art-root-io@1.13.06 ^trace@v3_17_11 ^nufinder@1.02.01 ^nusimdata@1.28.06 ^nuevdb@1.09.08 ^nug4@1.16.06 ^nugen@1.21.04 ^nurandom@1.11.05 ^nutools@3.17.00 ^systematicstools@v01_04_04 ^nusystematics@1.05.04 ^ppfx@02.20.04 ^marley@1.2.1 ^pandora@03.16.00 ^rstartree@0.2 ^hdf5@1.14.3 ^hep-hpc@v0_14_02 ^glpk@4.65 ^h5cpp@1.10.4-6 ^jsoncpp@1.9.5 ^bxdecay0@1.1.0 ^spdlog@1.9.2 ^wirecell@0.29.5 +root +cuda +torch ^delaunator-cpp@1.0.0 ^larsoft-data@1.02.02 ^gallery@1.22.06 ^artg4tk@12.00.03 ^larcoreobj@10.00.00 ^larcorealg@10.00.01 ^lardataobj@10.00.03 ^lardataalg@10.00.03 ^larvecutils@09.04.02 ^larsoftobj@10.00.04 ^larpandoracontent@04.13.01 ^larcore@10.00.01 ^lardata@10.00.05 ^larevt@10.00.05 ^larg4@10.00.05 ^larfinder@09.00.02 ^larsim@10.02.01 ^larsimrad@10.00.08 ^larreco@10.01.06 ^larrecodnn@10.01.04 ^larana@10.00.10 ^larpandora@10.00.13 ^larwirecell@10.01.05 ^larexamples@10.00.08 ^lareventdisplay@10.00.09 ^larsoft@10.04.04
+diff --git a/Specs/sbn-10.04.06.01-Linux64bit+3.10-2.17-e26-prof_MANIFEST.txt b/Specs/sbn-10.04.06.01-Linux64bit+3.10-2.17-e26-prof_MANIFEST.txt
+deleted file mode 100644
+index 1c41221..0000000
+--- a/Specs/sbn-10.04.06.01-Linux64bit+3.10-2.17-e26-prof_MANIFEST.txt
++++ /dev/null
+@@ -1,181 +0,0 @@
+-sbnanaobj            v10_00_00       sbnanaobj-10.00.00-slf7-x86_64-e26-prof.tar.bz2             
+-sbncode              v10_04_06_01    sbncode-10.04.06.01-slf7-x86_64-e26-prof.tar.bz2            
+-sbndaq_artdaq_core   v1_10_06        sbndaq_artdaq_core-1.10.06-slf7-x86_64-e26-s131-prof.tar.bz2
+-sbnobj               v10_00_07       sbnobj-10.00.07-slf7-x86_64-e26-prof.tar.bz2                
+-ups                  v6_1_1          ups-6.1.1-Linux64bit+3.10-2.17.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-upd                  v5_0_1          upd-5.0.1-noarch.tar.bz2                                     -f NULL                                       
+-ninja                v1_11_1         ninja-1.11.1-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-gcc                  v12_1_0         gcc-12.1.0-sl7-x86_64.tar.bz2                                -f Linux64bit+3.10-2.17                       
+-cmake                v3_20_0         cmake-3.20.0-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_22_2         cmake-3.22.2-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_25_2         cmake-3.25.2-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_26_4         cmake-3.26.4-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_27_4         cmake-3.27.4-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-gmp                  v6_2_1          gmp-6.2.1-sl7-x86_64.tar.bz2                                 -f Linux64bit+3.10-2.17                       
+-gdb                  v13_1           gdb-13.1-sl7-x86_64.tar.bz2                                  -f Linux64bit+3.10-2.17                       
+-valgrind             v3_21_0         valgrind-3.21.0-sl7-x86_64.tar.bz2                           -f Linux64bit+3.10-2.17                       
+-git                  v2_40_1         git-2.40.1-sl7-x86_64.tar.bz2                                -f Linux64bit+3.10-2.17                       
+-gitflow              v1_12_3         gitflow-1.12.3-noarch.tar.bz2                                -f NULL                                       
+-gh                   v2_25_1         gh-2.25.1-sl7-x86_64.tar.bz2                                 -f Linux64bit+3.10-2.17                       
+-iwyu                 v0_19           iwyu-0.19-sl7-x86_64.tar.bz2                                 -f Linux64bit+3.10-2.17                       
+-nlohmann_json        v3_11_2         nlohmann_json-3.11.2-noarch.tar.bz2                          -f NULL                                       
+-range                v3_0_12_0       range-3.0.12.0-noarch.tar.bz2                                -f NULL                                       
+-guideline_sl         v4_0_0          guideline_sl-4.0.0-noarch.tar.bz2                            -f NULL                                       
+-libxml2              v2_9_12         libxml2-2.9.12-sl7-x86_64.tar.bz2                            -f Linux64bit+3.10-2.17                       
+-fftw                 v3_3_10         fftw-3.3.10-sl7-x86_64.tar.bz2                               -f Linux64bit+3.10-2.17                       
+-sqlite               v3_40_01_00     sqlite-3.40.01.00-sl7-x86_64.tar.bz2                         -f Linux64bit+3.10-2.17                       
+-python               v3_9_15         python-3.9.15-sl7-x86_64.tar.bz2                             -f Linux64bit+3.10-2.17                       
+-pybind11             v2_10_4         pybind11-2.10.4-noarch.tar.bz2                               -f NULL                                       
+-postgresql           v15_3           postgresql-15.3-sl7-x86_64-p3915.tar.bz2                     -f Linux64bit+3.10-2.17    -q p3915           
+-sphinx               v7_2_6          sphinx-7.2.6-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-catch                v3_3_2          catch-3.3.2-sl7-x86_64-e26.tar.bz2                           -f Linux64bit+3.10-2.17    -q e26             
+-gsl                  v2_7            gsl-2.7-sl7-x86_64.tar.bz2                                   -f Linux64bit+3.10-2.17                       
+-boost                v1_82_0         boost-1.82.0-sl7-x86_64-e26-prof.tar.bz2                     -f Linux64bit+3.10-2.17    -q e26:prof        
+-jemalloc             v5_3_0d         jemalloc-5.3.0d-sl7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-cppunit              v1_15_1f        cppunit-1.15.1f-sl7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-tbb                  v2021_9_0       tbb-2021.9.0-sl7-x86_64-e26.tar.bz2                          -f Linux64bit+3.10-2.17    -q e26             
+-openblas             v0_3_23         openblas-0.3.23-sl7-x86_64-e26.tar.bz2                       -f Linux64bit+3.10-2.17    -q e26             
+-clhep                v2_4_7_1        clhep-2.4.7.1-sl7-x86_64-e26-prof.tar.bz2                    -f Linux64bit+3.10-2.17    -q e26:prof        
+-pythia               v6_4_28x        pythia-6.4.28x-sl7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-abseil_cpp           v20230802_1     abseil_cpp-20230802.1-sl7-x86_64-e26.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26             
+-protobuf             v3_21_12a       protobuf-3.21.12a-sl7-x86_64-e26.tar.bz2                     -f Linux64bit+3.10-2.17    -q e26             
+-scitokens_cpp        v1_0_1a         scitokens_cpp-1.0.1a-sl7-x86_64-e26-sql34001.tar.bz2         -f Linux64bit+3.10-2.17    -q e26:sql34001    
+-xrootd               v5_5_5a         xrootd-5.5.5a-sl7-x86_64-e26-p3915-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-numpy                v1_24_3         numpy-1.24.3-sl7-x86_64-e26-p3915.tar.bz2                    -f Linux64bit+3.10-2.17    -q e26:p3915       
+-root                 v6_28_12        root-6.28.12-sl7-x86_64-e26-p3915-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-cetpkgsupport        v1_14_01        cetpkgsupport-1.14.01-noarch.tar.bz2                         -f NULL                                       
+-cetmodules           v3_16_00        cetmodules-3.16.00-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_21_00        cetmodules-3.21.00-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_21_01        cetmodules-3.21.01-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_21_02        cetmodules-3.21.02-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_22_01        cetmodules-3.22.01-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_22_02        cetmodules-3.22.02-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_24_00        cetmodules-3.24.00-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_24_01        cetmodules-3.24.01-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-mrb                  v6_09_06        mrb-6.09.06-slf7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_14_3         cmake-3.14.3-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_24_1         cmake-3.24.1-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cry                  v1_7q           cry-1.7q-sl7-x86_64-e26-prof.tar.bz2                         -f Linux64bit+3.10-2.17    -q e26:prof        
+-lhapdf               v6_5_4          lhapdf-6.5.4-sl7-x86_64-e26-p3915-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-xerces_c             v3_2_3e         xerces_c-3.2.3e-sl7-x86_64-e26.tar.bz2                       -f Linux64bit+3.10-2.17    -q e26             
+-log4cpp              v1_1_3e         log4cpp-1.1.3e-sl7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-g4abla               v3_1            g4abla-3.1-noarch.tar.bz2                                    -f NULL                                       
+-g4emlow              v7_9_1          g4emlow-7.9.1-noarch.tar.bz2                                 -f NULL                                       
+-g4incl               v1_0            g4incl-1.0-noarch.tar.bz2                                    -f NULL                                       
+-g4neutron            v4_6            g4neutron-4.6-noarch.tar.bz2                                 -f NULL                                       
+-g4particlexs         v2_1            g4particlexs-2.1-noarch.tar.bz2                              -f NULL                                       
+-g4nucleonxs          v2_0            g4nucleonxs-2.0-noarch.tar.bz2                               -f NULL                                       
+-g4nuclide            v2_2            g4nuclide-2.2-noarch.tar.bz2                                 -f NULL                                       
+-g4photon             v5_5            g4photon-5.5-noarch.tar.bz2                                  -f NULL                                       
+-g4pii                v1_3            g4pii-1.3-noarch.tar.bz2                                     -f NULL                                       
+-g4radiative          v5_4            g4radiative-5.4-noarch.tar.bz2                               -f NULL                                       
+-g4surface            v2_1_1          g4surface-2.1.1-noarch.tar.bz2                               -f NULL                                       
+-g4tendl              v1_3_2          g4tendl-1.3.2-noarch.tar.bz2                                 -f NULL                                       
+-geant4               v4_10_6_p01g    geant4-4.10.6.p01g-sl7-x86_64-e26-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:prof        
+-hepmc3               v3_2_7          hepmc3-3.2.7-sl7-x86_64-e26-p3915-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-pythia8              v8_3_10         pythia8-8.3.10-sl7-x86_64-e26-p3915-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-tauola               v1_1_8l         tauola-1.1.8l-sl7-x86_64-e26-p3915-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-genie                v3_04_02a       genie-3.04.02a-sl7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-genie                v3_04_02a       genie-3.04.02a-sl7-x86_64-e26-geant4-prof.tar.bz2            -f Linux64bit+3.10-2.17    -q e26:geant4:prof 
+-inclxx               v5_2_9_5g       inclxx-5.2.9.5g-sl7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-genie                v3_04_02a       genie-3.04.02a-sl7-x86_64-e26-inclxx-prof.tar.bz2            -f Linux64bit+3.10-2.17    -q e26:inclxx:prof 
+-dk2nudata            v01_10_01h      dk2nudata-01.10.01h-sl7-x86_64-e26-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:prof        
+-dk2nugenie           v01_10_01r      dk2nugenie-01.10.01r-sl7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-castxml              v0_5_1          castxml-0.5.1-sl7-x86_64.tar.bz2                             -f Linux64bit+3.10-2.17                       
+-pygccxml             v2_2_1b         pygccxml-2.2.1b-noarch-p3915.tar.bz2                         -f NULL                    -q p3915           
+-pycurl               v7_45_2         pycurl-7.45.2-sl7-x86_64-p3915.tar.bz2                       -f Linux64bit+3.10-2.17    -q p3915           
+-grpc                 v1_35_0c        grpc-1.35.0c-sl7-x86_64-e26.tar.bz2                          -f Linux64bit+3.10-2.17    -q e26             
+-eigen                v23_08_01_66e8f eigen-23.08.01.66e8f-noarch.tar.bz2                          -f NULL                                       
+-giflib               v5_2_1          giflib-5.2.1-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-libpng               v1_6_37         libpng-1.6.37-sl7-x86_64.tar.bz2                             -f Linux64bit+3.10-2.17                       
+-libjpeg_turbo        v2_1_0          libjpeg_turbo-2.1.0-sl7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-tensorflow           v2_15_0         tensorflow-2.15.0-sl7-x86_64-e26-p3915.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:p3915       
+-triton               v2_25_0d        triton-2.25.0d-sl7-x86_64-e26.tar.bz2                        -f Linux64bit+3.10-2.17    -q e26             
+-libtorch             v2_1_1b         libtorch-2.1.1b-sl7-x86_64-e26.tar.bz2                       -f Linux64bit+3.10-2.17    -q e26             
+-torch_scatter        v2_1_2a         torch_scatter-2.1.2a-sl7-x86_64-e26.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26             
+-genie_phyopt         v3_04_00        genie_phyopt-3.04.00-noarch-dkcharm.tar.bz2                  -f NULL                    -q dkcharm         
+-genie_phyopt         v3_04_00        genie_phyopt-3.04.00-noarch-dkcharmtau.tar.bz2               -f NULL                    -q dkcharmtau      
+-genie_xsec           v3_04_00        genie_xsec-3.04.00-noarch-AR2320i00000-k250-e1000.tar.bz2    -f NULL                    -q AR2320i00000:k250:e1000
+-genie_xsec           v3_04_00        genie_xsec-3.04.00-noarch-G1802a00000-k250-e1000.tar.bz2     -f NULL                    -q G1802a00000:k250:e1000
+-genie_xsec           v3_04_00        genie_xsec-3.04.00-noarch-G1810a0211a-k250-e1000.tar.bz2     -f NULL                    -q G1810a0211a:k250:e1000
+-genie_xsec           v3_04_00        genie_xsec-3.04.00-noarch-G1810a0211b-k250-e1000.tar.bz2     -f NULL                    -q G1810a0211b:k250:e1000
+-genie_xsec           v3_04_00        genie_xsec-3.04.00-noarch-GDNu2001a00000-k120-e200.tar.bz2   -f NULL                    -q GDNu2001a00000:k120:e200
+-studio               v1_02_00        studio-1.02.00-noarch.tar.bz2                                -f NULL                                       
+-cetlib_except        v1_09_01        cetlib_except-1.09.01-slf7-x86_64-e26-prof.tar.bz2           -f Linux64bit+3.10-2.17    -q e26:prof        
+-hep_concurrency      v1_09_02        hep_concurrency-1.09.02-slf7-x86_64-e26-prof.tar.bz2         -f Linux64bit+3.10-2.17    -q e26:prof        
+-cetlib               v3_18_02        cetlib-3.18.02-slf7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-fhiclcpp             v4_18_04        fhiclcpp-4.18.04-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-messagefacility      v2_10_05        messagefacility-2.10.05-slf7-x86_64-e26-prof.tar.bz2         -f Linux64bit+3.10-2.17    -q e26:prof        
+-canvas               v3_16_04        canvas-3.16.04-slf7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-art                  v3_14_04        art-3.14.04-slf7-x86_64-e26-prof.tar.bz2                     -f Linux64bit+3.10-2.17    -q e26:prof        
+-libwda               v2_30_0a        libwda-2.30.0a-sl7-x86_64.tar.bz2                            -f Linux64bit+3.10-2.17                       
+-ifdhc_config         v2_7_2          ifdhc_config-2.7.2-noarch.tar.bz2                            -f NULL                                       
+-ifdhc                v2_7_2          ifdhc-2.7.2-sl7-x86_64-e26-p3915-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-ifbeam               v2_6_2          ifbeam-2.6.2-sl7-x86_64-e26-p3915-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-nucondb              v2_6_2          nucondb-2.6.2-sl7-x86_64-e26-p3915-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-cetmodules           v3_20_00        cetmodules-3.20.00-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-ifdh_art             v2_17_07        ifdh_art-2.17.07-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-hub                  v2_14_2         hub-2.14.2-sl7-x86_64.tar.bz2                                -f Linux64bit+3.10-2.17                       
+-canvas_root_io       v1_13_06        canvas_root_io-1.13.06-slf7-x86_64-e26-prof.tar.bz2          -f Linux64bit+3.10-2.17    -q e26:prof        
+-art_root_io          v1_13_06        art_root_io-1.13.06-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-cetmodules           v1_04_00        cetmodules-1.04.00-noarch.tar.bz2                            -f NULL                                       
+-TRACE                v3_17_11        TRACE-3.17.11-noarch.tar.bz2                                 -f Linux64bit+3.10-2.17                       
+-artdaq_core          v3_10_02        artdaq_core-3.10.02-slf7-x86_64-e26-s131-prof.tar.bz2        -f Linux64bit+3.10-2.17    -q e26:s131:prof   
+-toyExperiment        v0_10_06        toyExperiment-0.10.06-slf7-x86_64-e26-s131-prof.tar.bz2      -f Linux64bit+3.10-2.17    -q e26:s131:prof   
+-nufinder             v1_02_01        nufinder-1.02.01-noarch.tar.bz2                              -f NULL                                       
+-nusimdata            v1_28_06        nusimdata-1.28.06-slf7-x86_64-e26-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:prof        
+-nuevdb               v1_09_08        nuevdb-1.09.08-slf7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-nug4                 v1_16_06        nug4-1.16.06-slf7-x86_64-e26-prof.tar.bz2                    -f Linux64bit+3.10-2.17    -q e26:prof        
+-geant4reweight       v01_20_09       geant4reweight-01.20.09-slf7-x86_64-e26-s131-prof.tar.bz2    -f Linux64bit+3.10-2.17    -q e26:s131:prof   
+-nugen                v1_21_04        nugen-1.21.04-slf7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-nurandom             v1_11_05        nurandom-1.11.05-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-nutools              v3_17_00        nutools-3.17.00-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+-systematicstools     v01_04_04       systematicstools-01.04.04-slf7-x86_64-e26-prof.tar.bz2       -f Linux64bit+3.10-2.17    -q e26:prof        
+-nusystematics        v1_05_04        nusystematics-1.05.04-slf7-x86_64-e26-prof.tar.bz2           -f Linux64bit+3.10-2.17    -q e26:prof        
+-ppfx                 v02_20_04       ppfx-02.20.04-slf7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-marley               v1_2_1d         marley-1.2.1d-sl7-x86_64-e26-prof.tar.bz2                    -f Linux64bit+3.10-2.17    -q e26:prof        
+-pandora              v03_16_00l      pandora-03.16.00l-sl7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-rstartree            v2016_07        rstartree-2016.07-noarch.tar.bz2                             -f Linux64bit+3.10-2.17                       
+-hdf5                 v1_12_2a        hdf5-1.12.2a-sl7-x86_64-e26-prof.tar.bz2                     -f Linux64bit+3.10-2.17    -q e26:prof        
+-hep_hpc              v0_14_02        hep_hpc-0.14.02-sl7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-glpk                 v4_65           glpk-4.65-sl7-x86_64-prof.tar.bz2                            -f Linux64bit+3.10-2.17    -q prof            
+-h5cpp                v1_10_4_6c      h5cpp-1.10.4.6c-noarch.tar.bz2                               -f NULL                                       
+-jsoncpp              v1_9_5a         jsoncpp-1.9.5a-sl7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-golang               v1_17           golang-1.17-sl7-x86_64.tar.bz2                               -f Linux64bit+3.10-2.17                       
+-gojsonnet            v0_18_0         gojsonnet-0.18.0-sl7-x86_64-e26.tar.bz2                      -f Linux64bit+3.10-2.17    -q e26             
+-bxdecay0             v1_1_0          bxdecay0-1.1.0-sl7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-spdlog               v1_9_2          spdlog-1.9.2-sl7-x86_64-e26-prof.tar.bz2                     -f Linux64bit+3.10-2.17    -q e26:prof        
+-wirecell             v0_29_5         wirecell-0.29.5-sl7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-delaunator           v1_0_0          delaunator-1.0.0-noarch.tar.bz2                              -f NULL                                       
+-cmake                v3_21_4         cmake-3.21.4-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_22_0         cmake-3.22.0-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-larsoft_data         v1_02_02        larsoft_data-1.02.02-noarch.tar.bz2                          -f NULL                                       
+-mrb                  v6_09_09        mrb-6.09.09-slf7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-gallery              v1_22_06        gallery-1.22.06-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+-artg4tk              v12_00_03       artg4tk-12.00.03-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-fhiclpy              v4_03_05        fhiclpy-4.03.05-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+-larcoreobj           v10_00_00       larcoreobj-10.00.00-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-larcorealg           v10_00_02       larcorealg-10.00.02-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-lardataobj           v10_00_04       lardataobj-10.00.04-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-lardataalg           v10_00_04       lardataalg-10.00.04-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-larvecutils          v09_04_02       larvecutils-09.04.02-slf7-x86_64-e26-prof.tar.bz2            -f Linux64bit+3.10-2.17    -q e26:prof        
+-larsoftobj           v10_00_05       larsoftobj-10.00.05-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-larpandoracontent    v04_14_01       larpandoracontent-04.14.01-slf7-x86_64-e26-prof.tar.bz2      -f Linux64bit+3.10-2.17    -q e26:prof        
+-larcore              v10_00_02       larcore-10.00.02-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-lardata              v10_00_06       lardata-10.00.06-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-larevt               v10_00_06       larevt-10.00.06-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+-larg4                v10_00_06       larg4-10.00.06-slf7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-larfinder            v09_00_02       larfinder-09.00.02-noarch.tar.bz2                            -f NULL                                       
+-larsim               v10_02_02       larsim-10.02.02-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+-larsimrad            v10_00_09       larsimrad-10.00.09-slf7-x86_64-e26-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:prof        
+-larsimdnn            v10_00_08       larsimdnn-10.00.08-slf7-x86_64-e26-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:prof        
+-larreco              v10_01_08       larreco-10.01.08-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-larrecodnn           v10_01_06       larrecodnn-10.01.06-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-larana               v10_00_12       larana-10.00.12-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+-larpandora           v10_00_15       larpandora-10.00.15-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-larwirecell          v10_01_06       larwirecell-10.01.06-slf7-x86_64-e26-prof.tar.bz2            -f Linux64bit+3.10-2.17    -q e26:prof        
+-larexamples          v10_00_09       larexamples-10.00.09-slf7-x86_64-e26-prof.tar.bz2            -f Linux64bit+3.10-2.17    -q e26:prof        
+-lareventdisplay      v10_00_11       lareventdisplay-10.00.11-slf7-x86_64-e26-prof.tar.bz2        -f Linux64bit+3.10-2.17    -q e26:prof        
+-larsoft              v10_04_06       larsoft-10.04.06-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-larbatch             v01_60_02       larbatch-01.60.02-noarch.tar.bz2                             -f NULL                                       
+-larutils             v1_29_08        larutils-1.29.08-noarch.tar.bz2                              -f NULL                                       
+diff --git a/Specs/sbnd-10.04.06.01-Linux64bit+3.10-2.17-e26-prof_MANIFEST.txt b/Specs/sbnd-10.04.06.01-Linux64bit+3.10-2.17-e26-prof_MANIFEST.txt
+deleted file mode 100644
+index 68ba5bd..0000000
+--- a/Specs/sbnd-10.04.06.01-Linux64bit+3.10-2.17-e26-prof_MANIFEST.txt
++++ /dev/null
+@@ -1,365 +0,0 @@
+-sbndcode             v10_04_06_01    sbndcode-10.04.06.01-slf7-x86_64-e26-prof.tar.bz2           
+-sbndutil             v10_04_06_01    sbndutil-10.04.06.01-slf7-x86_64-e26-prof.tar.bz2           
+-sbnd_data          v01_28_00       sbnd_data-01.28.00-noarch.tar.bz2
+-sbnanaobj            v10_00_00       sbnanaobj-10.00.00-slf7-x86_64-e26-prof.tar.bz2             
+-sbncode              v10_04_06_01    sbncode-10.04.06.01-slf7-x86_64-e26-prof.tar.bz2            
+-sbndaq_artdaq_core   v1_10_06        sbndaq_artdaq_core-1.10.06-slf7-x86_64-e26-s131-prof.tar.bz2
+-sbnobj               v10_00_07       sbnobj-10.00.07-slf7-x86_64-e26-prof.tar.bz2                
+-ups                  v6_1_1          ups-6.1.1-Linux64bit+3.10-2.17.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-upd                  v5_0_1          upd-5.0.1-noarch.tar.bz2                                     -f NULL                                       
+-ninja                v1_11_1         ninja-1.11.1-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-gcc                  v12_1_0         gcc-12.1.0-sl7-x86_64.tar.bz2                                -f Linux64bit+3.10-2.17                       
+-cmake                v3_20_0         cmake-3.20.0-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_22_2         cmake-3.22.2-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_25_2         cmake-3.25.2-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_26_4         cmake-3.26.4-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_27_4         cmake-3.27.4-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-gmp                  v6_2_1          gmp-6.2.1-sl7-x86_64.tar.bz2                                 -f Linux64bit+3.10-2.17                       
+-gdb                  v13_1           gdb-13.1-sl7-x86_64.tar.bz2                                  -f Linux64bit+3.10-2.17                       
+-valgrind             v3_21_0         valgrind-3.21.0-sl7-x86_64.tar.bz2                           -f Linux64bit+3.10-2.17                       
+-git                  v2_40_1         git-2.40.1-sl7-x86_64.tar.bz2                                -f Linux64bit+3.10-2.17                       
+-gitflow              v1_12_3         gitflow-1.12.3-noarch.tar.bz2                                -f NULL                                       
+-gh                   v2_25_1         gh-2.25.1-sl7-x86_64.tar.bz2                                 -f Linux64bit+3.10-2.17                       
+-iwyu                 v0_19           iwyu-0.19-sl7-x86_64.tar.bz2                                 -f Linux64bit+3.10-2.17                       
+-nlohmann_json        v3_11_2         nlohmann_json-3.11.2-noarch.tar.bz2                          -f NULL                                       
+-range                v3_0_12_0       range-3.0.12.0-noarch.tar.bz2                                -f NULL                                       
+-guideline_sl         v4_0_0          guideline_sl-4.0.0-noarch.tar.bz2                            -f NULL                                       
+-libxml2              v2_9_12         libxml2-2.9.12-sl7-x86_64.tar.bz2                            -f Linux64bit+3.10-2.17                       
+-fftw                 v3_3_10         fftw-3.3.10-sl7-x86_64.tar.bz2                               -f Linux64bit+3.10-2.17                       
+-sqlite               v3_40_01_00     sqlite-3.40.01.00-sl7-x86_64.tar.bz2                         -f Linux64bit+3.10-2.17                       
+-python               v3_9_15         python-3.9.15-sl7-x86_64.tar.bz2                             -f Linux64bit+3.10-2.17                       
+-pybind11             v2_10_4         pybind11-2.10.4-noarch.tar.bz2                               -f NULL                                       
+-postgresql           v15_3           postgresql-15.3-sl7-x86_64-p3915.tar.bz2                     -f Linux64bit+3.10-2.17    -q p3915           
+-sphinx               v7_2_6          sphinx-7.2.6-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-catch                v3_3_2          catch-3.3.2-sl7-x86_64-e26.tar.bz2                           -f Linux64bit+3.10-2.17    -q e26             
+-gsl                  v2_7            gsl-2.7-sl7-x86_64.tar.bz2                                   -f Linux64bit+3.10-2.17                       
+-boost                v1_82_0         boost-1.82.0-sl7-x86_64-e26-prof.tar.bz2                     -f Linux64bit+3.10-2.17    -q e26:prof        
+-jemalloc             v5_3_0d         jemalloc-5.3.0d-sl7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-cppunit              v1_15_1f        cppunit-1.15.1f-sl7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-tbb                  v2021_9_0       tbb-2021.9.0-sl7-x86_64-e26.tar.bz2                          -f Linux64bit+3.10-2.17    -q e26             
+-openblas             v0_3_23         openblas-0.3.23-sl7-x86_64-e26.tar.bz2                       -f Linux64bit+3.10-2.17    -q e26             
+-clhep                v2_4_7_1        clhep-2.4.7.1-sl7-x86_64-e26-prof.tar.bz2                    -f Linux64bit+3.10-2.17    -q e26:prof        
+-pythia               v6_4_28x        pythia-6.4.28x-sl7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-abseil_cpp           v20230802_1     abseil_cpp-20230802.1-sl7-x86_64-e26.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26             
+-protobuf             v3_21_12a       protobuf-3.21.12a-sl7-x86_64-e26.tar.bz2                     -f Linux64bit+3.10-2.17    -q e26             
+-scitokens_cpp        v1_0_1a         scitokens_cpp-1.0.1a-sl7-x86_64-e26-sql34001.tar.bz2         -f Linux64bit+3.10-2.17    -q e26:sql34001    
+-xrootd               v5_5_5a         xrootd-5.5.5a-sl7-x86_64-e26-p3915-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-numpy                v1_24_3         numpy-1.24.3-sl7-x86_64-e26-p3915.tar.bz2                    -f Linux64bit+3.10-2.17    -q e26:p3915       
+-root                 v6_28_12        root-6.28.12-sl7-x86_64-e26-p3915-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-cetpkgsupport        v1_14_01        cetpkgsupport-1.14.01-noarch.tar.bz2                         -f NULL                                       
+-cetmodules           v3_16_00        cetmodules-3.16.00-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_21_00        cetmodules-3.21.00-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_21_01        cetmodules-3.21.01-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_21_02        cetmodules-3.21.02-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_22_01        cetmodules-3.22.01-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_22_02        cetmodules-3.22.02-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_24_00        cetmodules-3.24.00-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_24_01        cetmodules-3.24.01-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-mrb                  v6_09_06        mrb-6.09.06-slf7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_14_3         cmake-3.14.3-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_24_1         cmake-3.24.1-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cry                  v1_7q           cry-1.7q-sl7-x86_64-e26-prof.tar.bz2                         -f Linux64bit+3.10-2.17    -q e26:prof        
+-lhapdf               v6_5_4          lhapdf-6.5.4-sl7-x86_64-e26-p3915-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-xerces_c             v3_2_3e         xerces_c-3.2.3e-sl7-x86_64-e26.tar.bz2                       -f Linux64bit+3.10-2.17    -q e26             
+-log4cpp              v1_1_3e         log4cpp-1.1.3e-sl7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-g4abla               v3_1            g4abla-3.1-noarch.tar.bz2                                    -f NULL                                       
+-g4emlow              v7_9_1          g4emlow-7.9.1-noarch.tar.bz2                                 -f NULL                                       
+-g4incl               v1_0            g4incl-1.0-noarch.tar.bz2                                    -f NULL                                       
+-g4neutron            v4_6            g4neutron-4.6-noarch.tar.bz2                                 -f NULL                                       
+-g4particlexs         v2_1            g4particlexs-2.1-noarch.tar.bz2                              -f NULL                                       
+-g4nucleonxs          v2_0            g4nucleonxs-2.0-noarch.tar.bz2                               -f NULL                                       
+-g4nuclide            v2_2            g4nuclide-2.2-noarch.tar.bz2                                 -f NULL                                       
+-g4photon             v5_5            g4photon-5.5-noarch.tar.bz2                                  -f NULL                                       
+-g4pii                v1_3            g4pii-1.3-noarch.tar.bz2                                     -f NULL                                       
+-g4radiative          v5_4            g4radiative-5.4-noarch.tar.bz2                               -f NULL                                       
+-g4surface            v2_1_1          g4surface-2.1.1-noarch.tar.bz2                               -f NULL                                       
+-g4tendl              v1_3_2          g4tendl-1.3.2-noarch.tar.bz2                                 -f NULL                                       
+-geant4               v4_10_6_p01g    geant4-4.10.6.p01g-sl7-x86_64-e26-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:prof        
+-hepmc3               v3_2_7          hepmc3-3.2.7-sl7-x86_64-e26-p3915-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-pythia8              v8_3_10         pythia8-8.3.10-sl7-x86_64-e26-p3915-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-tauola               v1_1_8l         tauola-1.1.8l-sl7-x86_64-e26-p3915-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-genie                v3_04_02a       genie-3.04.02a-sl7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-genie                v3_04_02a       genie-3.04.02a-sl7-x86_64-e26-geant4-prof.tar.bz2            -f Linux64bit+3.10-2.17    -q e26:geant4:prof 
+-inclxx               v5_2_9_5g       inclxx-5.2.9.5g-sl7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-genie                v3_04_02a       genie-3.04.02a-sl7-x86_64-e26-inclxx-prof.tar.bz2            -f Linux64bit+3.10-2.17    -q e26:inclxx:prof 
+-dk2nudata            v01_10_01h      dk2nudata-01.10.01h-sl7-x86_64-e26-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:prof        
+-dk2nugenie           v01_10_01r      dk2nugenie-01.10.01r-sl7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-castxml              v0_5_1          castxml-0.5.1-sl7-x86_64.tar.bz2                             -f Linux64bit+3.10-2.17                       
+-pygccxml             v2_2_1b         pygccxml-2.2.1b-noarch-p3915.tar.bz2                         -f NULL                    -q p3915           
+-pycurl               v7_45_2         pycurl-7.45.2-sl7-x86_64-p3915.tar.bz2                       -f Linux64bit+3.10-2.17    -q p3915           
+-grpc                 v1_35_0c        grpc-1.35.0c-sl7-x86_64-e26.tar.bz2                          -f Linux64bit+3.10-2.17    -q e26             
+-eigen                v23_08_01_66e8f eigen-23.08.01.66e8f-noarch.tar.bz2                          -f NULL                                       
+-giflib               v5_2_1          giflib-5.2.1-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-libpng               v1_6_37         libpng-1.6.37-sl7-x86_64.tar.bz2                             -f Linux64bit+3.10-2.17                       
+-libjpeg_turbo        v2_1_0          libjpeg_turbo-2.1.0-sl7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-tensorflow           v2_15_0         tensorflow-2.15.0-sl7-x86_64-e26-p3915.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:p3915       
+-triton               v2_25_0d        triton-2.25.0d-sl7-x86_64-e26.tar.bz2                        -f Linux64bit+3.10-2.17    -q e26             
+-libtorch             v2_1_1b         libtorch-2.1.1b-sl7-x86_64-e26.tar.bz2                       -f Linux64bit+3.10-2.17    -q e26             
+-torch_scatter        v2_1_2a         torch_scatter-2.1.2a-sl7-x86_64-e26.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26             
+-genie_phyopt         v3_04_00        genie_phyopt-3.04.00-noarch-dkcharm.tar.bz2                  -f NULL                    -q dkcharm         
+-genie_phyopt         v3_04_00        genie_phyopt-3.04.00-noarch-dkcharmtau.tar.bz2               -f NULL                    -q dkcharmtau      
+-genie_xsec           v3_04_00        genie_xsec-3.04.00-noarch-AR2320i00000-k250-e1000.tar.bz2    -f NULL                    -q AR2320i00000:k250:e1000
+-genie_xsec           v3_04_00        genie_xsec-3.04.00-noarch-G1802a00000-k250-e1000.tar.bz2     -f NULL                    -q G1802a00000:k250:e1000
+-genie_xsec           v3_04_00        genie_xsec-3.04.00-noarch-G1810a0211a-k250-e1000.tar.bz2     -f NULL                    -q G1810a0211a:k250:e1000
+-genie_xsec           v3_04_00        genie_xsec-3.04.00-noarch-G1810a0211b-k250-e1000.tar.bz2     -f NULL                    -q G1810a0211b:k250:e1000
+-genie_xsec           v3_04_00        genie_xsec-3.04.00-noarch-GDNu2001a00000-k120-e200.tar.bz2   -f NULL                    -q GDNu2001a00000:k120:e200
+-studio               v1_02_00        studio-1.02.00-noarch.tar.bz2                                -f NULL                                       
+-cetlib_except        v1_09_01        cetlib_except-1.09.01-slf7-x86_64-e26-prof.tar.bz2           -f Linux64bit+3.10-2.17    -q e26:prof        
+-hep_concurrency      v1_09_02        hep_concurrency-1.09.02-slf7-x86_64-e26-prof.tar.bz2         -f Linux64bit+3.10-2.17    -q e26:prof        
+-cetlib               v3_18_02        cetlib-3.18.02-slf7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-fhiclcpp             v4_18_04        fhiclcpp-4.18.04-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-messagefacility      v2_10_05        messagefacility-2.10.05-slf7-x86_64-e26-prof.tar.bz2         -f Linux64bit+3.10-2.17    -q e26:prof        
+-canvas               v3_16_04        canvas-3.16.04-slf7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-art                  v3_14_04        art-3.14.04-slf7-x86_64-e26-prof.tar.bz2                     -f Linux64bit+3.10-2.17    -q e26:prof        
+-libwda               v2_30_0a        libwda-2.30.0a-sl7-x86_64.tar.bz2                            -f Linux64bit+3.10-2.17                       
+-ifdhc_config         v2_7_2          ifdhc_config-2.7.2-noarch.tar.bz2                            -f NULL                                       
+-ifdhc                v2_7_2          ifdhc-2.7.2-sl7-x86_64-e26-p3915-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-ifbeam               v2_6_2          ifbeam-2.6.2-sl7-x86_64-e26-p3915-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-nucondb              v2_6_2          nucondb-2.6.2-sl7-x86_64-e26-p3915-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-cetmodules           v3_20_00        cetmodules-3.20.00-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-ifdh_art             v2_17_07        ifdh_art-2.17.07-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-hub                  v2_14_2         hub-2.14.2-sl7-x86_64.tar.bz2                                -f Linux64bit+3.10-2.17                       
+-canvas_root_io       v1_13_06        canvas_root_io-1.13.06-slf7-x86_64-e26-prof.tar.bz2          -f Linux64bit+3.10-2.17    -q e26:prof        
+-art_root_io          v1_13_06        art_root_io-1.13.06-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-cetmodules           v1_04_00        cetmodules-1.04.00-noarch.tar.bz2                            -f NULL                                       
+-TRACE                v3_17_11        TRACE-3.17.11-noarch.tar.bz2                                 -f Linux64bit+3.10-2.17                       
+-artdaq_core          v3_10_02        artdaq_core-3.10.02-slf7-x86_64-e26-s131-prof.tar.bz2        -f Linux64bit+3.10-2.17    -q e26:s131:prof   
+-toyExperiment        v0_10_06        toyExperiment-0.10.06-slf7-x86_64-e26-s131-prof.tar.bz2      -f Linux64bit+3.10-2.17    -q e26:s131:prof   
+-nufinder             v1_02_01        nufinder-1.02.01-noarch.tar.bz2                              -f NULL                                       
+-nusimdata            v1_28_06        nusimdata-1.28.06-slf7-x86_64-e26-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:prof        
+-nuevdb               v1_09_08        nuevdb-1.09.08-slf7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-nug4                 v1_16_06        nug4-1.16.06-slf7-x86_64-e26-prof.tar.bz2                    -f Linux64bit+3.10-2.17    -q e26:prof        
+-geant4reweight       v01_20_09       geant4reweight-01.20.09-slf7-x86_64-e26-s131-prof.tar.bz2    -f Linux64bit+3.10-2.17    -q e26:s131:prof   
+-nugen                v1_21_04        nugen-1.21.04-slf7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-nurandom             v1_11_05        nurandom-1.11.05-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-nutools              v3_17_00        nutools-3.17.00-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+-systematicstools     v01_04_04       systematicstools-01.04.04-slf7-x86_64-e26-prof.tar.bz2       -f Linux64bit+3.10-2.17    -q e26:prof        
+-nusystematics        v1_05_04        nusystematics-1.05.04-slf7-x86_64-e26-prof.tar.bz2           -f Linux64bit+3.10-2.17    -q e26:prof        
+-ppfx                 v02_20_04       ppfx-02.20.04-slf7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-marley               v1_2_1d         marley-1.2.1d-sl7-x86_64-e26-prof.tar.bz2                    -f Linux64bit+3.10-2.17    -q e26:prof        
+-pandora              v03_16_00l      pandora-03.16.00l-sl7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-rstartree            v2016_07        rstartree-2016.07-noarch.tar.bz2                             -f Linux64bit+3.10-2.17                       
+-hdf5                 v1_12_2a        hdf5-1.12.2a-sl7-x86_64-e26-prof.tar.bz2                     -f Linux64bit+3.10-2.17    -q e26:prof        
+-hep_hpc              v0_14_02        hep_hpc-0.14.02-sl7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-glpk                 v4_65           glpk-4.65-sl7-x86_64-prof.tar.bz2                            -f Linux64bit+3.10-2.17    -q prof            
+-h5cpp                v1_10_4_6c      h5cpp-1.10.4.6c-noarch.tar.bz2                               -f NULL                                       
+-jsoncpp              v1_9_5a         jsoncpp-1.9.5a-sl7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-golang               v1_17           golang-1.17-sl7-x86_64.tar.bz2                               -f Linux64bit+3.10-2.17                       
+-gojsonnet            v0_18_0         gojsonnet-0.18.0-sl7-x86_64-e26.tar.bz2                      -f Linux64bit+3.10-2.17    -q e26             
+-bxdecay0             v1_1_0          bxdecay0-1.1.0-sl7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-spdlog               v1_9_2          spdlog-1.9.2-sl7-x86_64-e26-prof.tar.bz2                     -f Linux64bit+3.10-2.17    -q e26:prof        
+-wirecell             v0_29_5         wirecell-0.29.5-sl7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-delaunator           v1_0_0          delaunator-1.0.0-noarch.tar.bz2                              -f NULL                                       
+-cmake                v3_21_4         cmake-3.21.4-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_22_0         cmake-3.22.0-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-larsoft_data         v1_02_02        larsoft_data-1.02.02-noarch.tar.bz2                          -f NULL                                       
+-mrb                  v6_09_09        mrb-6.09.09-slf7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-gallery              v1_22_06        gallery-1.22.06-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+-artg4tk              v12_00_03       artg4tk-12.00.03-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-fhiclpy              v4_03_05        fhiclpy-4.03.05-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+-larcoreobj           v10_00_00       larcoreobj-10.00.00-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-larcorealg           v10_00_02       larcorealg-10.00.02-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-lardataobj           v10_00_04       lardataobj-10.00.04-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-lardataalg           v10_00_04       lardataalg-10.00.04-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-larvecutils          v09_04_02       larvecutils-09.04.02-slf7-x86_64-e26-prof.tar.bz2            -f Linux64bit+3.10-2.17    -q e26:prof        
+-larsoftobj           v10_00_05       larsoftobj-10.00.05-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-larpandoracontent    v04_14_01       larpandoracontent-04.14.01-slf7-x86_64-e26-prof.tar.bz2      -f Linux64bit+3.10-2.17    -q e26:prof        
+-larcore              v10_00_02       larcore-10.00.02-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-lardata              v10_00_06       lardata-10.00.06-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-larevt               v10_00_06       larevt-10.00.06-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+-larg4                v10_00_06       larg4-10.00.06-slf7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-larfinder            v09_00_02       larfinder-09.00.02-noarch.tar.bz2                            -f NULL                                       
+-larsim               v10_02_02       larsim-10.02.02-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+-larsimrad            v10_00_09       larsimrad-10.00.09-slf7-x86_64-e26-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:prof        
+-larsimdnn            v10_00_08       larsimdnn-10.00.08-slf7-x86_64-e26-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:prof        
+-larreco              v10_01_08       larreco-10.01.08-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-larrecodnn           v10_01_06       larrecodnn-10.01.06-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-larana               v10_00_12       larana-10.00.12-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+-larpandora           v10_00_15       larpandora-10.00.15-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-larwirecell          v10_01_06       larwirecell-10.01.06-slf7-x86_64-e26-prof.tar.bz2            -f Linux64bit+3.10-2.17    -q e26:prof        
+-larexamples          v10_00_09       larexamples-10.00.09-slf7-x86_64-e26-prof.tar.bz2            -f Linux64bit+3.10-2.17    -q e26:prof        
+-lareventdisplay      v10_00_11       lareventdisplay-10.00.11-slf7-x86_64-e26-prof.tar.bz2        -f Linux64bit+3.10-2.17    -q e26:prof        
+-larsoft              v10_04_06       larsoft-10.04.06-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-larbatch             v01_60_02       larbatch-01.60.02-noarch.tar.bz2                             -f NULL                                       
+-larutils             v1_29_08        larutils-1.29.08-noarch.tar.bz2                              -f NULL                                       
+-sbnanaobj            v10_00_00       sbnanaobj-10.00.00-slf7-x86_64-e26-prof.tar.bz2             
+-sbncode              v10_04_06_01    sbncode-10.04.06.01-slf7-x86_64-e26-prof.tar.bz2            
+-sbndaq_artdaq_core   v1_10_06        sbndaq_artdaq_core-1.10.06-slf7-x86_64-e26-s131-prof.tar.bz2
+-sbnobj               v10_00_07       sbnobj-10.00.07-slf7-x86_64-e26-prof.tar.bz2                
+-ups                  v6_1_1          ups-6.1.1-Linux64bit+3.10-2.17.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-upd                  v5_0_1          upd-5.0.1-noarch.tar.bz2                                     -f NULL                                       
+-ninja                v1_11_1         ninja-1.11.1-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-gcc                  v12_1_0         gcc-12.1.0-sl7-x86_64.tar.bz2                                -f Linux64bit+3.10-2.17                       
+-cmake                v3_20_0         cmake-3.20.0-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_22_2         cmake-3.22.2-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_25_2         cmake-3.25.2-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_26_4         cmake-3.26.4-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_27_4         cmake-3.27.4-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-gmp                  v6_2_1          gmp-6.2.1-sl7-x86_64.tar.bz2                                 -f Linux64bit+3.10-2.17                       
+-gdb                  v13_1           gdb-13.1-sl7-x86_64.tar.bz2                                  -f Linux64bit+3.10-2.17                       
+-valgrind             v3_21_0         valgrind-3.21.0-sl7-x86_64.tar.bz2                           -f Linux64bit+3.10-2.17                       
+-git                  v2_40_1         git-2.40.1-sl7-x86_64.tar.bz2                                -f Linux64bit+3.10-2.17                       
+-gitflow              v1_12_3         gitflow-1.12.3-noarch.tar.bz2                                -f NULL                                       
+-gh                   v2_25_1         gh-2.25.1-sl7-x86_64.tar.bz2                                 -f Linux64bit+3.10-2.17                       
+-iwyu                 v0_19           iwyu-0.19-sl7-x86_64.tar.bz2                                 -f Linux64bit+3.10-2.17                       
+-nlohmann_json        v3_11_2         nlohmann_json-3.11.2-noarch.tar.bz2                          -f NULL                                       
+-range                v3_0_12_0       range-3.0.12.0-noarch.tar.bz2                                -f NULL                                       
+-guideline_sl         v4_0_0          guideline_sl-4.0.0-noarch.tar.bz2                            -f NULL                                       
+-libxml2              v2_9_12         libxml2-2.9.12-sl7-x86_64.tar.bz2                            -f Linux64bit+3.10-2.17                       
+-fftw                 v3_3_10         fftw-3.3.10-sl7-x86_64.tar.bz2                               -f Linux64bit+3.10-2.17                       
+-sqlite               v3_40_01_00     sqlite-3.40.01.00-sl7-x86_64.tar.bz2                         -f Linux64bit+3.10-2.17                       
+-python               v3_9_15         python-3.9.15-sl7-x86_64.tar.bz2                             -f Linux64bit+3.10-2.17                       
+-pybind11             v2_10_4         pybind11-2.10.4-noarch.tar.bz2                               -f NULL                                       
+-postgresql           v15_3           postgresql-15.3-sl7-x86_64-p3915.tar.bz2                     -f Linux64bit+3.10-2.17    -q p3915           
+-sphinx               v7_2_6          sphinx-7.2.6-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-catch                v3_3_2          catch-3.3.2-sl7-x86_64-e26.tar.bz2                           -f Linux64bit+3.10-2.17    -q e26             
+-gsl                  v2_7            gsl-2.7-sl7-x86_64.tar.bz2                                   -f Linux64bit+3.10-2.17                       
+-boost                v1_82_0         boost-1.82.0-sl7-x86_64-e26-prof.tar.bz2                     -f Linux64bit+3.10-2.17    -q e26:prof        
+-jemalloc             v5_3_0d         jemalloc-5.3.0d-sl7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-cppunit              v1_15_1f        cppunit-1.15.1f-sl7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-tbb                  v2021_9_0       tbb-2021.9.0-sl7-x86_64-e26.tar.bz2                          -f Linux64bit+3.10-2.17    -q e26             
+-openblas             v0_3_23         openblas-0.3.23-sl7-x86_64-e26.tar.bz2                       -f Linux64bit+3.10-2.17    -q e26             
+-clhep                v2_4_7_1        clhep-2.4.7.1-sl7-x86_64-e26-prof.tar.bz2                    -f Linux64bit+3.10-2.17    -q e26:prof        
+-pythia               v6_4_28x        pythia-6.4.28x-sl7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-abseil_cpp           v20230802_1     abseil_cpp-20230802.1-sl7-x86_64-e26.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26             
+-protobuf             v3_21_12a       protobuf-3.21.12a-sl7-x86_64-e26.tar.bz2                     -f Linux64bit+3.10-2.17    -q e26             
+-scitokens_cpp        v1_0_1a         scitokens_cpp-1.0.1a-sl7-x86_64-e26-sql34001.tar.bz2         -f Linux64bit+3.10-2.17    -q e26:sql34001    
+-xrootd               v5_5_5a         xrootd-5.5.5a-sl7-x86_64-e26-p3915-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-numpy                v1_24_3         numpy-1.24.3-sl7-x86_64-e26-p3915.tar.bz2                    -f Linux64bit+3.10-2.17    -q e26:p3915       
+-root                 v6_28_12        root-6.28.12-sl7-x86_64-e26-p3915-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-cetpkgsupport        v1_14_01        cetpkgsupport-1.14.01-noarch.tar.bz2                         -f NULL                                       
+-cetmodules           v3_16_00        cetmodules-3.16.00-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_21_00        cetmodules-3.21.00-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_21_01        cetmodules-3.21.01-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_21_02        cetmodules-3.21.02-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_22_01        cetmodules-3.22.01-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_22_02        cetmodules-3.22.02-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_24_00        cetmodules-3.24.00-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-cetmodules           v3_24_01        cetmodules-3.24.01-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-mrb                  v6_09_06        mrb-6.09.06-slf7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_14_3         cmake-3.14.3-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_24_1         cmake-3.24.1-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cry                  v1_7q           cry-1.7q-sl7-x86_64-e26-prof.tar.bz2                         -f Linux64bit+3.10-2.17    -q e26:prof        
+-lhapdf               v6_5_4          lhapdf-6.5.4-sl7-x86_64-e26-p3915-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-xerces_c             v3_2_3e         xerces_c-3.2.3e-sl7-x86_64-e26.tar.bz2                       -f Linux64bit+3.10-2.17    -q e26             
+-log4cpp              v1_1_3e         log4cpp-1.1.3e-sl7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-g4abla               v3_1            g4abla-3.1-noarch.tar.bz2                                    -f NULL                                       
+-g4emlow              v7_9_1          g4emlow-7.9.1-noarch.tar.bz2                                 -f NULL                                       
+-g4incl               v1_0            g4incl-1.0-noarch.tar.bz2                                    -f NULL                                       
+-g4neutron            v4_6            g4neutron-4.6-noarch.tar.bz2                                 -f NULL                                       
+-g4particlexs         v2_1            g4particlexs-2.1-noarch.tar.bz2                              -f NULL                                       
+-g4nucleonxs          v2_0            g4nucleonxs-2.0-noarch.tar.bz2                               -f NULL                                       
+-g4nuclide            v2_2            g4nuclide-2.2-noarch.tar.bz2                                 -f NULL                                       
+-g4photon             v5_5            g4photon-5.5-noarch.tar.bz2                                  -f NULL                                       
+-g4pii                v1_3            g4pii-1.3-noarch.tar.bz2                                     -f NULL                                       
+-g4radiative          v5_4            g4radiative-5.4-noarch.tar.bz2                               -f NULL                                       
+-g4surface            v2_1_1          g4surface-2.1.1-noarch.tar.bz2                               -f NULL                                       
+-g4tendl              v1_3_2          g4tendl-1.3.2-noarch.tar.bz2                                 -f NULL                                       
+-geant4               v4_10_6_p01g    geant4-4.10.6.p01g-sl7-x86_64-e26-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:prof        
+-hepmc3               v3_2_7          hepmc3-3.2.7-sl7-x86_64-e26-p3915-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-pythia8              v8_3_10         pythia8-8.3.10-sl7-x86_64-e26-p3915-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-tauola               v1_1_8l         tauola-1.1.8l-sl7-x86_64-e26-p3915-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-genie                v3_04_02a       genie-3.04.02a-sl7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-genie                v3_04_02a       genie-3.04.02a-sl7-x86_64-e26-geant4-prof.tar.bz2            -f Linux64bit+3.10-2.17    -q e26:geant4:prof 
+-inclxx               v5_2_9_5g       inclxx-5.2.9.5g-sl7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-genie                v3_04_02a       genie-3.04.02a-sl7-x86_64-e26-inclxx-prof.tar.bz2            -f Linux64bit+3.10-2.17    -q e26:inclxx:prof 
+-dk2nudata            v01_10_01h      dk2nudata-01.10.01h-sl7-x86_64-e26-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:prof        
+-dk2nugenie           v01_10_01r      dk2nugenie-01.10.01r-sl7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-castxml              v0_5_1          castxml-0.5.1-sl7-x86_64.tar.bz2                             -f Linux64bit+3.10-2.17                       
+-pygccxml             v2_2_1b         pygccxml-2.2.1b-noarch-p3915.tar.bz2                         -f NULL                    -q p3915           
+-pycurl               v7_45_2         pycurl-7.45.2-sl7-x86_64-p3915.tar.bz2                       -f Linux64bit+3.10-2.17    -q p3915           
+-grpc                 v1_35_0c        grpc-1.35.0c-sl7-x86_64-e26.tar.bz2                          -f Linux64bit+3.10-2.17    -q e26             
+-eigen                v23_08_01_66e8f eigen-23.08.01.66e8f-noarch.tar.bz2                          -f NULL                                       
+-giflib               v5_2_1          giflib-5.2.1-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-libpng               v1_6_37         libpng-1.6.37-sl7-x86_64.tar.bz2                             -f Linux64bit+3.10-2.17                       
+-libjpeg_turbo        v2_1_0          libjpeg_turbo-2.1.0-sl7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-tensorflow           v2_15_0         tensorflow-2.15.0-sl7-x86_64-e26-p3915.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:p3915       
+-triton               v2_25_0d        triton-2.25.0d-sl7-x86_64-e26.tar.bz2                        -f Linux64bit+3.10-2.17    -q e26             
+-libtorch             v2_1_1b         libtorch-2.1.1b-sl7-x86_64-e26.tar.bz2                       -f Linux64bit+3.10-2.17    -q e26             
+-torch_scatter        v2_1_2a         torch_scatter-2.1.2a-sl7-x86_64-e26.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26             
+-genie_phyopt         v3_04_00        genie_phyopt-3.04.00-noarch-dkcharm.tar.bz2                  -f NULL                    -q dkcharm         
+-genie_phyopt         v3_04_00        genie_phyopt-3.04.00-noarch-dkcharmtau.tar.bz2               -f NULL                    -q dkcharmtau      
+-genie_xsec           v3_04_00        genie_xsec-3.04.00-noarch-AR2320i00000-k250-e1000.tar.bz2    -f NULL                    -q AR2320i00000:k250:e1000
+-genie_xsec           v3_04_00        genie_xsec-3.04.00-noarch-G1802a00000-k250-e1000.tar.bz2     -f NULL                    -q G1802a00000:k250:e1000
+-genie_xsec           v3_04_00        genie_xsec-3.04.00-noarch-G1810a0211a-k250-e1000.tar.bz2     -f NULL                    -q G1810a0211a:k250:e1000
+-genie_xsec           v3_04_00        genie_xsec-3.04.00-noarch-G1810a0211b-k250-e1000.tar.bz2     -f NULL                    -q G1810a0211b:k250:e1000
+-genie_xsec           v3_04_00        genie_xsec-3.04.00-noarch-GDNu2001a00000-k120-e200.tar.bz2   -f NULL                    -q GDNu2001a00000:k120:e200
+-studio               v1_02_00        studio-1.02.00-noarch.tar.bz2                                -f NULL                                       
+-cetlib_except        v1_09_01        cetlib_except-1.09.01-slf7-x86_64-e26-prof.tar.bz2           -f Linux64bit+3.10-2.17    -q e26:prof        
+-hep_concurrency      v1_09_02        hep_concurrency-1.09.02-slf7-x86_64-e26-prof.tar.bz2         -f Linux64bit+3.10-2.17    -q e26:prof        
+-cetlib               v3_18_02        cetlib-3.18.02-slf7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-fhiclcpp             v4_18_04        fhiclcpp-4.18.04-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-messagefacility      v2_10_05        messagefacility-2.10.05-slf7-x86_64-e26-prof.tar.bz2         -f Linux64bit+3.10-2.17    -q e26:prof        
+-canvas               v3_16_04        canvas-3.16.04-slf7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-art                  v3_14_04        art-3.14.04-slf7-x86_64-e26-prof.tar.bz2                     -f Linux64bit+3.10-2.17    -q e26:prof        
+-libwda               v2_30_0a        libwda-2.30.0a-sl7-x86_64.tar.bz2                            -f Linux64bit+3.10-2.17                       
+-ifdhc_config         v2_7_2          ifdhc_config-2.7.2-noarch.tar.bz2                            -f NULL                                       
+-ifdhc                v2_7_2          ifdhc-2.7.2-sl7-x86_64-e26-p3915-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-ifbeam               v2_6_2          ifbeam-2.6.2-sl7-x86_64-e26-p3915-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-nucondb              v2_6_2          nucondb-2.6.2-sl7-x86_64-e26-p3915-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:p3915:prof  
+-cetmodules           v3_20_00        cetmodules-3.20.00-slf7-x86_64.tar.bz2                       -f Linux64bit+3.10-2.17                       
+-ifdh_art             v2_17_07        ifdh_art-2.17.07-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-hub                  v2_14_2         hub-2.14.2-sl7-x86_64.tar.bz2                                -f Linux64bit+3.10-2.17                       
+-canvas_root_io       v1_13_06        canvas_root_io-1.13.06-slf7-x86_64-e26-prof.tar.bz2          -f Linux64bit+3.10-2.17    -q e26:prof        
+-art_root_io          v1_13_06        art_root_io-1.13.06-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-cetmodules           v1_04_00        cetmodules-1.04.00-noarch.tar.bz2                            -f NULL                                       
+-TRACE                v3_17_11        TRACE-3.17.11-noarch.tar.bz2                                 -f Linux64bit+3.10-2.17                       
+-artdaq_core          v3_10_02        artdaq_core-3.10.02-slf7-x86_64-e26-s131-prof.tar.bz2        -f Linux64bit+3.10-2.17    -q e26:s131:prof   
+-toyExperiment        v0_10_06        toyExperiment-0.10.06-slf7-x86_64-e26-s131-prof.tar.bz2      -f Linux64bit+3.10-2.17    -q e26:s131:prof   
+-nufinder             v1_02_01        nufinder-1.02.01-noarch.tar.bz2                              -f NULL                                       
+-nusimdata            v1_28_06        nusimdata-1.28.06-slf7-x86_64-e26-prof.tar.bz2               -f Linux64bit+3.10-2.17    -q e26:prof        
+-nuevdb               v1_09_08        nuevdb-1.09.08-slf7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-nug4                 v1_16_06        nug4-1.16.06-slf7-x86_64-e26-prof.tar.bz2                    -f Linux64bit+3.10-2.17    -q e26:prof        
+-geant4reweight       v01_20_09       geant4reweight-01.20.09-slf7-x86_64-e26-s131-prof.tar.bz2    -f Linux64bit+3.10-2.17    -q e26:s131:prof   
+-nugen                v1_21_04        nugen-1.21.04-slf7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-nurandom             v1_11_05        nurandom-1.11.05-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-nutools              v3_17_00        nutools-3.17.00-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+-systematicstools     v01_04_04       systematicstools-01.04.04-slf7-x86_64-e26-prof.tar.bz2       -f Linux64bit+3.10-2.17    -q e26:prof        
+-nusystematics        v1_05_04        nusystematics-1.05.04-slf7-x86_64-e26-prof.tar.bz2           -f Linux64bit+3.10-2.17    -q e26:prof        
+-ppfx                 v02_20_04       ppfx-02.20.04-slf7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-marley               v1_2_1d         marley-1.2.1d-sl7-x86_64-e26-prof.tar.bz2                    -f Linux64bit+3.10-2.17    -q e26:prof        
+-pandora              v03_16_00l      pandora-03.16.00l-sl7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-rstartree            v2016_07        rstartree-2016.07-noarch.tar.bz2                             -f Linux64bit+3.10-2.17                       
+-hdf5                 v1_12_2a        hdf5-1.12.2a-sl7-x86_64-e26-prof.tar.bz2                     -f Linux64bit+3.10-2.17    -q e26:prof        
+-hep_hpc              v0_14_02        hep_hpc-0.14.02-sl7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-glpk                 v4_65           glpk-4.65-sl7-x86_64-prof.tar.bz2                            -f Linux64bit+3.10-2.17    -q prof            
+-h5cpp                v1_10_4_6c      h5cpp-1.10.4.6c-noarch.tar.bz2                               -f NULL                                       
+-jsoncpp              v1_9_5a         jsoncpp-1.9.5a-sl7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-golang               v1_17           golang-1.17-sl7-x86_64.tar.bz2                               -f Linux64bit+3.10-2.17                       
+-gojsonnet            v0_18_0         gojsonnet-0.18.0-sl7-x86_64-e26.tar.bz2                      -f Linux64bit+3.10-2.17    -q e26             
+-bxdecay0             v1_1_0          bxdecay0-1.1.0-sl7-x86_64-e26-prof.tar.bz2                   -f Linux64bit+3.10-2.17    -q e26:prof        
+-spdlog               v1_9_2          spdlog-1.9.2-sl7-x86_64-e26-prof.tar.bz2                     -f Linux64bit+3.10-2.17    -q e26:prof        
+-wirecell             v0_29_5         wirecell-0.29.5-sl7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-delaunator           v1_0_0          delaunator-1.0.0-noarch.tar.bz2                              -f NULL                                       
+-cmake                v3_21_4         cmake-3.21.4-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-cmake                v3_22_0         cmake-3.22.0-sl7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-larsoft_data         v1_02_02        larsoft_data-1.02.02-noarch.tar.bz2                          -f NULL                                       
+-mrb                  v6_09_09        mrb-6.09.09-slf7-x86_64.tar.bz2                              -f Linux64bit+3.10-2.17                       
+-gallery              v1_22_06        gallery-1.22.06-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+-artg4tk              v12_00_03       artg4tk-12.00.03-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-fhiclpy              v4_03_05        fhiclpy-4.03.05-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+-larcoreobj           v10_00_00       larcoreobj-10.00.00-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-larcorealg           v10_00_02       larcorealg-10.00.02-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-lardataobj           v10_00_04       lardataobj-10.00.04-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-lardataalg           v10_00_04       lardataalg-10.00.04-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-larvecutils          v09_04_02       larvecutils-09.04.02-slf7-x86_64-e26-prof.tar.bz2            -f Linux64bit+3.10-2.17    -q e26:prof        
+-larsoftobj           v10_00_05       larsoftobj-10.00.05-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-larpandoracontent    v04_14_01       larpandoracontent-04.14.01-slf7-x86_64-e26-prof.tar.bz2      -f Linux64bit+3.10-2.17    -q e26:prof        
+-larcore              v10_00_02       larcore-10.00.02-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-lardata              v10_00_06       lardata-10.00.06-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-larevt               v10_00_06       larevt-10.00.06-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+-larg4                v10_00_06       larg4-10.00.06-slf7-x86_64-e26-prof.tar.bz2                  -f Linux64bit+3.10-2.17    -q e26:prof        
+-larfinder            v09_00_02       larfinder-09.00.02-noarch.tar.bz2                            -f NULL                                       
+-larsim               v10_02_02       larsim-10.02.02-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+-larsimrad            v10_00_09       larsimrad-10.00.09-slf7-x86_64-e26-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:prof        
+-larsimdnn            v10_00_08       larsimdnn-10.00.08-slf7-x86_64-e26-prof.tar.bz2              -f Linux64bit+3.10-2.17    -q e26:prof        
+-larreco              v10_01_08       larreco-10.01.08-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-larrecodnn           v10_01_06       larrecodnn-10.01.06-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-larana               v10_00_12       larana-10.00.12-slf7-x86_64-e26-prof.tar.bz2                 -f Linux64bit+3.10-2.17    -q e26:prof        
+-larpandora           v10_00_15       larpandora-10.00.15-slf7-x86_64-e26-prof.tar.bz2             -f Linux64bit+3.10-2.17    -q e26:prof        
+-larwirecell          v10_01_06       larwirecell-10.01.06-slf7-x86_64-e26-prof.tar.bz2            -f Linux64bit+3.10-2.17    -q e26:prof        
+-larexamples          v10_00_09       larexamples-10.00.09-slf7-x86_64-e26-prof.tar.bz2            -f Linux64bit+3.10-2.17    -q e26:prof        
+-lareventdisplay      v10_00_11       lareventdisplay-10.00.11-slf7-x86_64-e26-prof.tar.bz2        -f Linux64bit+3.10-2.17    -q e26:prof        
+-larsoft              v10_04_06       larsoft-10.04.06-slf7-x86_64-e26-prof.tar.bz2                -f Linux64bit+3.10-2.17    -q e26:prof        
+-larbatch             v01_60_02       larbatch-01.60.02-noarch.tar.bz2                             -f NULL                                       
+-larutils             v1_29_08        larutils-1.29.08-noarch.tar.bz2                              -f NULL                                       
+diff --git a/fnal_art/packages/genie/package.py b/fnal_art/packages/genie/package.py
+index c9bc1cc..e5cf9fc 100644
+--- a/fnal_art/packages/genie/package.py
++++ b/fnal_art/packages/genie/package.py
+@@ -207,7 +207,7 @@ class Genie(AutotoolsPackage):
+         filesystem.install_tree(os.path.join(self.stage.source_path, "data"), data_dir)
+ 
+     def setup_build_environment(self, spack_env):
+-        spack_env.set("ROOT_INCLUDE_PATH", os.path.join(self.stage.source_path, "src"))
++        spack_env.prepend_path("ROOT_INCLUDE_PATH", os.path.join(self.stage.source_path, "src"))
+         spack_env.set("GENIE_VERSION", "v{0}".format(self.version.underscored))
+         # Ensure Root can find headers for autoparsing.
+         for d in self.spec.traverse(
+diff --git a/fnal_art/packages/icarus-data/package.py b/fnal_art/packages/icarus-data/package.py
+index 00517b8..4aac4be 100644
+--- a/fnal_art/packages/icarus-data/package.py
++++ b/fnal_art/packages/icarus-data/package.py
+@@ -9,6 +9,11 @@ class IcarusData(Package):
+ 
+     homepage = "https://icarus.fnal.gov/"
+ 
++    version(
++        "09.42.00",
++        sha256="69efe77bff79829b0cd8b005e4f1f0a7da23247d59d0b4413a1042061cad7221",
++        url="https://scisoft.fnal.gov/scisoft/packages/icarus_data/v09_42_00/icarus_data-v09.42.00-noarch.tar.bz2",
++    )
+     version(
+         "09.42.00",
+         sha256="69efe77bff79829b0cd8b005e4f1f0a7da23247d59d0b4413a1042061cad7221",
+@@ -49,14 +54,29 @@ class IcarusData(Package):
+         install_tree(src, prefix)
+ 
+     def setup_run_environment(self, env):
+-        env.set("ICARUS_DATA_VERSION", "v%s" % self.version.underscored)
+-        env.prepend_path("WIRECELL_PATH", "%s/icarus_data/WirecellData" % self.prefix)
+-        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data" % self.prefix)
+-        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/NoiseHistos" % self.prefix)
+-        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/Responses" % self.prefix)
+-        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/PhotonLibrary" % self.prefix)
+-        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/CRT" % self.prefix)
+-        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/PandoraMVAs" % self.prefix)
+-        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/database" % self.prefix)
+-        env.prepend_path("CMAKE_PREFIX_PATH", "%s" % self.prefix)
+-        env.prepend_path("PKG_CONFIG_PATH", "%s" % self.prefix)
++        print("echo IGNORING SPACK ICARUS-DATA DUE TO SCISOFT MISSING VERSION.")
++        print("echo USING LOCAL VERSION v09_93_05 INSTEAD.")
++        local_build = "/eagle/neutrinoGPU/icarus/icarus_data/v09_93_05"
++        env.set("ICARUS_DATA_VERSION", "v%s" % "09.93.05")
++        env.prepend_path("WIRECELL_PATH", "%s/icarus_data/WirecellData" % local_build)
++        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data" % local_build)
++        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/NoiseHistos" % local_build)
++        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/Responses" % local_build)
++        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/PhotonLibrary" % local_build)
++        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/CRT" % local_build)
++        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/PandoraMVAs" % local_build)
++        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/database" % local_build)
++        env.prepend_path("CMAKE_PREFIX_PATH", "%s" % local_build)
++        env.prepend_path("PKG_CONFIG_PATH", "%s" % local_build)
++
++        #env.set("ICARUS_DATA_VERSION", "v%s" % self.version.underscored)
++        #env.prepend_path("WIRECELL_PATH", "%s/icarus_data/WirecellData" % self.prefix)
++        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data" % self.prefix)
++        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/NoiseHistos" % self.prefix)
++        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/Responses" % self.prefix)
++        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/PhotonLibrary" % self.prefix)
++        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/CRT" % self.prefix)
++        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/PandoraMVAs" % self.prefix)
++        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/database" % self.prefix)
++        #env.prepend_path("CMAKE_PREFIX_PATH", "%s" % self.prefix)
++        #env.prepend_path("PKG_CONFIG_PATH", "%s" % self.prefix)
+diff --git a/fnal_art/packages/icarus-signal-processing/package.py b/fnal_art/packages/icarus-signal-processing/package.py
+index 9c966ba..794564b 100644
+--- a/fnal_art/packages/icarus-signal-processing/package.py
++++ b/fnal_art/packages/icarus-signal-processing/package.py
+@@ -36,6 +36,7 @@ class IcarusSignalProcessing(CMakePackage):
+     git_base = "https://github.com/SBNSoftware/icarus_signal_processing.git"
+     list_url = "https://api.github/repos/SBNSoftware/icarus_signal_processing/tags"
+ 
++    version("10.06.00.01", sha256="11d87c100bb00f4e675917d33971a464ea5017e66f5970afcf0cd0cc2ca6e446") # FIXME
+     version("09.91.02.02", sha256="bd9551ece7c0f0bd0b8315a2773a6cdd0ae728ddfc400e67e98f10b8fd81ad48") # FIXME
+     version("09.88.00.02", sha256="5fba1ecd9dc454497b3e9235742a4715e3b0fea80f701ae57ed7c5ccd260d0f8")
+     version("09.37.01", sha256="a6f09ef0bea681f77061094e5ca9691c8135b7e62e55f7a1b95a5b85f0d6cc57")
+diff --git a/fnal_art/packages/icarusalg/package.py b/fnal_art/packages/icarusalg/package.py
+index d3d750d..d49602d 100644
+--- a/fnal_art/packages/icarusalg/package.py
++++ b/fnal_art/packages/icarusalg/package.py
+@@ -42,6 +42,7 @@ class Icarusalg(CMakePackage):
+         git=git_base,
+         get_full_repo=True,
+     )
++    version("10.06.00.01", sha256="1ea71b17bc2877b3d617d21cd9b95523152e19917ce7ae66f48412398fcbcc59") # FIXME
+     version("10.04.04", sha256="23f7f222f63cd27bf37b6931a2fc138130b0aed6933a41789b6715de7cbf4b6f") # FIXME
+     version("09.91.02.01", sha256="c8bf89286de902edbd99224f9064caebc588fc30d6a35e169df716b99c9e54a7")
+     version("09.37.02.01", sha256="717678d1015441349b892bb19efd2b09c5b5f6349dfb25a484bc9101d761b4eb")
+diff --git a/fnal_art/packages/icaruscode/package.py b/fnal_art/packages/icaruscode/package.py
+index 4da3eda..ab3a30f 100644
+--- a/fnal_art/packages/icaruscode/package.py
++++ b/fnal_art/packages/icaruscode/package.py
+@@ -49,7 +49,7 @@ class Icaruscode(CMakePackage):
+         get_full_repo=True,
+     )
+ 
+-    version("Mar25Production", branch="Mar25Production", git=git_base, get_full_repo=True)
++    version("10.06.00.01", sha256="03c7d0f86e0247e04acc0f58c57c85d1ab735f65df8b375966bcb1135a0da22a") # FIXME
+     version("10.04.04", sha256="0b59e6ee4b1c04a6d146514a4e574882bf70de4c8956d08e357e2dee4de595e5")
+     version("09.91.02.01", "77048becd1a960b9e4e19e110d05fca135457b224507f9feaada8d98d2f1cc2b")
+     version(
+@@ -122,6 +122,8 @@ class Icaruscode(CMakePackage):
+     depends_on("larcoreobj", type=("build", "run"))
+     depends_on("larcore", type=("build", "run"))
+     depends_on("lardataobj", type=("build", "run"))
++    # larsimdnn might not be necessary, put here for consistency with sbnd
++    depends_on("larsimdnn", type=("build", "run"))
+     depends_on("lardata", type=("build", "run"))
+     depends_on("larevt", type=("build", "run"))
+     depends_on("pandora", type=("build", "run"))
+@@ -170,6 +172,8 @@ class Icaruscode(CMakePackage):
+     def cmake_args(self):
+         # Set CMake args.
+         args = [
++            "-DWireCell_INCLUDE_DIR={0}".format(self.spec["wirecell"].prefix.include), 
++            "-DWireCell_LIBRARIES={0}".format(self.spec["wirecell"].prefix.lib),
+             "-DCMAKE_CXX_STANDARD={0}".format(self.spec.variants["cxxstd"].value),
+             "-Dicaruscode_FW_DIR=fw",
+             "-Dicaruscode_WP_DIR={0}".format(self.spec["wirecell"].prefix),
+@@ -182,6 +186,7 @@ class Icaruscode(CMakePackage):
+             "-DLIBWDA_INC={0}".format(self.spec["libwda"].prefix.include),
+             "-DVDT_INCLUDE_DIR={0}".format(self.spec["vdt"].prefix.include),
+             "-DVDT_LIBRARY={0}".format(self.spec["vdt"].prefix.lib),
++            "-DSPDLOG_FMT_EXTERNAL=ON",
+             self.define(
+                 "CMAKE_PREFIX_PATH",
+                 join_path(
+@@ -204,7 +209,27 @@ class Icaruscode(CMakePackage):
+         return args
+ 
+     def setup_build_environment(self, spack_env):
++
++        spack_env.prepend_path("JSONCPP_LIB", os.path.join(self.spec['jsoncpp'].prefix.lib64))
++        spack_env.prepend_path("JSONCPP_INC", os.path.join(self.spec['jsoncpp'].prefix.include))
++        spack_env.prepend_path("ROOT_INCLUDE_PATH", os.path.join(self.spec['larcoreobj'].prefix.include))
++        spack_env.prepend_path("CPLUS_INCLUDE_PATH", os.path.join(self.spec['larcoreobj'].prefix.include))
++        spack_env.prepend_path("C_INCLUDE_PATH", os.path.join(self.spec['larcoreobj'].prefix.include))
++        spack_env.prepend_path("LARCOREOBJ_INC", os.path.join(self.spec['larcoreobj'].prefix.include))
++        spack_env.prepend_path("LARCOREOBJ_LIB", os.path.join(self.spec['larcoreobj'].prefix.lib))
++        spack_env.prepend_path("LARDATAOBJ_INC", os.path.join(self.spec['lardataobj'].prefix.include))
++        spack_env.prepend_path("LARDATAOBJ_LIB", os.path.join(self.spec['lardataobj'].prefix.lib))
++        spack_env.prepend_path("WIRECELL_PATH", os.path.join(self.spec['wirecell'].prefix))
++        spack_env.prepend_path("WIRECELL_LIB", os.path.join(self.spec['wirecell'].prefix.lib))
++        spack_env.prepend_path("LD_LIBRARY_PATH", os.path.join(self.spec['wirecell'].prefix.lib))
++        spack_env.prepend_path("LD_LIBRARY_PATH", os.path.join(self.spec['jsoncpp'].prefix.lib64))
++        spack_env.prepend_path("WIRECELL_INC", os.path.join(self.spec['wirecell'].prefix.include))
++        spack_env.prepend_path("LARWIRECELL_INC", os.path.join(self.spec['larwirecell'].prefix.include))
++        spack_env.prepend_path("LARWIRECELL_LIB", os.path.join(self.spec['larwirecell'].prefix.lib))
++
+         spack_env.set("CETBUILDTOOLS_VERSION", self.spec["cetmodules"].version)
++        spack_env.set("SPDLOG_INC", self.spec["spdlog"].prefix.include)
++        spack_env.set("SPDLOG_LIB", self.spec["spdlog"].prefix.lib)
+         spack_env.set("CETBUILDTOOLS_DIR", self.spec["cetmodules"].prefix)
+         spack_env.prepend_path("LD_LIBRARY_PATH", self.spec["root"].prefix.lib)
+         # Binaries.
+@@ -250,6 +275,16 @@ class Icaruscode(CMakePackage):
+         run_env.append_path("FW_SEARCH_PATH", os.path.join(self.prefix, "fw"))
+         # fcls
+         run_env.prepend_path("FHICL_FILE_PATH", self.prefix.fcl)
++        # Add to wire-cell path
++        run_env.prepend_path("JSONCPP_LIB", os.path.join(self.spec['jsoncpp'].prefix.lib))
++        run_env.prepend_path("JSONCPP_INC", os.path.join(self.spec['jsoncpp'].prefix.include))
++        run_env.prepend_path("WIRECELL_PATH", os.path.join(self.spec['wirecell'].prefix))
++        run_env.prepend_path("WIRECELL_LIB", os.path.join(self.spec['wirecell'].prefix.lib))
++        run_env.prepend_path("LD_LIBRARY_PATH", os.path.join(self.spec['wirecell'].prefix.lib))
++        run_env.prepend_path("LD_LIBRARY_PATH", os.path.join(self.spec['jsoncpp'].prefix.lib))
++        run_env.prepend_path("WIRECELL_INC", os.path.join(self.spec['wirecell'].prefix.include))
++        run_env.prepend_path("LARWIRECELL_INC", os.path.join(self.spec['larwirecell'].prefix.include))
++        run_env.prepend_path("LARWIRECELL_LIB", os.path.join(self.spec['larwirecell'].prefix.lib))
+         # Cleaup.
+         sanitize_environments(run_env)
+ 
+@@ -264,5 +299,7 @@ class Icaruscode(CMakePackage):
+         spack_env.prepend_path("PERL5LIB", os.path.join(self.prefix, "perllib"))
+         # FW search path
+         spack_env.append_path("FW_SEARCH_PATH", os.path.join(self.prefix, "fw"))
++        # Add to wire-cell path
++        run_env.prepend_path("WIRECELL_PATH", os.path.join(self.spec['wirecell'].prefix))
+         # Cleanup.
+         sanitize_environments(spack_env)
+diff --git a/fnal_art/packages/ifbeam/package.py b/fnal_art/packages/ifbeam/package.py
+index ccd8ee5..d2137f4 100644
+--- a/fnal_art/packages/ifbeam/package.py
++++ b/fnal_art/packages/ifbeam/package.py
+@@ -3,27 +3,27 @@
+ #
+ # SPDX-License-Identifier: (Apache-2.0 OR MIT)
+ 
+-from spack import *
+ from spack.package import *
+ 
+ 
+ class Ifbeam(MakefilePackage):
+     """Data handling client code for intensity frontier experiments"""
+ 
+-    homepage = "https://cdcvs.fnal.gov/redmine/projects/ifbeam"
+-    url = "https://cdcvs.fnal.gov/cgi-bin/git_archive.cgi/cvs/projects/ifdhc-ifbeam.v2_5_2.tbz2"
+-
+-    version("2.6.2", sha256="ebefa819bd9aae25125ffbb896b28a4baf735ee97ff68de856823e43791172d9") # FIXME
+-    version("2.6.1", sha256="64eaa39f43f9e90010f0c24a45602a9f5f0a8146a6945a721628194aea40df30")
+-    version("2.5.23", sha256="e8d11d057cbb25ec65f597c7eb9c73d463d9828c3b830866aa05e6652e305831")
+-    version("2.5.22", sha256="202b29e64aef1852310f0e4a550dcb47e5c6c86d6d162683f319ff4999460d12")
+-    version("2.5.17", sha256="7ecba2c84c585d3775a984a7de4a1152afc2ed60468cdce45bb380b6e28cab68")
+-    version("2.5.16", sha256="827c0acbe670818fdc91283c1f4e90719c2d873a3f46459e3ed65d6d0e96297c")
+-    version("2.5.2", sha256="7c1bac69dae5d3130741d9dd79295eb917e74eaadde9f808f10599db94a6a488")
+-    version("2.4.8", sha256="676b43be56c51f68c189d19e8c23a68e9bc489a7e3aaedb632e7600a168d9448")
+-    version("2.3.0", sha256="4b6a29443b631957ca2a7712b5c577620c6543e542ee9c77d246cef1e10f7324")
+-    version("2.2.13", sha256="b341ffc73421b7187b06c205f9feaccf117bdba06509e9b1b8f491fdc182029c")
+-
++    homepage = "https://github.com/fnal-fife/ifbeam"
++    git_base = "https://github.com/fnal-fife/ifbeam.git"
++    url = "https://github.com/fnal-fife/ifbeam/archive/refs/tags/v2_6_2.tar.gz"
++    list_url = "https://github.com/fnal-fife/ifbeam/tags"
++
++    version("2.6.3", sha256="1a0d2cc50ef73d459b3d8e29e712606b9f5ef9c8e84dc06a50a809b1cc829128")
++    version("2.6.2", sha256="8297ecab83e215661097f786b88d1e1f03a50299780ff5862bf674b382288325")
++    version("2.6.1", sha256="1fc548013803f2cd9c9c93fb526e6efc3519634edff07a0455019d78cc96a77e")
++    version("2.6", sha256="c156a2ba05e7b6f376b678bd53dbca53558f7127ac5bbe32083a648eeb10f1c2")
++    version("2.5.23", sha256="a0b4890045cf5efdb4f19183dd417a1f5fdfc82d62f44d989b21a55210b9aef6")
++    version("2.5.22", sha256="648246ab995b16e5da7f95b1e63c1520d71cf91af942fc8e96f4fed24fae85ff")
++    version("2.5.21", sha256="26b8abf691738a29256e14a14b1cfa50fdd709cf2462b87601cb3fa7e6d1c83d")
++    version("2.5.20", sha256="fe29c9b60a169390ab58205c3859099a1636d866af545c6e6fd315b11f11f2e7")
++    version("2.5.19", sha256="8b47f7011253d1686a31336cd3549d1e4675ad987750273d500bbeb14cf5ff22")
++    version("2.5.18", sha256="fa10d65522b744b0230cb7bdc103a01f4248428a12a98510ec1c15d9cf81c51a")
+ 
+     parallel = False
+ 
+@@ -44,7 +44,7 @@ class Ifbeam(MakefilePackage):
+         filter_file(r'catch \(WebAPIException e\)','catch (WebAPIException &e)','src/ifbeam.cc') 
+ 
+     def url_for_version(self, version):
+-        url = "https://cdcvs.fnal.gov/cgi-bin/git_archive.cgi/cvs/projects/{0}.v{1}.tbz2"
++        url = "https://github.com/fnal-fife/ifbeam/archive/refs/tags/v{0}.tar.gz"
+         return url.format("ifdhc-" + self.name, version.underscored)
+ 
+     @property
+diff --git a/fnal_art/packages/ifdh-art/package.py b/fnal_art/packages/ifdh-art/package.py
+index eda87ef..fb8494e 100644
+--- a/fnal_art/packages/ifdh-art/package.py
++++ b/fnal_art/packages/ifdh-art/package.py
+@@ -33,7 +33,8 @@ class IfdhArt(CMakePackage):
+     url = "https://github.com/art-framework-suite/ifdh-art/archive/refs/tags/v2_12_05.tar.gz"
+     list_url = "https://api.github.com/repos/art-framework-suite/ifdh-art/tags"
+ 
+-    version("2.17.07", sha256="ca59d5357e4e7948fcb5010d8f2505da973c5ebd76b3de9888bda49814338137") # FIXME
++    version("2.17.08", sha256="91fb581ef2a8b70679d1f96a13d0ab5fd5eaa92722bbe78147a2f89cbe6209a8") # FIXME
++    version("2.17.07", sha256="ca59d5357e4e7948fcb5010d8f2505da973c5ebd76b3de9888bda49814338137")
+     version("2.17.06", sha256="fed29b9ca80e8e956b8d60e915f94972ee50ed42fce346dd6f2151420d22b455")
+     version("2.17.04", sha256="f65650ce3728620968eee6c7612469c1a669e34e84e4251dda0c9d7c9a00ac31")
+     version("2.17.01", sha256="40874945c3af876bef9b668e296726ab834bc9bcd6cd11c6ff73fcfc29dd870b")
+diff --git a/fnal_art/packages/ifdhc-config/package.py b/fnal_art/packages/ifdhc-config/package.py
+index 25c0bac..7fdfd79 100644
+--- a/fnal_art/packages/ifdhc-config/package.py
++++ b/fnal_art/packages/ifdhc-config/package.py
+@@ -1,4 +1,3 @@
+-# test
+ # Copyright 2013-2019 Lawrence Livermore National Security, LLC and other
+ # Spack Project Developers. See the top-level COPYRIGHT file for details.
+ #
+@@ -8,40 +7,36 @@ import os
+ 
+ import llnl.util.tty as tty
+ 
+-from spack import *
+ from spack.package import *
+ 
+ 
+ class IfdhcConfig(Package):
+     """Config package for Data handling client code for intensity frontier experiments"""
+ 
+-    homepage = "https://cdcvs.fnal.gov/redmine/projects/ifdhc"
+-    git_base = "https://cdcvs.fnal.gov/projects/ifdhc/ifdhc.git"
+-    url = "https://cdcvs.fnal.gov/cgi-bin/git_archive.cgi/cvs/projects/ifdhc.v2_5_4.tbz2"
+-
+-    version("2.7.2", sha256="03f1211c89c49dc4669344fce5321d3c45fcf68bf46a84368010edd2dcdb2630")
+-    version("2.7.1", sha256="cb8726506546ff49f8134024171dfc389dbfff74e66a19ba1a49aea767f5f510")
+-    version("2.6.20", sha256="54cffb88be5c085dd2f3246507cf850299b780e2ab16cd8abce4360e200b4044")
+-    version("2.6.19", sha256="5499391378d6769da0b94b0e8eaea358d6c7be40673e4c97c5580c4e94bdaa24")
+-    version("2.6.11", sha256="988eb6bd2124174e0956b4415edcc3671ac87896a64852e9e99d8628c4fa1334")
+-    version("2.6.10", sha256="44ee19429ec3c55be54582fb9411b68ebba9c90ae3ee8b770faa702f599a3f49")
+-    version("2.6.9", sha256="46dadbba0acdf19644496fd7c3eff2a046f745e9fe9fe68f42b7c499df293596")
+-    version("2.6.8", sha256="9a60403d06463f34c988d45a3049b1e09409c4a44ac08f45da920dc2eab26ff5")
+-    version("2.6.7", sha256="365949d19faf14200b4fa0f80dd881fbd4bbcf7f4699bab5e43358119d4109b8")
+-    version("2.6.6", sha256="fc04576e5ae82740f6a1797ebeeac6855338eb028a43b178f3f66183f4bb583e")
+-    version("2.5.16", sha256="5455f58042c7b84826fc72e77d21e9f0a5ec7efe5f40435571c52fb4c0e226fd")
+-    version("2.3.10", sha256="4da290f5fc3c9d4344792176e19e1d3278f87a634ebc1535bbd9a91aae2bbf9b")
+-    version("2.3.9", sha256="1acdff224f32c3eb5780aed13cf0f23b431623a0ebc8a74210271b75b9f2f574")
+-    version("2.5.4", sha256="48bf6807cb8b3092677768f763c1f18940d852d685424a1ea386acf7f1606608")
+-    version("2.5.12", sha256="e8a8af62e5e9917e51c88b2cda889c2a195dfb7911e09c28aeaf10f54e8abf49")
+-    version("2.5.14", sha256="66ab9126bb3cb1f8d8dafb69568569d8856ab6770322efc7c5064252f27a8fda")
+-    version("2.5.2", git=git_base, tag="v2_5_2", get_full_repo=True)
++    homepage = "https://github.com/fnal-fife/ifdhc"
++    git_base = "https://github.com/fnal-fife/ifdhc.git"
++    url = "https://github.com/fnal-fife/ifdhc/archive/refs/tags/v2_6_14.tar.gz"
++    list_url = "https://github.com/fnal-fife/ifdhc/tags"
++
++    version("2.8.0", sha256="189404744961ca049366369b71b783e57540cd4f6a45b86f0aed5f14c198d590")
++    version("2.7.4", sha256="940dc661cfb5a1bf9bf7353b03b0fd732289a951ef99992327f29ce94f1cac9f")
++    version("2.7.3", sha256="8a8caa1d14a0d39c8ccb96460b84cca51540f209535c62cd680243dc08d1db5f")
++    version("2.7.2", sha256="036933c0443a4704f408aea83972954e2af6d933a7ffe61869ac4e6e6fd41256")
++    version("2.7.1", sha256="4494d08c3a7927600bbcee56e65feb024b15e2d510328ec0d2cc0fcefc5cb6a7")
++    version("2.7", sha256="5a4f7c94191bb657415a51c6d73d789f820999b68c8d9c65ec74c845321aa7e2")
++    version("2.6.20", sha256="cd473b3331474a75f87c3251e08c69bb3b0a7c98f53171c5a380049bca1a0cc2")
++    version("2.6.19", sha256="8ce4cb631fb1662e3146a1877e92677859cb2196cf90504e7b4a55811cc45b4b")
++    version("2.6.18", sha256="c8d353ea648177802b2c2e87213a4b5cbffa62cd6b340bc3c6d574402955791c")
++    version("2.6.17", sha256="d4d3614122099f386d9b4e570dcd058a9d6853c96a8ec6beafcbcb8cee4ebb02")
++    version("2.6.14", sha256="df6d78b62ba074aac84281b021037319623e2bc4a90bfb46a7129ebdf3281ec1")
++    version("2.6.8", sha256="3dc0fca76815424a72613df68520dafc08341c9f60c80a766bda647819212d87")
++    version("2.6.6", sha256="8ba4929ecefa5720ea999e39671a48b56a65f5f44ff99f2f473f9cd47277051e")
+     version("develop", git=git_base, branch="develop", get_full_repo=True)
+ 
+     parallel = False
+ 
+     def url_for_version(self, version):
+-        url = "https://cdcvs.fnal.gov/cgi-bin/git_archive.cgi/cvs/projects/ifdhc.v{0}.tbz2"
++        url = "https://github.com/fnal-fife/ifdhc/archive/refs/tags/v{0}.tar.gz"
+         return url.format(version.underscored)
+ 
+     def install(self, a, b):
+diff --git a/fnal_art/packages/ifdhc/package.py b/fnal_art/packages/ifdhc/package.py
+index 78222b1..b9039a0 100644
+--- a/fnal_art/packages/ifdhc/package.py
++++ b/fnal_art/packages/ifdhc/package.py
+@@ -7,35 +7,30 @@ import os
+ 
+ import llnl.util.tty as tty
+ 
+-from spack import *
+ from spack.package import *
+ 
+ 
+ class Ifdhc(MakefilePackage):
+     """Data handling client code for intensity frontier experiments"""
+ 
+-    homepage = "https://cdcvs.fnal.gov/redmine/projects/ifdhc"
+-    git_base = "https://cdcvs.fnal.gov/projects/ifdhc/ifdhc.git"
+-    url = "https://cdcvs.fnal.gov/cgi-bin/git_archive.cgi/cvs/projects/ifdhc.v2_5_2.tbz2"
+-
+-    version("2.7.2", sha256="03f1211c89c49dc4669344fce5321d3c45fcf68bf46a84368010edd2dcdb2630")
+-    version("2.7.1", sha256="cb8726506546ff49f8134024171dfc389dbfff74e66a19ba1a49aea767f5f510")
+-    version("2.7", sha256="49c3e9fbc5a1ebb80d8fb870e45ec9faa6577c001a8a073521b071d51dd93bb8")
+-    version("2.6.20", sha256="54cffb88be5c085dd2f3246507cf850299b780e2ab16cd8abce4360e200b4044")
+-    version("2.6.19", sha256="5499391378d6769da0b94b0e8eaea358d6c7be40673e4c97c5580c4e94bdaa24")
+-    version("2.6.11", sha256="988eb6bd2124174e0956b4415edcc3671ac87896a64852e9e99d8628c4fa1334")
+-    version("2.6.10", sha256="44ee19429ec3c55be54582fb9411b68ebba9c90ae3ee8b770faa702f599a3f49")
+-    version("2.6.9", sha256="46dadbba0acdf19644496fd7c3eff2a046f745e9fe9fe68f42b7c499df293596")
+-    version("2.6.8", sha256="9a60403d06463f34c988d45a3049b1e09409c4a44ac08f45da920dc2eab26ff5")
+-    version("2.6.7", sha256="365949d19faf14200b4fa0f80dd881fbd4bbcf7f4699bab5e43358119d4109b8")
+-    version("2.6.6", sha256="fc04576e5ae82740f6a1797ebeeac6855338eb028a43b178f3f66183f4bb583e")
+-    version("2.5.16", sha256="5455f58042c7b84826fc72e77d21e9f0a5ec7efe5f40435571c52fb4c0e226fd")
+-    version("2.5.12", sha256="e8a8af62e5e9917e51c88b2cda889c2a195dfb7911e09c28aeaf10f54e8abf49")
+-    version("2.5.14", sha256="66ab9126bb3cb1f8d8dafb69568569d8856ab6770322efc7c5064252f27a8fda")
+-    version("2.3.9", sha256="1acdff224f32c3eb5780aed13cf0f23b431623a0ebc8a74210271b75b9f2f574")
+-    version("2.5.4", sha256="48bf6807cb8b3092677768f763c1f18940d852d685424a1ea386acf7f1606608")
+-    version("2.3.10", sha256="4da290f5fc3c9d4344792176e19e1d3278f87a634ebc1535bbd9a91aae2bbf9b")
+-    version("2.5.2", git=git_base, tag="v2_5_2", get_full_repo=True)
++    homepage = "https://github.com/fnal-fife/ifdhc"
++    git_base = "https://github.com/fnal-fife/ifdhc.git"
++    url = "https://github.com/fnal-fife/ifdhc/archive/refs/tags/v2_6_14.tar.gz"
++    list_url = "https://github.com/fnal-fife/ifdhc/tags"
++
++    version("2.8.0", sha256="189404744961ca049366369b71b783e57540cd4f6a45b86f0aed5f14c198d590")
++    version("2.7.4", sha256="940dc661cfb5a1bf9bf7353b03b0fd732289a951ef99992327f29ce94f1cac9f")
++    version("2.7.3", sha256="8a8caa1d14a0d39c8ccb96460b84cca51540f209535c62cd680243dc08d1db5f")
++    version("2.7.2", sha256="036933c0443a4704f408aea83972954e2af6d933a7ffe61869ac4e6e6fd41256")
++    version("2.7.1", sha256="4494d08c3a7927600bbcee56e65feb024b15e2d510328ec0d2cc0fcefc5cb6a7")
++    version("2.7", sha256="5a4f7c94191bb657415a51c6d73d789f820999b68c8d9c65ec74c845321aa7e2")
++    version("2.6.20", sha256="cd473b3331474a75f87c3251e08c69bb3b0a7c98f53171c5a380049bca1a0cc2")
++    version("2.6.19", sha256="8ce4cb631fb1662e3146a1877e92677859cb2196cf90504e7b4a55811cc45b4b")
++    version("2.6.18", sha256="c8d353ea648177802b2c2e87213a4b5cbffa62cd6b340bc3c6d574402955791c")
++    version("2.6.17", sha256="d4d3614122099f386d9b4e570dcd058a9d6853c96a8ec6beafcbcb8cee4ebb02")
++    version("2.6.14", sha256="df6d78b62ba074aac84281b021037319623e2bc4a90bfb46a7129ebdf3281ec1")
++    version("2.6.8", sha256="3dc0fca76815424a72613df68520dafc08341c9f60c80a766bda647819212d87")
++    version("2.6.6", sha256="8ba4929ecefa5720ea999e39671a48b56a65f5f44ff99f2f473f9cd47277051e")
+     version("develop", git=git_base, branch="develop", get_full_repo=True)
+ 
+     depends_on("python")
+@@ -62,7 +57,7 @@ class Ifdhc(MakefilePackage):
+         filter_file(r"(CFLAGS=.*) -Werror", r"\1", "util/Makefile")
+ 
+     def url_for_version(self, version):
+-        url = "https://cdcvs.fnal.gov/cgi-bin/git_archive.cgi/cvs/projects/{0}.v{1}.tbz2"
++        url = "https://github.com/fnal-fife/ifdhc/archive/refs/tags/v{0}.tar.gz"
+ 
+         return url.format(self.name, version.underscored)
+ 
+@@ -97,10 +92,11 @@ class Ifdhc(MakefilePackage):
+         return ("SHELL=/bin/bash", "DESTDIR={0}/".format(self.prefix), "install")
+ 
+     @run_after("install")
+-    def install_cfg(self):
+-        cmd = "cp {0}/ifdh.cfg {1}/ifdh.cfg".format(self.stage.source_path, self.spec.prefix)
+-        tty.warn("installing ifdh.cfg: {0}".format(cmd))
+-        os.system(cmd)
++    def dont_overlap_ifdhc_config(self):
++        # we want any environments built to point at ifdhc-config for
++        # these files, not ifdhc, so don't include them in ifdhc
++        for f in [ 'www_cp.sh', 'auth_session.sh', 'decode_token.sh' ]:
++            os.unlink(os.path.join(self.spec.prefix.bin ,f))
+ 
+     @run_after("install")
+     def is_built(self):
+@@ -120,7 +116,7 @@ class Ifdhc(MakefilePackage):
+         run_env.prepend_path("PYTHONPATH", self.spec.prefix.lib.python)
+         run_env.set("IFDHC_DIR", self.spec.prefix)
+         # put ifdhc_config bin path ahead of us that we saved in os.environ...
+-        run_env.prepend_path("PATH", os.environ["IFDHC_CONFIG_BIN"])
++        run_env.prepend_path("PATH", os.environ.get("IFDHC_CONFIG_BIN",""))
+ 
+     def setup_dependent_build_environment(self, spack_env, dspec):
+         spack_env.prepend_path("PATH", self.spec.prefix.bin)
+diff --git a/fnal_art/packages/nucondb/package.py b/fnal_art/packages/nucondb/package.py
+index 899ccf8..b254b5e 100644
+--- a/fnal_art/packages/nucondb/package.py
++++ b/fnal_art/packages/nucondb/package.py
+@@ -3,23 +3,27 @@
+ #
+ # SPDX-License-Identifier: (Apache-2.0 OR MIT)
+ 
+-from spack import *
+ from spack.package import *
+ 
+ 
+ class Nucondb(MakefilePackage):
+     """Data handling client code for intensity frontier experiments"""
+ 
+-    homepage = "https://cdcvs.fnal.gov/redmine/projects/nucondb"
+-    url = "https://cdcvs.fnal.gov/cgi-bin/git_archive.cgi/cvs/projects/nucondb.v2_2_10.tbz2"
+-    git = "https://cdcvs.fnal.gov/projects/ifdhc-nucondb"
+-
+-    version("2.6.2", sha256="5d1b8e7a11a9f6b0305282052683478c25fcb606f97fb020bc2a57626e00a87b") # FIXME
+-    version("2.6.1", sha256="fbf59259e8cd75334b4ad17d3da46519d35c5c81ccf55b8df2d19f664fe016b9")
+-    version("2.5.23", sha256="30399133b64548affd3522eb16346a1fc85f36ba4300fce51730a208a8022f24")
+-    version("2.5.22", sha256="bd468d5b64909e3951342eacef30440e1eaca5d32add991fe6cc36b46f1c5f65")
+-    version("2.5.17", sha256="5b9bd0e8e6359edb594416847a946214376f013afedebbd861ebd6556d45823f")
+-    version("2.5.16", sha256="2de3a199407a378ea62f76652bc0945065d6636c7f7a02e5fafa9667f4ae833a")
++    homepage = "https://github.com/fnal-fife/nucondb"
++    git_base = "https://github.com/fnal-fife/nucondb.git"
++    url = "https://github.com/fnal-fife/nucondb/archive/refs/tags/v2_6_14.tar.gz"
++    list_url = "https://github.com/fnal-fife/nucondb/tags"
++
++    version("2_6_3", sha256="0b664a07b67f72bea2d7c2648553a32e4479b6044b447b720039e64c01a9b8d7")
++    version("2_6_2", sha256="3fffd0d4291c76dbba0f94c75d678057ae12d1a36983c8cccd7098158f7b6874")
++    version("2_6_1", sha256="0fd793361322224c74c413dc105fb53f60488a6234c5ad4f31843e6b4462d39e")
++    version("2_6", sha256="e205a12c28466bdf32ec4373a76877e28606f6ed33f58d1d64c738ac03d232d7")
++    version("2_5_23", sha256="eb8c0b9720ffcc0e2146ee704349f7ce41748ca91614aeb9644ec388c4f7ad4d")
++    version("2_5_22", sha256="583917373cedce05150d892541402332795444ec019d961870807150da540079")
++    version("2_5_21", sha256="20c19e30ac6eda4df5058d2ca6753ad6c0de25c80df495b5fa97910966af7140")
++    version("2_5_20", sha256="1395d43c3bb954bf0982b85a1f49ee6a9454924f2d403f74a35be75c19f101c9")
++    version("2_5_19", sha256="73d589ba9437c40e990c7b872f8ff5154e32697f9e1990d6253d898ed11b810f")
++    version("2_5_18", sha256="f1ed5f66aa373292eb917d09885f2f2fbc41385521fb396050d441e300508f2a")
+     version("2.5.2", tag="v2_5_2", get_full_repo=True)
+     version("2.4.8", tag="v2_4_8", get_full_repo=True)
+     version("2.3.0", tag="v2_3_0", get_full_repo=True)
+@@ -46,11 +50,6 @@ class Nucondb(MakefilePackage):
+             r"catch \(WebAPIException we\)", "catch (WebAPIException &we)", "src/nucondb.cc"
+         )
+ 
+-    def url_for_version(self, version):
+-        url = "https://cdcvs.fnal.gov/cgi-bin/git_archive.cgi/cvs/projects/{0}.v{1}.tbz2"
+-        print(url.format("ifdhc-" + self.name, version.underscored))
+-        return url.format("ifdhc-" + self.name, version.underscored)
+-
+     @property
+     def build_targets(self):
+         cxxstd = self.spec.variants["cxxstd"].value
+diff --git a/fnal_art/packages/nusystematics/package.py b/fnal_art/packages/nusystematics/package.py
+index 02aa6ca..4e9c430 100644
+--- a/fnal_art/packages/nusystematics/package.py
++++ b/fnal_art/packages/nusystematics/package.py
+@@ -38,6 +38,7 @@ class Nusystematics(CMakePackage):
+     # See https://spdx.org/licenses/ for a list.
+     license("UNKNOWN")
+ 
++    version("1.05.07", sha256="8d273475c43cd42cb62f5a66f6fd6bcd90c6ad3cb9b8592c0ca24982356a2db5") # FIXME
+     version("1.05.04", sha256="3f3f381a8613fb148b6fb2e0250a621a43bec684c2298389c65ae2f2403580e0") # FIXME
+     version("1_05_02", sha256="c4f2a7ed65d814ae3e20eae3832eb9534618ff0648fa0b57d5012df629bd0bbd")
+     version("01_03_12", sha256="53300aa8bc604d06858a8a01f3ca6e59526d524375f24d6ae728f6d21e027898")
+diff --git a/fnal_art/packages/ppfx/package.py b/fnal_art/packages/ppfx/package.py
+index 117fe27..52a9b26 100644
+--- a/fnal_art/packages/ppfx/package.py
++++ b/fnal_art/packages/ppfx/package.py
+@@ -22,6 +22,7 @@ class Ppfx(CMakePackage):
+         urlf = "https://cdcvs.fnal.gov/cgi-bin/git_archive.cgi/cvs/projects/ppfx.v{0}.tbz2"
+         return urlf.format(version.underscored)
+ 
++    version("02.20.05", sha256="0ed800f6f358d960f5586bd2b73441660dfa266a59daaf18c2e8fbc24a13cedb") # FIXME
+     version("02.20.04", sha256="b90ed46e543948736c25546d259639b1aeb0090b85ddebfa71c3dc9ccafdc09c") # FIXME
+     version("02.20.03", sha256="2a6f19f615da6d18eb48bbebdeb4785c2663e3255ffc7a8fe8f05a822c1b7c0a")
+     version("02.18.03", sha256="32bab85a7d98b06ecfd76fe57df28cef7fb826ab8fd89ab1bb56f34ab8260040")
+diff --git a/fnal_art/packages/sbnalg/package.py b/fnal_art/packages/sbnalg/package.py
+index 9ff169f..291391a 100644
+--- a/fnal_art/packages/sbnalg/package.py
++++ b/fnal_art/packages/sbnalg/package.py
+@@ -22,6 +22,7 @@ class Sbnalg(CMakePackage):
+     depends_on("sbnanaobj")
+     depends_on("cetmodules")
+ 
++    version("10.06.00.01", sha256="cdf8ef0b02e349918189a3b62de535f49f7c9c61035a7a15d592dd97dbaf0841") # FIXME
+     version("10.04.07", sha256="d52b8fc243596662f037f19fe6f9d61296c7673bf200a11023279a715d0729bc")
+ 
+     variant(
+diff --git a/fnal_art/packages/sbnanaobj/package.py b/fnal_art/packages/sbnanaobj/package.py
+index 33a81ab..412ed37 100644
+--- a/fnal_art/packages/sbnanaobj/package.py
++++ b/fnal_art/packages/sbnanaobj/package.py
+@@ -30,6 +30,7 @@ class Sbnanaobj(CMakePackage):
+     homepage = "https://www.example.com"
+     url = "https://github.com/SBNSoftware/sbnanaobj/archive/refs/tags/v09_17_04.tar.gz"
+ 
++    version("10.00.04", sha256="7f53cfedfba6e864e438a949ad6c314faf627435f98984786b7713d010579eea") # FIXME
+     version("10.00.01", sha256="4047c801570d5a4a33d42fa7577fbc22eb8a62c7cfc8249e4d8e4e78067f8388") # FIXME
+     version("10.00.00", sha256="268492c6394a8090e1ac93bc5a47abcaac8b808d972d1bb57de25d3887802b28")
+     version("09.23.02.01", sha256="88bf520e81e96311e62487efa4b01baed07e17ed4ab097ed31eaea792db0fea9")
+diff --git a/fnal_art/packages/sbncode/package.py b/fnal_art/packages/sbncode/package.py
+index b3f17fb..0c5c1ec 100644
+--- a/fnal_art/packages/sbncode/package.py
++++ b/fnal_art/packages/sbncode/package.py
+@@ -31,17 +31,15 @@ class Sbncode(CMakePackage):
+     framework for particle physics experiments.
+     """
+ 
+-    homepage = "https://cdcvs.fnal.gov/redmine/projects/sbncode"
+     url = "https://github.com/SBNSoftware/sbncode/archive/refs/tags/v09_35_01.tar.gz"
+     git = "https://github.com/SBNSoftware/sbncode.git"
+-    git_base = "https://github.com/SBNSoftware/sbncode.git"
+-    list_url = "https://api.github.com/repos/SBNSoftware/sbncode/tags"
++    #git_base = "https://github.com/SBNSoftware/sbncode.git"
++    #list_url = "https://api.github.com/repos/SBNSoftware/sbncode/tags"
+ 
+-    version("develop", branch="develop", git=git_base, get_full_repo=True)
++    #version("develop", branch="develop", git=git_base, get_full_repo=True)
++    version("v10_06_00_01", commit="fb929f3d9ac910bec5da48ca8adcc1bad0412eb6", submodules=True)
+     version("v10_04_07", commit="412514c73b41c88fcbd9ffcf0632ed186703a2d3", submodules=True)
+-    version("Mar25Production", branch="release/Mar25Production", git=git_base, get_full_repo=True)
+     version("v10_04_06_p01",commit="41ef8493069b0f07287e43ed66873484c0a203d5", submodules=True)
+-    #version("09.93.01", commit="ccdf1cbf7570564cff544edc5c39037e790b4817", submodules=True)
+     version("v10_04_04",commit="d49df6743d95631d6c9edc2ae01ee3f3e3a5c01f", submodules=True)
+     version("v09_93_01_p01", commit="b67723df67c57e7325c4baf3825760c6683f1c7a", submodules=True)
+     version("v09_93_01_p02", commit="45baa22ccf40934ca65f5c5229df4c52ad1f7fbb", submodules=True)
+@@ -160,23 +158,24 @@ class Sbncode(CMakePackage):
+ 
+     def url_for_version(self, version):
+         url = "https://github.com/SBNSoftware/{0}/archive/v{1}.tar.gz"
++        print("url for version: ", url.format(self.name, version.underscored))
+         return url.format(self.name, version.underscored)
+ 
+-    def fetch_remote_versions(self, concurrency=None):
+-        return dict(
+-            map(
+-                lambda v: (v.dotted, self.url_for_version(v)),
+-                [
+-                    Version(d["name"][1:])
+-                    for d in sjson.load(
+-                        spack.util.web.read_from_url(
+-                            self.list_url, accept_content_type="application/json"
+-                        )[2]
+-                    )
+-                    if d["name"].startswith("v")
+-                ],
+-            )
+-        )
++    #def fetch_remote_versions(self, concurrency=None):
++    #    return dict(
++    #        map(
++    #            lambda v: (v.dotted, self.url_for_version(v)),
++    #            [
++    #                Version(d["name"][1:])
++    #                for d in sjson.load(
++    #                    spack.util.web.read_from_url(
++    #                        self.list_url, accept_content_type="application/json"
++    #                    )[2]
++    #                )
++    #                if d["name"].startswith("v")
++    #            ],
++    #        )
++    #    )
+     def cmake_args(self):
+         # Set CMake args.
+         args = [
+diff --git a/fnal_art/packages/sbnobj/package.py b/fnal_art/packages/sbnobj/package.py
+index 9027034..61c4f61 100644
+--- a/fnal_art/packages/sbnobj/package.py
++++ b/fnal_art/packages/sbnobj/package.py
+@@ -49,6 +49,7 @@ class Sbnobj(CMakePackage):
+         git=git_base,
+         get_full_repo=True,
+     )
++    version("10.01.00", sha256="f0df159da2b94dbd77c61f065d18b3124d44b90aee229fa4ca67c9f3aadbff53") # FIXME
+     version("10.00.08", sha256="0f18aecb9a3d1da0a723b40efbfcfe289690bb15c4292a7dc1c4981ca996ff8d") # FIXME
+     version("10.00.07", sha256="46634ccb717fc2875c9e84435c85678d72d1d63d95dc85636a55b6839b14d5f7") # FIXME
+     version("10.00.05", sha256="a979fa8f594fab978a3779a7ede92c04c8c44def3ce2c94ba553ee28cc1db2a9") # FIXME
+diff --git a/new_spack_env.sh b/new_spack_env.sh
+index b9723ac..b96838c 100755
+--- a/new_spack_env.sh
++++ b/new_spack_env.sh
+@@ -12,6 +12,7 @@ while [[ $# -gt 0 ]]; do
+       INPUT="$*"
+       # Have to do some cleaning to handle multiple word argument
+       INPUT=$(sed -e 's/-i //g;s/--input //g;s/[[:space:]]*$//;s/^[[:space:]]*//' <<< "$INPUT")
++      INPUT=$(cat $INPUT)
+       # Erases invisible encoding character that ruins the spack spec if present 
+       INPUT=$(sed -e $'1s/^\uFEFF//' <<< "$INPUT")
+       echo "Input        = ${INPUT}"
+@@ -35,20 +36,10 @@ while [[ $# -gt 0 ]]; do
+ done
+ 
+ . /lus/grand/projects/neutrinoGPU/software/spack_builds/spack/share/spack/setup-env.sh
+-spack env create "${ENV}"
++#spack env create "${ENV}"
+ spack env activate "${ENV}"
+-### new and not tested ###
+-spack add krb5
+-spack concretize
+-spack install
+-spack load krb5
+-export KRB5CCNAME=DIR:/home/nathanielerowe/krb5_cache
+-kinit -fr 7d nrowe@FNAL.GOV
+-ssh -D9000 -f -N nrowe@sbndbuild03.fnal.gov
+-export ALL_PROXY=socks5://localhost:9000
+-export NO_PROXY=github.com
+-git config --global http.proxy 'socks5://127.0.0.1:9000'
+-### ^new and not tested ###
++#INPUT=${INPUT%-spec*}
++#echo Adding "${INPUT}"
+ spack add "${INPUT}"
+ spack concretize -f
+ spack install
+diff --git a/spack_check_installed.py b/spack_check_installed.py
+index 28ae190..2ed9a0c 100755
+--- a/spack_check_installed.py
++++ b/spack_check_installed.py
+@@ -20,6 +20,7 @@ def GetSpackStyle(package, manifest_version):
+     pkg = pkg_cls(spec)
+     spack_pkg = 'empty'
+     i = 0
++
+     while not any(char.isdigit() for char in spack_pkg):
+         spack_pkg = list(pkg.versions.keys())[i].string
+         i += 1
+@@ -32,7 +33,6 @@ def GetSpackStyle(package, manifest_version):
+             ret = 'v' + ret
+         elif(spack_pkg[0] != 'v' and ret[0] == 'v'):
+             ret = ret[1:]
+-
+     return ret
+ 
+ def GetSpackName(name):
+@@ -157,7 +157,7 @@ def OutputFinishedSpec(packages, output_file):
+                print("Creating spec for " + package.name)
+                return_str = package.name + "@"+ package.version + return_str
+            elif package.name == "root":
+-                return_str += " ^" + package.name + "@" + package.version +" cxxstd==17 ~jemalloc "
++                return_str += " ^" + package.name + "@" + package.version +" cxxstd==17 ~jemalloc +spectrum"
+            elif package.name == "wirecell":
+                 return_str += " ^" + package.name + "@" + package.version +" +root +cuda +torch "
+            elif package.name == "py-torch":
+diff --git a/spack_update_packages.py b/spack_update_packages.py
+index 641c418..237015f 100755
+--- a/spack_update_packages.py
++++ b/spack_update_packages.py
+@@ -67,6 +67,7 @@ def add_checksum(package, version):
+         url_dict[version] = url
+     else:
+         remote_versions = pkg.fetch_remote_versions()
++        print(remote_versions)
+         if version in remote_versions:
+             url_dict[version] = remote_versions[version]
+ 
+diff --git a/versioning_tools.py b/versioning_tools.py
+index 11b18a6..ac7fba5 100644
+--- a/versioning_tools.py
++++ b/versioning_tools.py
+@@ -25,6 +25,7 @@ def all_versioning_styles(v):
+         return [dot_to_undr(v), undr_to_dot(v), undr_to_dash(v), "v"+undr_to_dash(v), patch(dot_to_undr(v))]
+ 
+ ignorable_packages = [
++        "icarusutil",
+         "cigetcert",
+         "cigetcertlibs",
+         "jobsub_client",
+diff --git a/wire-cell-spack/packages/wirecell/package.py b/wire-cell-spack/packages/wirecell/package.py
+index df806dc..23b273d 100644
+--- a/wire-cell-spack/packages/wirecell/package.py
++++ b/wire-cell-spack/packages/wirecell/package.py
+@@ -18,6 +18,7 @@ class Wirecell(Package, CudaPackage):
+     maintainers = ['brettviren']
+ 
+     version("master", branch="master")
++    version("0.30.3", sha256="cc95044a9de15cab33992084de94e07716a5c14cf2d3486b993c6ef6bad57027") # FIXME
+     version("0.30.2", sha256="51cf692a9687e3124439ce824597c47e8dea38d7178161e3717602c330d74dc2")
+     version("0.29.5", sha256="2a16ae4b4e69bb570d79881f32ceb4868d2a9a16699419dd097765d45da06d03")
+     version("0.28.0", sha256="62f07ad8bf726ef8aaec428a84cae0ca61ca7b33d5c58f35d2c056f342fdc22c")

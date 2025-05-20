@@ -19,6 +19,7 @@ class Larsoftobj(BundlePackage, FnalGithubPackage):
     repo = "LArSoft/larsoftobj"
     version_patterns = ["v09_00_00", "09.35.00"]
 
+    version("10.01.00")
     version("10.00.05")
     version("10.00.04")
     version("09.36.00")

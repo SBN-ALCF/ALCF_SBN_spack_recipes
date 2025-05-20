@@ -15,8 +15,9 @@ class Lardataobj(CMakePackage, FnalGithubPackage):
     repo = "LArSoft/lardataobj"
     version_patterns = ["v09_00_00", "09.18.00"]
 
-    version("10.00.04", sha256="07be6a3d3f2b1d5eee905058b68066d39f2083c22ab2d9d595f5181b3a80e3ff") # FIXME
-    version("10.00.03", sha256="b6fa481c9eb3a519b74731c85ba6697bf28f3623edbcdc02cef6c04d545cbc9d") # FIXME
+    version("10.01.00", sha256="1d0306c0c0ae270335bf869852295d5c25a95d2acb99c8836f7144bac06063ec")
+    version("10.00.04", sha256="07be6a3d3f2b1d5eee905058b68066d39f2083c22ab2d9d595f5181b3a80e3ff")
+    version("10.00.03", sha256="b6fa481c9eb3a519b74731c85ba6697bf28f3623edbcdc02cef6c04d545cbc9d")
     version("09.19.00", sha256="8e689900cef678fb25c161f7fc676be25b64f1d79e65a9839d4c7e5b1a7c1040")
     version("09.18.03", sha256="032a4c48473dc87c204c3aaef4bdf4953599de26cd1642cb51fd6f7692adcb6d")
     version("develop", branch="develop", get_full_repo=True)

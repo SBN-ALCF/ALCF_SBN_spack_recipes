@@ -31,17 +31,15 @@ class Sbncode(CMakePackage):
     framework for particle physics experiments.
     """
 
-    homepage = "https://cdcvs.fnal.gov/redmine/projects/sbncode"
     url = "https://github.com/SBNSoftware/sbncode/archive/refs/tags/v09_35_01.tar.gz"
     git = "https://github.com/SBNSoftware/sbncode.git"
-    git_base = "https://github.com/SBNSoftware/sbncode.git"
-    list_url = "https://api.github.com/repos/SBNSoftware/sbncode/tags"
+    #git_base = "https://github.com/SBNSoftware/sbncode.git"
+    #list_url = "https://api.github.com/repos/SBNSoftware/sbncode/tags"
 
-    version("develop", branch="develop", git=git_base, get_full_repo=True)
+    #version("develop", branch="develop", git=git_base, get_full_repo=True)
+    version("v10_06_00_01", commit="fb929f3d9ac910bec5da48ca8adcc1bad0412eb6", submodules=True)
     version("v10_04_07", commit="412514c73b41c88fcbd9ffcf0632ed186703a2d3", submodules=True)
-    version("Mar25Production", branch="release/Mar25Production", git=git_base, get_full_repo=True)
     version("v10_04_06_p01",commit="41ef8493069b0f07287e43ed66873484c0a203d5", submodules=True)
-    #version("09.93.01", commit="ccdf1cbf7570564cff544edc5c39037e790b4817", submodules=True)
     version("v10_04_04",commit="d49df6743d95631d6c9edc2ae01ee3f3e3a5c01f", submodules=True)
     version("v09_93_01_p01", commit="b67723df67c57e7325c4baf3825760c6683f1c7a", submodules=True)
     version("v09_93_01_p02", commit="45baa22ccf40934ca65f5c5229df4c52ad1f7fbb", submodules=True)
@@ -160,23 +158,24 @@ class Sbncode(CMakePackage):
 
     def url_for_version(self, version):
         url = "https://github.com/SBNSoftware/{0}/archive/v{1}.tar.gz"
+        print("url for version: ", url.format(self.name, version.underscored))
         return url.format(self.name, version.underscored)
 
-    def fetch_remote_versions(self, concurrency=None):
-        return dict(
-            map(
-                lambda v: (v.dotted, self.url_for_version(v)),
-                [
-                    Version(d["name"][1:])
-                    for d in sjson.load(
-                        spack.util.web.read_from_url(
-                            self.list_url, accept_content_type="application/json"
-                        )[2]
-                    )
-                    if d["name"].startswith("v")
-                ],
-            )
-        )
+    #def fetch_remote_versions(self, concurrency=None):
+    #    return dict(
+    #        map(
+    #            lambda v: (v.dotted, self.url_for_version(v)),
+    #            [
+    #                Version(d["name"][1:])
+    #                for d in sjson.load(
+    #                    spack.util.web.read_from_url(
+    #                        self.list_url, accept_content_type="application/json"
+    #                    )[2]
+    #                )
+    #                if d["name"].startswith("v")
+    #            ],
+    #        )
+    #    )
     def cmake_args(self):
         # Set CMake args.
         args = [

@@ -7,35 +7,30 @@ import os
 
 import llnl.util.tty as tty
 
-from spack import *
 from spack.package import *
 
 
 class Ifdhc(MakefilePackage):
     """Data handling client code for intensity frontier experiments"""
 
-    homepage = "https://cdcvs.fnal.gov/redmine/projects/ifdhc"
-    git_base = "https://cdcvs.fnal.gov/projects/ifdhc/ifdhc.git"
-    url = "https://cdcvs.fnal.gov/cgi-bin/git_archive.cgi/cvs/projects/ifdhc.v2_5_2.tbz2"
+    homepage = "https://github.com/fnal-fife/ifdhc"
+    git_base = "https://github.com/fnal-fife/ifdhc.git"
+    url = "https://github.com/fnal-fife/ifdhc/archive/refs/tags/v2_6_14.tar.gz"
+    list_url = "https://github.com/fnal-fife/ifdhc/tags"
 
-    version("2.7.2", sha256="03f1211c89c49dc4669344fce5321d3c45fcf68bf46a84368010edd2dcdb2630")
-    version("2.7.1", sha256="cb8726506546ff49f8134024171dfc389dbfff74e66a19ba1a49aea767f5f510")
-    version("2.7", sha256="49c3e9fbc5a1ebb80d8fb870e45ec9faa6577c001a8a073521b071d51dd93bb8")
-    version("2.6.20", sha256="54cffb88be5c085dd2f3246507cf850299b780e2ab16cd8abce4360e200b4044")
-    version("2.6.19", sha256="5499391378d6769da0b94b0e8eaea358d6c7be40673e4c97c5580c4e94bdaa24")
-    version("2.6.11", sha256="988eb6bd2124174e0956b4415edcc3671ac87896a64852e9e99d8628c4fa1334")
-    version("2.6.10", sha256="44ee19429ec3c55be54582fb9411b68ebba9c90ae3ee8b770faa702f599a3f49")
-    version("2.6.9", sha256="46dadbba0acdf19644496fd7c3eff2a046f745e9fe9fe68f42b7c499df293596")
-    version("2.6.8", sha256="9a60403d06463f34c988d45a3049b1e09409c4a44ac08f45da920dc2eab26ff5")
-    version("2.6.7", sha256="365949d19faf14200b4fa0f80dd881fbd4bbcf7f4699bab5e43358119d4109b8")
-    version("2.6.6", sha256="fc04576e5ae82740f6a1797ebeeac6855338eb028a43b178f3f66183f4bb583e")
-    version("2.5.16", sha256="5455f58042c7b84826fc72e77d21e9f0a5ec7efe5f40435571c52fb4c0e226fd")
-    version("2.5.12", sha256="e8a8af62e5e9917e51c88b2cda889c2a195dfb7911e09c28aeaf10f54e8abf49")
-    version("2.5.14", sha256="66ab9126bb3cb1f8d8dafb69568569d8856ab6770322efc7c5064252f27a8fda")
-    version("2.3.9", sha256="1acdff224f32c3eb5780aed13cf0f23b431623a0ebc8a74210271b75b9f2f574")
-    version("2.5.4", sha256="48bf6807cb8b3092677768f763c1f18940d852d685424a1ea386acf7f1606608")
-    version("2.3.10", sha256="4da290f5fc3c9d4344792176e19e1d3278f87a634ebc1535bbd9a91aae2bbf9b")
-    version("2.5.2", git=git_base, tag="v2_5_2", get_full_repo=True)
+    version("2.8.0", sha256="189404744961ca049366369b71b783e57540cd4f6a45b86f0aed5f14c198d590")
+    version("2.7.4", sha256="940dc661cfb5a1bf9bf7353b03b0fd732289a951ef99992327f29ce94f1cac9f")
+    version("2.7.3", sha256="8a8caa1d14a0d39c8ccb96460b84cca51540f209535c62cd680243dc08d1db5f")
+    version("2.7.2", sha256="036933c0443a4704f408aea83972954e2af6d933a7ffe61869ac4e6e6fd41256")
+    version("2.7.1", sha256="4494d08c3a7927600bbcee56e65feb024b15e2d510328ec0d2cc0fcefc5cb6a7")
+    version("2.7", sha256="5a4f7c94191bb657415a51c6d73d789f820999b68c8d9c65ec74c845321aa7e2")
+    version("2.6.20", sha256="cd473b3331474a75f87c3251e08c69bb3b0a7c98f53171c5a380049bca1a0cc2")
+    version("2.6.19", sha256="8ce4cb631fb1662e3146a1877e92677859cb2196cf90504e7b4a55811cc45b4b")
+    version("2.6.18", sha256="c8d353ea648177802b2c2e87213a4b5cbffa62cd6b340bc3c6d574402955791c")
+    version("2.6.17", sha256="d4d3614122099f386d9b4e570dcd058a9d6853c96a8ec6beafcbcb8cee4ebb02")
+    version("2.6.14", sha256="df6d78b62ba074aac84281b021037319623e2bc4a90bfb46a7129ebdf3281ec1")
+    version("2.6.8", sha256="3dc0fca76815424a72613df68520dafc08341c9f60c80a766bda647819212d87")
+    version("2.6.6", sha256="8ba4929ecefa5720ea999e39671a48b56a65f5f44ff99f2f473f9cd47277051e")
     version("develop", git=git_base, branch="develop", get_full_repo=True)
 
     depends_on("python")
@@ -62,7 +57,7 @@ class Ifdhc(MakefilePackage):
         filter_file(r"(CFLAGS=.*) -Werror", r"\1", "util/Makefile")
 
     def url_for_version(self, version):
-        url = "https://cdcvs.fnal.gov/cgi-bin/git_archive.cgi/cvs/projects/{0}.v{1}.tbz2"
+        url = "https://github.com/fnal-fife/ifdhc/archive/refs/tags/v{0}.tar.gz"
 
         return url.format(self.name, version.underscored)
 
@@ -97,10 +92,11 @@ class Ifdhc(MakefilePackage):
         return ("SHELL=/bin/bash", "DESTDIR={0}/".format(self.prefix), "install")
 
     @run_after("install")
-    def install_cfg(self):
-        cmd = "cp {0}/ifdh.cfg {1}/ifdh.cfg".format(self.stage.source_path, self.spec.prefix)
-        tty.warn("installing ifdh.cfg: {0}".format(cmd))
-        os.system(cmd)
+    def dont_overlap_ifdhc_config(self):
+        # we want any environments built to point at ifdhc-config for
+        # these files, not ifdhc, so don't include them in ifdhc
+        for f in [ 'www_cp.sh', 'auth_session.sh', 'decode_token.sh' ]:
+            os.unlink(os.path.join(self.spec.prefix.bin ,f))
 
     @run_after("install")
     def is_built(self):
@@ -120,7 +116,7 @@ class Ifdhc(MakefilePackage):
         run_env.prepend_path("PYTHONPATH", self.spec.prefix.lib.python)
         run_env.set("IFDHC_DIR", self.spec.prefix)
         # put ifdhc_config bin path ahead of us that we saved in os.environ...
-        run_env.prepend_path("PATH", os.environ["IFDHC_CONFIG_BIN"])
+        run_env.prepend_path("PATH", os.environ.get("IFDHC_CONFIG_BIN",""))
 
     def setup_dependent_build_environment(self, spack_env, dspec):
         spack_env.prepend_path("PATH", self.spec.prefix.bin)

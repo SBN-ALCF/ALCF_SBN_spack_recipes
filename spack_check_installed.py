@@ -20,6 +20,7 @@ def GetSpackStyle(package, manifest_version):
     pkg = pkg_cls(spec)
     spack_pkg = 'empty'
     i = 0
+
     while not any(char.isdigit() for char in spack_pkg):
         spack_pkg = list(pkg.versions.keys())[i].string
         i += 1
@@ -32,7 +33,6 @@ def GetSpackStyle(package, manifest_version):
             ret = 'v' + ret
         elif(spack_pkg[0] != 'v' and ret[0] == 'v'):
             ret = ret[1:]
-
     return ret
 
 def GetSpackName(name):
@@ -157,7 +157,7 @@ def OutputFinishedSpec(packages, output_file):
                print("Creating spec for " + package.name)
                return_str = package.name + "@"+ package.version + return_str
            elif package.name == "root":
-                return_str += " ^" + package.name + "@" + package.version +" cxxstd==17 ~jemalloc "
+                return_str += " ^" + package.name + "@" + package.version +" cxxstd==17 ~jemalloc +spectrum"
            elif package.name == "wirecell":
                 return_str += " ^" + package.name + "@" + package.version +" +root +cuda +torch "
            elif package.name == "py-torch":

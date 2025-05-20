@@ -67,6 +67,7 @@ def add_checksum(package, version):
         url_dict[version] = url
     else:
         remote_versions = pkg.fetch_remote_versions()
+        print(remote_versions)
         if version in remote_versions:
             url_dict[version] = remote_versions[version]
 

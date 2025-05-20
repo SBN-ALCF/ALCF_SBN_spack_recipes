@@ -207,7 +207,7 @@ class Genie(AutotoolsPackage):
         filesystem.install_tree(os.path.join(self.stage.source_path, "data"), data_dir)
 
     def setup_build_environment(self, spack_env):
-        spack_env.set("ROOT_INCLUDE_PATH", os.path.join(self.stage.source_path, "src"))
+        spack_env.prepend_path("ROOT_INCLUDE_PATH", os.path.join(self.stage.source_path, "src"))
         spack_env.set("GENIE_VERSION", "v{0}".format(self.version.underscored))
         # Ensure Root can find headers for autoparsing.
         for d in self.spec.traverse(

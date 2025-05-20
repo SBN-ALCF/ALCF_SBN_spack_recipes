@@ -25,6 +25,7 @@ def all_versioning_styles(v):
         return [dot_to_undr(v), undr_to_dot(v), undr_to_dash(v), "v"+undr_to_dash(v), patch(dot_to_undr(v))]
 
 ignorable_packages = [
+        "icarusutil",
         "cigetcert",
         "cigetcertlibs",
         "jobsub_client",

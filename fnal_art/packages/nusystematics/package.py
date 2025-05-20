@@ -38,7 +38,6 @@ class Nusystematics(CMakePackage):
     # See https://spdx.org/licenses/ for a list.
     license("UNKNOWN")
 
-    version("1.05.04", sha256="3f3f381a8613fb148b6fb2e0250a621a43bec684c2298389c65ae2f2403580e0") # FIXME
     version("1_05_02", sha256="c4f2a7ed65d814ae3e20eae3832eb9534618ff0648fa0b57d5012df629bd0bbd")
     version("01_03_12", sha256="53300aa8bc604d06858a8a01f3ca6e59526d524375f24d6ae728f6d21e027898")
 

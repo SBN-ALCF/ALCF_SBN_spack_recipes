@@ -16,6 +16,7 @@ class Nusimdata(CMakePackage, FnalGithubPackage):
     version_patterns = ["v1_24_05", "1.27.02"]
 
     version("develop", branch="develop", get_full_repo=True)
+    version("v1_29_00", sha256="d2b90045ed9fb094a1957a8a92dca2d71ef34010a6a6949b277040b463b63dbd")
     version("1.28.06", sha256="da5c30b230b37f546612429688e3b4195bdd7b49beccf1f5001ed49cab8717c5")
     version("1.28.05", sha256="edfc013a790e6f8633088931cd54b7a60adeb4197c87849c3cad124c3dfade9c")
 
