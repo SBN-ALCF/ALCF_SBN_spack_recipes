@@ -16,8 +16,12 @@ class Lardata(CMakePackage, FnalGithubPackage):
     version_patterns = ["v09_00_00", "09.16.00"]
 
     version("10.00.08", sha256="e6265a34e46207f584313d7002a1172d1ab35f36da3456a4da8a1402d9cb2969")
+    version("10.00.07", sha256="e7f215b9999ec612f9bc3b4d26102ec57bc4045decdf3e87b3f20d1ce44ab62d")
     version("10.00.06", sha256="53d90ad95614208d0f38e048faacba6f0d53905b331f3ef409194a5909495a08")
     version("10.00.05", sha256="48a05441e92f8f206f4bafa54db3973eed36499d21796bd773d055ce3311b090")
+    version("10.00.04", sha256="f0423ae74755a9f38515537d3c89987ab6d07c083c3622a85d2857477eb03220")
+    version("10.00.03", sha256="8699796ce946e65cef398e53de7f88ed36d5c16d38b9691129a386fdcc6b07f6")
+    version("10.00.01", sha256="bec99f0d4d58f268f0300f8f57538261259308e14f9d5e6faa6e13f82bf83749")
     version("09.17.00", sha256="040d2dc31a0fd842c79d52442e8ab779f0b92873e5e2ebcd5ef50e6a716d97aa")
     version("09.16.03", sha256="2a0eff1beaab479f0603df7be676ab47edd61f24787da0eef66febc168986595")
     version("develop", branch="develop", get_full_repo=True)
