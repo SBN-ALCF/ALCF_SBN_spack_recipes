@@ -16,17 +16,20 @@ class Larexamples(CMakePackage, FnalGithubPackage):
     version_patterns = ["v09_00_00", "09.08.18"]
 
     version("10.00.12", sha256="4e1e2b3c9eb82076d73f1bb0ca92540085a1ca8f898d5b4333770a7ad1fdef59")
+    version("10.00.11", sha256="bae9aa81b2d3fd17b07bcbab7561a29b6850ec7711f95f9b3a1b732c617e55e6")
+    version("10.00.10", sha256="a8fdd6852ec62be0474b51c629c96fa5ef13481c733812e299c39665f7fa86d6")
     version("10.00.09", sha256="61e17e351d2fb8f7ecf0510c29f448f79e2d3c5bfbbc3f11455ce8be30dc89da")
-    version("10.00.08", sha256="ccf2de4edfb0f04dab419162521f2d2b0edab307b1a39eef2e89fafec397d49e")
+    version("10.00.06", sha256="0ee35d7e5c4cd5d7dc32d208ca714eb243102a655168ac71932549f4fdc67607")
+    version("10.00.05", sha256="3e516bfeb580b5d073db2b9a26003a7378a76265f5c3f7fe3bb7f8e4e35f947e")
+    version("10.00.02", sha256="39e801277d747cf26241c8f5abfa184577e09b1dd72ed704b77fcba865246fc6")
     version("09.09.11", sha256="a5801b1e452fc873ab5a115897f6489e786edbbbd3366242b1c523254bd484f6")
     version("09.09.05", sha256="a57de45e38b91252c42592f179355420c642cfb5af6bfeecd336bb1abde5ac9c")
     version("develop", branch="develop", get_full_repo=True)
 
     cxxstd_variant("17", "20", default="17")
 
-    patch("dk2nu.patch")
-
     depends_on("cetmodules", type="build")
+    depends_on("larsoft-data", type=("build", "test"))
 
     depends_on("art")
     depends_on("art-root-io")
@@ -45,6 +48,14 @@ class Larexamples(CMakePackage, FnalGithubPackage):
     depends_on("messagefacility")
     depends_on("nusimdata")
     depends_on("root")
+
+    def patch(self):
+        files = ["test/Algorithms/TotallyCheatTracks/CMakeLists.txt",
+             "larexamples/AnalysisExample/CMakeLists.txt",
+             "larexamples/Algorithms/TotallyCheatTracks/CheatTrackData/CMakeLists.txt",
+             "larexamples/Algorithms/TotallyCheatTracks/CMakeLists.txt"]
+        for file in files:
+            filter_file("nusimdata::SimulationBase", "nusimdata::SimulationBase dk2nu::Tree", file)
 
     @cmake_preset
     def cmake_args(self):

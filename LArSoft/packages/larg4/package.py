@@ -16,9 +16,12 @@ class Larg4(CMakePackage, FnalGithubPackage):
     version_patterns = ["v09_00_00", "09.18.00"]
 
     version("10.00.09", sha256="ffd8911bad84c0b48f441ef57091dd0a4b96abe1976dcb0ae4a8690b1206a086")
+    version("10.00.08", sha256="f2c8de43173a9fbeb5812cf0e6475ede2e6deb70a8df1bc2e6db7ef9ca3f4d54")
+    version("10.00.07", sha256="fa2f0ea4fec73cd0a0b34d5ef6e0d4f437831244c4c616cc45885c6125beae61")
     version("10.00.06", sha256="3e6a786abc8c46b0ac3b28556a947fea6190bdfb887e45b46df03e7198afe6b9")
-    version("10.00.05", sha256="39a0763f867d63c4c845a14cb9b048635c8bcb1b9a0ea1474670430c03eaaf94")
-    version("09.19.08", sha256="f5b224885ad5f95b503596f95f06ee457ef8bca8869bfbd9d9f0141e6f2a1688")
+    version("10.00.04", sha256="126814c20b77359c28aedd3b6150c9fb8677bb16a7a8c1ee77e14a8ae36d3802")
+    version("10.00.03", sha256="1ffeb259e2986e185c9bef4c8ce08268c68d46938784e43745cbbe3a8a86c60e")
+    version("10.00.01", sha256="89f414f6199ec8c0ca18ccb4c15ae0e4d89e5ffe4436ab3d1fe85a2610486955")
     version("09.19.03", sha256="0359f862e4a9a95f5dd1f70e37d6d577c2dc13458adf0060d13b01da30b1d751")
     version("develop", branch="develop", get_full_repo=True)
 

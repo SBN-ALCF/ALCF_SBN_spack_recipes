@@ -15,12 +15,20 @@ class Larwirecell(CMakePackage, FnalGithubPackage):
     version_patterns = ["v09_00_00", "09.18.00"]
 
     version("10.01.10", sha256="a8342af4db82e4615ae1347c9371b816362edc8181044e3e6e72164b2b97cc3f")
+    version("10.01.09", sha256="8507d5ca127a614022a705a2df217a680c734430debd2411f813e82b617b479a")
+    version("10.01.08", sha256="f9dfcb086237ef6d6378aa296e25adf7ca003f57303f82863ea853b37e3d90e7")
     version("10.01.06", sha256="738e5a20e60679b9cc03484f0b2f609d2823fda1b6d6afacaa9856c3b760df20")
+    version("10.01.02", sha256="1315701d1213938e157b8bf00adfa2d9882a48e281d52df887cbefbc90a04fdc")
+    version("10.01.01", sha256="4afa459ee835136a6136a06c989dc442f2a767651a4ca76e0114dd155f35c222")
+    version("10.01.00", sha256="ff47c0d6669682776461a36dec4b0831cf253cb0187e31ada21f8e61b06475a8")
+    version("10.00.02", sha256="e7b25de4ae4d7e3c1728d81b15d2c1b2d8bdde515576580c20c9954c38c6f014")
     version("09.18.08", sha256="abcbc8df882045a0bb1f851a279c32c8efb9f4f6c2d5901a89c17fdc0b9ca230")
     version("09.18.04", sha256="f932e70776681fb75ca39e9e2cc709321ca5689a3bbfc229c1b67921c6e585b9")
     version("develop", branch="develop", get_full_repo=True)
 
     cxxstd_variant("17", "20", default="17")
+
+    patch('v10.00.02.patch', when="@10.00.02")
 
     depends_on("cetmodules", type="build")
 
@@ -31,6 +39,7 @@ class Larwirecell(CMakePackage, FnalGithubPackage):
     depends_on("lardataalg", when="@:09.18.04")
     depends_on("lardata")
     depends_on("larevt")
+    depends_on("larsim")
     depends_on("root")
     depends_on("wirecell")
 
@@ -41,10 +50,6 @@ class Larwirecell(CMakePackage, FnalGithubPackage):
     depends_on("jsonnet")
     depends_on("spdlog")
     depends_on("tbb")
-    depends_on("dk2nugenie")
-    depends_on("marley")
-
-    patch('10.00.00.patch', when='@10.00.00')
 
     def patch(self):
         filter_file(r"list\(TRANSFORM _fwc_deps APPEND _FOUND", "", "Modules/FindWireCell.cmake")
@@ -80,10 +85,7 @@ class Larwirecell(CMakePackage, FnalGithubPackage):
         return [
             self.define_from_variant("CMAKE_CXX_STANDARD", "cxxstd"),
             self.define("IGNORE_ABSOLUTE_TRANSITIVE_DEPENDENCIES", True),
-            self.define("jsoncpp_DIR", self.spec["jsoncpp"].prefix),
-            self.define("dk2nugenie_INCLUDE_DIRS", self.spec["dk2nugenie"].prefix.include),
-            self.define("dk2nugenie_LIBRARY", self.spec["dk2nugenie"].prefix.lib),
-            self.define("MARLEY_LIBRARIES", self.spec["dk2nugenie"].prefix.lib)
+            self.define("jsoncpp_DIR", self.spec["jsoncpp"].prefix)
         ]
 
     @sanitize_paths
