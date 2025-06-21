@@ -41,7 +41,6 @@ class Wirecell(Package, CudaPackage):
     version('0.18.0', sha256='9a659d2ac96cff0166c1e78574734981ed1fabe039a2f02376a8b3f04653b6b3')
     version('0.17.1', sha256='4abb1bf16a59815e1702c6c53238c6790ec0872a58f51fd2fc44866419b597e5')
 
-    patch("Gray.patch", when="@0.28.0")
     # ----------
 
     # see eg https://github.com/spack/spack/blob/develop/var/spack/repos/builtin/packages/boost/package.py
