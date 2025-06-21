@@ -10,20 +10,20 @@ from spack import *
 from spack.package import *
 
 
-def sanitize_environments(*args):
-    for env in args:
-        for var in (
-            "PATH",
-            "CET_PLUGIN_PATH",
-            "LDSHARED",
-            "LD_LIBRARY_PATH",
-            "DYLD_LIBRARY_PATH",
-            "LIBRARY_PATH",
-            "CMAKE_PREFIX_PATH",
-            "ROOT_INCLUDE_PATH",
-        ):
-            env.prune_duplicate_paths(var)
-            env.deprioritize_system_paths(var)
+#def sanitize_environments(*args):
+#    for env in args:
+#        for var in (
+#            "PATH",
+#            "CET_PLUGIN_PATH",
+#            "LDSHARED",
+#            "LD_LIBRARY_PATH",
+#            "DYLD_LIBRARY_PATH",
+#            "LIBRARY_PATH",
+#            "CMAKE_PREFIX_PATH",
+#            "ROOT_INCLUDE_PATH",
+#        ):
+#            env.prune_duplicate_paths(var)
+#            env.deprioritize_system_paths(var)
 
 
 class Sbncode(CMakePackage):
@@ -239,7 +239,7 @@ class Sbncode(CMakePackage):
                 ),
             )
         # Cleaup.
-        sanitize_environments(spack_env)
+        #sanitize_environments(spack_env)
 
     def setup_run_environment(self, run_env):
         run_env.prepend_path("LD_LIBRARY_PATH", self.spec["python"].prefix.lib)
@@ -265,7 +265,7 @@ class Sbncode(CMakePackage):
         run_env.prepend_path("FHICL_FILE_PATH", self.prefix.fcl)
         run_env.prepend_path("FHICL_INCLUDE_PATH", self.prefix.fcl)
         # Cleaup.
-        sanitize_environments(run_env)
+        #sanitize_environments(run_env)
 
     def setup_dependent_build_environment(self, spack_env, dependent_spec):
         # Binaries.
@@ -283,4 +283,4 @@ class Sbncode(CMakePackage):
         #spack_env.prepend_path("LARCV_LIBDIR", self.spec["larcv2"].prefix.lib)
         #spack_env.prepend_path("LARCV_INCDIR", self.spec["larcv2"].prefix.include)
         # Cleanup.
-        sanitize_environments(spack_env)
+        #sanitize_environments(spack_env)

@@ -157,15 +157,20 @@ def OutputFinishedSpec(packages, output_file):
                print("Creating spec for " + package.name)
                return_str = package.name + "@"+ package.version + return_str
            elif package.name == "root":
-                return_str += " ^" + package.name + "@" + package.version +" cxxstd==17 ~jemalloc +spectrum"
+                return_str += " ^" + package.name + "@" + package.version +" cxxstd==17 ~jemalloc +spectrum ~davix ~postgres"
            elif package.name == "wirecell":
-                return_str += " ^" + package.name + "@" + package.version +" +root +cuda +torch "
+                return_str += " ^" + package.name + "@" + package.version +" +root +cuda +torch ~emacs"
            elif package.name == "py-torch":
                 return_str += " ^" + package.name + "@" + package.version +" cuda_arch=80 "
+           elif package.name == "larsoft":
+                return_str += " ^" + package.name + "@" + package.version +" ^cmake ~qtgui "
+           #elif package.name == "pythia8":
+           #     return_str += " ^" + package.name + "@" + package.version +" ~evtgen "
 
            else:
                return_str += " ^" + package.name + "@"+ package.version
 
+    return_str += " ^openmpi schedulers=none" # openmpi gets included as dep of pytorch. turn off schedulers for this.
     print("Final spec output to:", output_file)
     with open(output_file, 'w') as f:
         f.write(return_str)

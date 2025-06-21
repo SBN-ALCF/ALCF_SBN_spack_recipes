@@ -16,7 +16,7 @@ class HepHpc(CMakePackage):
 
     maintainers = ["marcmengel"]
 
-    version("v0_14_02", sha256="2d89f7c4d40ad1c585b0bf2d1412124ffa6a0cc6d483ced30c3110ca89cee26f")
+    version("0_14_02", sha256="2d89f7c4d40ad1c585b0bf2d1412124ffa6a0cc6d483ced30c3110ca89cee26f")
 
     variant(
         "cxxstd",

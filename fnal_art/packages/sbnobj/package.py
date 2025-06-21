@@ -18,20 +18,20 @@ def patcher(x):
     cetmodules_20_migrator(".", "artg4tk", "9.07.01")
 
 
-def sanitize_environments(*args):
-    for env in args:
-        for var in (
-            "PATH",
-            "CET_PLUGIN_PATH",
-            "LDSHARED",
-            "LD_LIBRARY_PATH",
-            "DYLD_LIBRARY_PATH",
-            "LIBRARY_PATH",
-            "CMAKE_PREFIX_PATH",
-            "ROOT_INCLUDE_PATH",
-        ):
-            env.prune_duplicate_paths(var)
-            env.deprioritize_system_paths(var)
+#def sanitize_environments(*args):
+#    for env in args:
+#        for var in (
+#            "PATH",
+#            "CET_PLUGIN_PATH",
+#            "LDSHARED",
+#            "LD_LIBRARY_PATH",
+#            "DYLD_LIBRARY_PATH",
+#            "LIBRARY_PATH",
+#            "CMAKE_PREFIX_PATH",
+#            "ROOT_INCLUDE_PATH",
+#        ):
+#            env.prune_duplicate_paths(var)
+#            env.deprioritize_system_paths(var)
 
 
 class Sbnobj(CMakePackage):
@@ -50,6 +50,7 @@ class Sbnobj(CMakePackage):
         get_full_repo=True,
     )
     version("10.01.00", sha256="f0df159da2b94dbd77c61f065d18b3124d44b90aee229fa4ca67c9f3aadbff53")
+    version("10.00.07", sha256="46634ccb717fc2875c9e84435c85678d72d1d63d95dc85636a55b6839b14d5f7")
     version("09.19.05", sha256="2e520d8cf0433790964bbb911e4f7d36cc4b0cc29133c11df838684fdbe195c0")
     version("09.19.04", sha256="78b7c15159ec33db8beb5105795ff026a5e251dc0a1bbe4845725e1a02633ba1")
     version("09.19.02", sha256="292e37da8f10549d4cdfbfef4743419d974076b4c0333823c9539faa780414bc")
@@ -84,12 +85,14 @@ class Sbnobj(CMakePackage):
 
     # Build and link dependencies.
     depends_on("artdaq-core", type=("build", "run"))
+    depends_on("nlohmann-json", type=("build", "run"))
     depends_on("art-root-io", type=("build", "run"))
     depends_on("art", type=("build", "run"))
     depends_on("artdaq-core", type=("build", "run"))
     depends_on("boost", type=("build", "run"))
     depends_on("canvas-root-io", type=("build", "run"))
     depends_on("canvas", type=("build", "run"))
+    depends_on("catch2", type=("build", "run"))
     depends_on("cetlib", type=("build", "run"))
     depends_on("cetlib-except", type=("build", "run"))
     depends_on("clhep", type=("build", "run"))
@@ -141,14 +144,15 @@ class Sbnobj(CMakePackage):
 
     def cmake_args(self):
         # Set CMake args.
-        args = ["-DCMAKE_CXX_STANDARD={0}".format(self.spec.variants["cxxstd"].value)]
+        args = ["-DCMAKE_CXX_STANDARD={0}".format(self.spec.variants["cxxstd"].value),
+                "-DCatch2_FOUND={0}".format(self.spec['catch2'].prefix)]
         return args
 
     def setup_build_environment(self, spack_env):
         spack_env.set("CETBUILDTOOLS_VERSION", self.spec["cetmodules"].version)
         spack_env.set("CETBUILDTOOLS_DIR", self.spec["cetmodules"].prefix)
         spack_env.prepend_path("LD_LIBRARY_PATH", self.spec["root"].prefix.lib)
-
+        spack_env.prepend_path("nufinder_DIR", self.spec["nufinder"].prefix.lib.nufinder.cmake)
         # Binaries.
         spack_env.prepend_path("PATH", os.path.join(self.build_directory, "bin"))
         # Ensure we can find plugin libraries.
@@ -161,7 +165,7 @@ class Sbnobj(CMakePackage):
         # Perl modules.
         spack_env.prepend_path("PERL5LIB", os.path.join(self.build_directory, "perllib"))
         # Cleaup.
-        sanitize_environments(spack_env)
+        #sanitize_environments(spack_env)
 
     def setup_run_environment(self, run_env):
         run_env.prepend_path("PATH", os.path.join(self.prefix, "bin"))
@@ -181,7 +185,7 @@ class Sbnobj(CMakePackage):
         run_env.prepend_path("PERL5LIB", os.path.join(self.prefix, "perllib"))
         run_env.prepend_path("FHICL_FILE_PATH", self.prefix.fcl)
         # Cleaup.
-        sanitize_environments(run_env)
+        #sanitize_environments(run_env)
 
     def setup_dependent_build_environment(self, spack_env, dependent_spec):
         # Binaries.
@@ -193,4 +197,4 @@ class Sbnobj(CMakePackage):
         # Perl modules.
         spack_env.prepend_path("PERL5LIB", os.path.join(self.prefix, "perllib"))
         # Cleanup.
-        sanitize_environments(spack_env)
+        #sanitize_environments(spack_env)

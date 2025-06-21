@@ -53,6 +53,8 @@ class Sbndata(Package):
 
     def setup_run_environment(self, env):
         env.set("SBN_DATA_VERSION", "v%s" % self.version.underscored)
+        env.prepend_path("SBNDATA_DIR", self.prefix)
+        env.prepend_path("FW_SEARCH_PATH", self.prefix)
         env.prepend_path("FW_SEARCH_PATH", "%s/Calorimetry" % self.prefix)
         env.prepend_path("FW_SEARCH_PATH", "%s/beamData" % self.prefix)
         env.prepend_path("FW_SEARCH_PATH", "%s/triggerDatabase" % self.prefix)

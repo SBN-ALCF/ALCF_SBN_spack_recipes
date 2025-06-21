@@ -1,0 +1,520 @@
+diff --git a/Specs/icaruscode-v10_06_00_01-spec.txt b/Specs/icaruscode-v10_06_00_01-spec.txt
+index 34694a6..9c62cc1 100644
+--- a/Specs/icaruscode-v10_06_00_01-spec.txt
++++ b/Specs/icaruscode-v10_06_00_01-spec.txt
+@@ -1 +1 @@
+-icaruscode@10.06.00.01 ^icarus-signal-processing@10.06.00.01 ^icarusalg@10.06.00.01 ^sbnalg@10.06.00.01 ^sbnanaobj@10.00.04 ^sbncode@v10_06_00_01 ^sbndaq-artdaq-core@1.10.06 ^sbnobj@10.01.00 ^ninja@1.11.1 ^gcc@12.1.0 ^gmp@6.2.1 ^valgrind@3.21.0 ^nlohmann-json@3.11.2 ^range-v3@0.12.0 ^libxml2@2.9.12 ^fftw@3.3.10 ^sqlite@3.43.2 ^python@3.9.15 ^py-pybind11@2.11.0 ^postgresql@15.3 ^py-sphinx@7.2.6 ^catch2@3.3.2 ^gsl@2.7 ^boost@1.82.0 ^jemalloc@5.3.0 ^intel-tbb@2021.9.0 ^openblas@0.3.23 ^clhep@2.4.7.1 ^pythia6@6.4.28 ^abseil-cpp@20230802.1 ^protobuf@3.21.12 ^xrootd@5.6.9 ^py-numpy@1.24.3 ^root@6.28.12 cxxstd==17 ~jemalloc +spectrum  ^cry@1.7 ^lhapdf@6.5.4 ^xerces-c@3.2.3 ^log4cpp@1.1.3 ^g4abla@3.1 ^g4emlow@7.9.1 ^g4incl@1.0 ^g4ndl@4.6 ^g4particlexs@2.1 ^g4saiddata@2.0 ^g4ensdfstate@2.2 ^g4photonevaporation@5.5 ^g4pii@1.3 ^g4radioactivedecay@5.4 ^g4realsurface@2.1.1 ^geant4@10.6.1 ^hepmc3@3.2.7 ^pythia8@8.311 ^tauola@1.1.8 ^genie@3.04.02 ^dk2nudata@01.10.01 ^dk2nugenie@01.10.01 ^castxml@0.5.1 ^py-pygccxml@2.2.1 ^grpc@1.35.0 ^eigen@3.4.0 ^giflib@5.2.1 ^libpng@1.6.37 ^libjpeg-turbo@2.1.0 ^py-tensorflow@2.15.0 ^triton@23.09 ^py-torch@2.1.1 cuda_arch=80  ^torch-scatter@2.1.2 ^genie-xsec@3_04_00 ^cetlib-except@1.09.01 ^hep-concurrency@1.09.02 ^cetlib@3.18.02 ^fhicl-cpp@4.18.04 ^messagefacility@2.10.05 ^canvas@3.16.04 ^art@3.14.04 ^libwda@2.30.0 ^ifdhc-config@2.8.0 ^ifdhc@2.8.0 ^ifbeam@2.6.3 ^nucondb@2_6_3 ^ifdh-art@2.17.08 ^canvas-root-io@1.13.06 ^art-root-io@1.13.06 ^trace@v3_17_11 ^nufinder@1.02.01 ^nusimdata@v1_29_00 ^nuevdb@v1_09_10 ^nug4@v1_16_08 ^nugen@v1_21_07 ^nurandom@1.11.05 ^nutools@v3_17_01 ^systematicstools@v01_04_04 ^nusystematics@1.05.07 ^ppfx@02.20.05 ^marley@1.2.1 ^pandora@03.16.00 ^rstartree@0.2 ^hdf5@1.14.3 ^hep-hpc@v0_14_02 ^glpk@4.65 ^h5cpp@1.10.4-6 ^jsoncpp@1.9.5 ^go-jsonnet@0.19.1 ^bxdecay0@1.1.0 ^spdlog@1.9.2 ^wirecell@0.30.3 +root +cuda +torch  ^delaunator-cpp@1.0.0 ^larsoft-data@1.02.02 ^gallery@1.22.06 ^artg4tk@12.00.03 ^larcoreobj@10.00.00 ^larcorealg@10.00.02 ^lardataobj@10.01.00 ^lardataalg@10.00.06 ^larvecutils@09.04.02 ^larsoftobj@10.01.00 ^larpandoracontent@04.15.01 ^larcore@10.00.02 ^lardata@10.00.08 ^larevt@10.00.08 ^larg4@10.00.09 ^larfinder@09.00.02 ^larsim@10.04.00 ^larsimrad@10.00.12 ^larsimdnn@10.00.11 ^larreco@10.01.12 ^larrecodnn@10.01.10 ^larana@10.00.16 ^larpandora@10.00.19 ^larwirecell@10.01.10 ^larexamples@10.00.12 ^lareventdisplay@10.00.15 ^larsoft@10.06.00
++icaruscode@10.06.00.01 ^gcc@12.3.0^icarus-signal-processing@10.06.00.01 ^icarusalg@10.06.00.01 ^sbnalg@10.06.00.01 ^sbnanaobj@10.00.04 ^sbncode@v10_06_00_01 ^sbndaq-artdaq-core@1.10.06 ^sbnobj@10.01.00 ^ninja@1.11.1 ^gmp@6.2.1 ^valgrind@3.21.0 ^nlohmann-json@3.11.2 ^range-v3@0.12.0 ^libxml2@2.9.12 ^fftw@3.3.10 ^sqlite@3.43.2 ^python@3.9.15 ^py-pybind11@2.11.0 ^postgresql@15.3 ^py-sphinx@7.2.6 ^catch2@3.3.2 ^gsl@2.7 ^boost@1.82.0 ^jemalloc@5.3.0 ^intel-tbb@2021.9.0 ^openblas@0.3.23 ^clhep@2.4.7.1 ^pythia6@6.4.28 ^abseil-cpp@20230802.1 ^protobuf@3.21.12 ^xrootd@5.6.9 ^py-numpy@1.24.3 ^root@6.28.12 cxxstd==17 ~jemalloc +spectrum  ^cry@1.7 ^lhapdf@6.5.4 ^xerces-c@3.2.3 ^log4cpp@1.1.3 ^g4abla@3.1 ^g4emlow@7.9.1 ^g4incl@1.0 ^g4ndl@4.6 ^g4particlexs@2.1 ^g4saiddata@2.0 ^g4ensdfstate@2.2 ^g4photonevaporation@5.5 ^g4pii@1.3 ^g4radioactivedecay@5.4 ^g4realsurface@2.1.1 ^geant4@10.6.1 ^hepmc3@3.2.7 ^pythia8@8.311 ^tauola@1.1.8 ^genie@3.04.02 ^dk2nudata@01.10.01 ^dk2nugenie@01.10.01 ^castxml@0.5.1 ^py-pygccxml@2.2.1 ^grpc@1.35.0 ^eigen@3.4.0 ^giflib@5.2.1 ^libpng@1.6.37 ^libjpeg-turbo@2.1.0 ^py-tensorflow@2.15.0 ^triton@23.09 ^py-torch@2.1.1 ^torch-scatter@2.1.2 ^genie-xsec@3_04_00 ^cetlib-except@1.09.01 ^hep-concurrency@1.09.02 ^cetlib@3.18.02 ^fhicl-cpp@4.18.04 ^messagefacility@2.10.05 ^canvas@3.16.04 ^art@3.14.04 ^libwda@2.30.0 ^ifdhc-config@2.8.0 ^ifdhc@2.8.0 ^ifbeam@2.6.3 ^nucondb@2_6_3 ^ifdh-art@2.17.08 ^canvas-root-io@1.13.06 ^art-root-io@1.13.06 ^trace@v3_17_11 ^nufinder@1.02.01 ^nusimdata@v1_29_00 ^nuevdb@v1_09_10 ^nug4@v1_16_08 ^nugen@v1_21_07 ^nurandom@1.11.05 ^nutools@v3_17_01 ^systematicstools@v01_04_04 ^nusystematics@1.05.07 ^ppfx@02.20.05 ^marley@1.2.1 ^pandora@03.16.00 ^rstartree@0.2 ^hdf5@1.14.3 ^hep-hpc@v0_14_02 ^glpk@4.65 ^h5cpp@1.10.4-6 ^jsoncpp@1.9.5 ^go-jsonnet@0.19.1 ^bxdecay0@1.1.0 ^spdlog@1.9.2 ^wirecell@0.30.3 +root ^delaunator-cpp@1.0.0 ^larsoft-data@1.02.02 ^gallery@1.22.06 ^artg4tk@12.00.03 ^larcoreobj@10.00.00 ^larcorealg@10.00.02 ^lardataobj@10.01.00 ^lardataalg@10.00.06 ^larvecutils@09.04.02 ^larsoftobj@10.01.00 ^larpandoracontent@04.15.01 ^larcore@10.00.02 ^lardata@10.00.08 ^larevt@10.00.08 ^larg4@10.00.09 ^larfinder@09.00.02 ^larsim@10.04.00 ^larsimrad@10.00.12 ^larsimdnn@10.00.11 ^larreco@10.01.12 ^larrecodnn@10.01.10 ^larana@10.00.16 ^larpandora@10.00.19 ^larwirecell@10.01.10 ^larexamples@10.00.12 ^lareventdisplay@10.00.15 ^larsoft@10.06.00
+diff --git a/Specs/sbndcode-v10_06_04_01-spec.txt b/Specs/sbndcode-v10_06_04_01-spec.txt
+deleted file mode 100644
+index a6ae252..0000000
+--- a/Specs/sbndcode-v10_06_04_01-spec.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-sbndcode@10.04.06.01 ^sbnd-data@01_28_00 ^sbnanaobj@10.00.00 ^sbncode@v10_04_06_p01 ^sbndaq-artdaq-core@1.10.06 ^root@6.28.12 cxxstd==17 ~jemalloc ^sbnobj@10.00.07 ^ninja@1.11.1 ^gcc@12.1.0 ^gmp@6.2.1 ^valgrind@3.21.0 ^nlohmann-json@3.11.2 ^range-v3@0.12.0 ^libxml2@2.9.12 ^fftw@3.3.10 ^sqlite@3.43.2 ^python@3.9.15 ^postgresql@15.3 ^py-sphinx@7.2.6 ^catch2@3.3.2 ^gsl@2.7 ^boost@1.82.0 ^jemalloc@5.3.0 ^intel-tbb@2021.9.0 ^openblas@0.3.23 ^clhep@2.4.7.1 ^pythia6@6.4.28 ^abseil-cpp@20230802.1 ^protobuf@3.21.12 cxxstd==17 ^xrootd@5.6.9 ^py-numpy@1.24.3 ^cry@1.7 ^lhapdf@6.5.4 ^xerces-c@3.2.3 ^log4cpp@1.1.3 ^g4abla@3.1 ^g4emlow@7.9.1 ^g4incl@1.0 ^g4ndl@4.6 ^g4particlexs@2.1 ^g4saiddata@2.0 ^g4ensdfstate@2.2 ^g4photonevaporation@5.5 ^g4pii@1.3 ^g4radioactivedecay@5.4 ^g4realsurface@2.1.1 ^geant4@10.6.1 ^hepmc3@3.2.7 ^pythia8@8.311 ^tauola@1.1.8 ^genie@3.04.02 ^dk2nudata@01.10.01 ^dk2nugenie@01.10.01 ^castxml@0.5.1 ^py-pygccxml@2.2.1 ^grpc@1.35.0 ^eigen@3.4.0 ^giflib@5.2.1 ^libpng@1.6.37 ^libjpeg-turbo@2.1.0 ^py-tensorflow@2.15.0 ^triton@23.09 ^py-torch@2.1.1 ^torch-scatter@2.1.2 ^genie-xsec@3_04_00 ^cetlib-except@1.09.01 ^hep-concurrency@1.09.02 ^cetlib@3.18.02 ^fhicl-cpp@4.18.04 ^messagefacility@2.10.05 ^canvas@3.16.04 ^art@3.14.04 ^libwda@2.30.0 ^ifdhc-config@2.7.2 ^ifdhc@2.7.2 ^ifbeam@2.6.2 ^nucondb@2.6.2 ^ifdh-art@2.17.07 ^canvas-root-io@1.13.06 ^art-root-io@1.13.06 ^trace@v3_17_11 ^nufinder@1.02.01 ^nusimdata@1.28.06 ^nuevdb@1.09.08 ^nug4@1.16.06 ^nugen@1.21.04 ^nurandom@1.11.05 ^nutools@3.17.00 ^systematicstools@v01_04_04 ^nusystematics@1.05.04 ^ppfx@02.20.04 ^marley@1.2.1 ^pandora@03.16.00 ^rstartree@0.2 ^hdf5@1.14.3 ^hep-hpc@v0_14_02 ^glpk@4.65 ^h5cpp@1.10.4-6 ^jsoncpp@1.9.5 ^bxdecay0@1.1.0 ^spdlog@1.9.2 ^wirecell@0.29.5 ^delaunator-cpp@1.0.0 ^larsoft-data@1.02.02 ^gallery@1.22.06 ^artg4tk@12.00.03 ^larcoreobj@10.00.00 ^larcorealg@10.00.02 ^lardataobj@10.00.04 ^lardataalg@10.00.04 ^larvecutils@09.04.02 ^larsoftobj@10.00.05 ^larpandoracontent@04.14.01 ^larcore@10.00.02 ^lardata@10.00.06 ^larevt@10.00.06 ^larg4@10.00.06 ^larfinder@09.00.02 ^larsim@10.02.02 ^larsimrad@10.00.09 ^larsimdnn@10.00.08 ^larreco@10.01.08 ^larrecodnn@10.01.06 ^larana@10.00.12 ^larpandora@10.00.15 ^larwirecell@10.01.06 ^larexamples@10.00.09 ^lareventdisplay@10.00.11 ^larsoft@10.04.06 ^cmake@3.27.9 ^fmt@8.1.1 ^spdlog@1.9.2 ^llvm@15.0.7
+diff --git a/fnal_art/packages/hep-hpc/package.py b/fnal_art/packages/hep-hpc/package.py
+index 75bc143..9cf7961 100644
+--- a/fnal_art/packages/hep-hpc/package.py
++++ b/fnal_art/packages/hep-hpc/package.py
+@@ -16,7 +16,7 @@ class HepHpc(CMakePackage):
+ 
+     maintainers = ["marcmengel"]
+ 
+-    version("v0_14_02", sha256="2d89f7c4d40ad1c585b0bf2d1412124ffa6a0cc6d483ced30c3110ca89cee26f")
++    version("0_14_02", sha256="2d89f7c4d40ad1c585b0bf2d1412124ffa6a0cc6d483ced30c3110ca89cee26f")
+ 
+     variant(
+         "cxxstd",
+diff --git a/fnal_art/packages/larcv2/package.py b/fnal_art/packages/larcv2/package.py
+index 369eb0b..4a9cd9f 100644
+--- a/fnal_art/packages/larcv2/package.py
++++ b/fnal_art/packages/larcv2/package.py
+@@ -73,7 +73,7 @@ class Larcv2(MakefilePackage):
+         env.prepend_path("PATH", self.prefix+"/bin")
+         env.prepend_path("LD_LIBRARY_PATH", self.prefix+"/build/lib")
+         env.prepend_path("PYTHONPATH", self.prefix+"/python")
+-        env.set("LARCV_CXX", "clang++")
++        env.set("LARCV_CXX", "g++")
+ 
+     def build(self, spec, prefix):
+         os.system('cp -r '+self.stage.path+'/spack-src/* '+prefix)
+@@ -111,4 +111,4 @@ class Larcv2(MakefilePackage):
+         env.prepend_path("PATH", self.prefix+"/bin")
+         env.prepend_path("LD_LIBRARY_PATH", self.prefix+"/build/lib")
+         env.prepend_path("PYTHONPATH", self.prefix+"/python")
+-        env.set("LARCV_CXX", "clang++")
++        env.set("LARCV_CXX", "g++")
+diff --git a/fnal_art/packages/llvm/package.py b/fnal_art/packages/llvm/package.py
+index 976d522..a6c2e1c 100644
+--- a/fnal_art/packages/llvm/package.py
++++ b/fnal_art/packages/llvm/package.py
+@@ -1146,7 +1146,7 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
+                 with open(os.path.join(self.prefix.bin, cfg), "w") as f:
+                     print(gcc_install_dir_flag, file=f)
+ 
+-    def llvm_config(self, *args, **kwargs):
++    def llvm_config(self, *args, result=None, **kwargs):
+         lc = Executable(self.prefix.bin.join("llvm-config"))
+         if not kwargs.get("output"):
+             kwargs["output"] = str
+diff --git a/fnal_art/packages/marley/package.py b/fnal_art/packages/marley/package.py
+index 5a66293..37336f2 100644
+--- a/fnal_art/packages/marley/package.py
++++ b/fnal_art/packages/marley/package.py
+@@ -31,6 +31,7 @@ class Marley(Package):
+ 
+     depends_on("root")
+     depends_on("gsl")
++    depends_on("gmake")
+ 
+     patch("marley-1.0.0.patch", when="@1.0.0")
+     patch("marley-1.1.0.patch", when="@1.1.0")
+diff --git a/fnal_art/packages/nusystematics/package.py b/fnal_art/packages/nusystematics/package.py
+index 226713d..9478806 100644
+--- a/fnal_art/packages/nusystematics/package.py
++++ b/fnal_art/packages/nusystematics/package.py
+@@ -38,6 +38,7 @@ class Nusystematics(CMakePackage):
+     # See https://spdx.org/licenses/ for a list.
+     license("UNKNOWN")
+     version("1.05.07", sha256="8d273475c43cd42cb62f5a66f6fd6bcd90c6ad3cb9b8592c0ca24982356a2db5")
++    version("1.05.04", sha256="3f3f381a8613fb148b6fb2e0250a621a43bec684c2298389c65ae2f2403580e0")
+     version("1_05_02", sha256="c4f2a7ed65d814ae3e20eae3832eb9534618ff0648fa0b57d5012df629bd0bbd")
+     version("01_03_12", sha256="53300aa8bc604d06858a8a01f3ca6e59526d524375f24d6ae728f6d21e027898")
+ 
+diff --git a/fnal_art/packages/ppfx/package.py b/fnal_art/packages/ppfx/package.py
+index 2988aa0..adbfdf6 100644
+--- a/fnal_art/packages/ppfx/package.py
++++ b/fnal_art/packages/ppfx/package.py
+@@ -23,6 +23,7 @@ class Ppfx(CMakePackage):
+         return urlf.format(version.underscored)
+ 
+     version("02.20.05", sha256="0ed800f6f358d960f5586bd2b73441660dfa266a59daaf18c2e8fbc24a13cedb")
++    version("02.20.04", sha256="b90ed46e543948736c25546d259639b1aeb0090b85ddebfa71c3dc9ccafdc09c")
+     version("02.20.03", sha256="2a6f19f615da6d18eb48bbebdeb4785c2663e3255ffc7a8fe8f05a822c1b7c0a")
+     version("02.18.03", sha256="32bab85a7d98b06ecfd76fe57df28cef7fb826ab8fd89ab1bb56f34ab8260040")
+     version("develop", branch="develop", get_full_repo=True)
+diff --git a/fnal_art/packages/sbncode/package.py b/fnal_art/packages/sbncode/package.py
+index 0c5c1ec..e74de44 100644
+--- a/fnal_art/packages/sbncode/package.py
++++ b/fnal_art/packages/sbncode/package.py
+@@ -10,20 +10,20 @@ from spack import *
+ from spack.package import *
+ 
+ 
+-def sanitize_environments(*args):
+-    for env in args:
+-        for var in (
+-            "PATH",
+-            "CET_PLUGIN_PATH",
+-            "LDSHARED",
+-            "LD_LIBRARY_PATH",
+-            "DYLD_LIBRARY_PATH",
+-            "LIBRARY_PATH",
+-            "CMAKE_PREFIX_PATH",
+-            "ROOT_INCLUDE_PATH",
+-        ):
+-            env.prune_duplicate_paths(var)
+-            env.deprioritize_system_paths(var)
++#def sanitize_environments(*args):
++#    for env in args:
++#        for var in (
++#            "PATH",
++#            "CET_PLUGIN_PATH",
++#            "LDSHARED",
++#            "LD_LIBRARY_PATH",
++#            "DYLD_LIBRARY_PATH",
++#            "LIBRARY_PATH",
++#            "CMAKE_PREFIX_PATH",
++#            "ROOT_INCLUDE_PATH",
++#        ):
++#            env.prune_duplicate_paths(var)
++#            env.deprioritize_system_paths(var)
+ 
+ 
+ class Sbncode(CMakePackage):
+@@ -239,7 +239,7 @@ class Sbncode(CMakePackage):
+                 ),
+             )
+         # Cleaup.
+-        sanitize_environments(spack_env)
++        #sanitize_environments(spack_env)
+ 
+     def setup_run_environment(self, run_env):
+         run_env.prepend_path("LD_LIBRARY_PATH", self.spec["python"].prefix.lib)
+@@ -265,7 +265,7 @@ class Sbncode(CMakePackage):
+         run_env.prepend_path("FHICL_FILE_PATH", self.prefix.fcl)
+         run_env.prepend_path("FHICL_INCLUDE_PATH", self.prefix.fcl)
+         # Cleaup.
+-        sanitize_environments(run_env)
++        #sanitize_environments(run_env)
+ 
+     def setup_dependent_build_environment(self, spack_env, dependent_spec):
+         # Binaries.
+@@ -283,4 +283,4 @@ class Sbncode(CMakePackage):
+         #spack_env.prepend_path("LARCV_LIBDIR", self.spec["larcv2"].prefix.lib)
+         #spack_env.prepend_path("LARCV_INCDIR", self.spec["larcv2"].prefix.include)
+         # Cleanup.
+-        sanitize_environments(spack_env)
++        #sanitize_environments(spack_env)
+diff --git a/fnal_art/packages/sbndata/package.py b/fnal_art/packages/sbndata/package.py
+index 307a75c..0c93695 100644
+--- a/fnal_art/packages/sbndata/package.py
++++ b/fnal_art/packages/sbndata/package.py
+@@ -53,6 +53,8 @@ class Sbndata(Package):
+ 
+     def setup_run_environment(self, env):
+         env.set("SBN_DATA_VERSION", "v%s" % self.version.underscored)
++        env.prepend_path("SBNDATA_DIR", self.prefix)
++        env.prepend_path("FW_SEARCH_PATH", self.prefix)
+         env.prepend_path("FW_SEARCH_PATH", "%s/Calorimetry" % self.prefix)
+         env.prepend_path("FW_SEARCH_PATH", "%s/beamData" % self.prefix)
+         env.prepend_path("FW_SEARCH_PATH", "%s/triggerDatabase" % self.prefix)
+diff --git a/fnal_art/packages/sbndcode/package.py b/fnal_art/packages/sbndcode/package.py
+index baf9993..20f19d3 100644
+--- a/fnal_art/packages/sbndcode/package.py
++++ b/fnal_art/packages/sbndcode/package.py
+@@ -15,20 +15,20 @@ if libdir not in sys.path:
+     sys.path.append(libdir)
+ 
+ 
+-def sanitize_environments(*args):
+-    for env in args:
+-        for var in (
+-            "PATH",
+-            "CET_PLUGIN_PATH",
+-            "LDSHARED",
+-            "LD_LIBRARY_PATH",
+-            "DYLD_LIBRARY_PATH",
+-            "LIBRARY_PATH",
+-            "CMAKE_PREFIX_PATH",
+-            "ROOT_INCLUDE_PATH",
+-        ):
+-            env.prune_duplicate_paths(var)
+-            env.deprioritize_system_paths(var)
++#def sanitize_environments(*args):
++#    for env in args:
++#        for var in (
++#            "PATH",
++#            "CET_PLUGIN_PATH",
++#            "LDSHARED",
++#            "LD_LIBRARY_PATH",
++#            "DYLD_LIBRARY_PATH",
++#            "LIBRARY_PATH",
++#            "CMAKE_PREFIX_PATH",
++#            "ROOT_INCLUDE_PATH",
++#        ):
++#            env.prune_duplicate_paths(var)
++#            env.deprioritize_system_paths(var)
+ 
+ 
+ class Sbndcode(CMakePackage):
+@@ -72,6 +72,8 @@ class Sbndcode(CMakePackage):
+     # Build-only dependencies.
+     depends_on("cmake@3.11:")
+     depends_on("cetmodules", type="build")
++    depends_on("catch2", type="build")
++    depends_on("nlohmann-json", type="build")
+     depends_on("cetbuildtools", type="build")
+     depends_on("libjpeg", type="build")
+     depends_on("libpng", type="build")
+@@ -137,6 +139,9 @@ class Sbndcode(CMakePackage):
+     depends_on("vdt", type=("build", "run"))
+ 
+     depends_on("sbncode", type=("build", "run"))
++    depends_on("protobuf", type=("build", "run"))
++    depends_on("grpc", type=("build", "run"))
++    depends_on("pandorasdk", type=("build", "run"))
+ 
+     if "SPACKDEV_GENERATOR" in os.environ:
+         generator = os.environ["SPACKDEV_GENERATOR"]
+@@ -177,6 +182,19 @@ class Sbndcode(CMakePackage):
+         return args
+ 
+     def setup_build_environment(self, spack_env):
++        spack_env.prepend_path("nurandom_DIR", self.spec['nurandom'].prefix.lib.nurandom.cmake)
++        spack_env.prepend_path("nusimdata_DIR", self.spec['nusimdata'].prefix.lib.nusimdata.cmake)
++        spack_env.prepend_path("nufinder_DIR", self.spec['nufinder'].prefix.lib.nufinder.cmake)
++        spack_env.prepend_path("larfinder_DIR", self.spec['larfinder'].prefix.lib.larfinder.cmake)
++        spack_env.prepend_path("larvecutils_DIR", self.spec['larvecutils'].prefix.lib.larvecutils.cmake)
++        spack_env.prepend_path("artg4tk_DIR", self.spec['artg4tk'].prefix.lib.artg4tk.cmake)
++        spack_env.prepend_path("TorchScatter_DIR", self.spec['torch-scatter'].prefix.share.cmake.TorchScatter)
++        spack_env.prepend_path("CMAKE_PREFIX_PATH", self.spec['larpandora'].prefix)
++        spack_env.prepend_path("larpandora_DIR", self.spec['larpandora'].prefix.lib.larpandora.cmake)
++        spack_env.prepend_path("larpandoracontent_DIR", self.spec['larpandoracontent'].prefix.lib.larpandoracontent.cmake)
++        spack_env.prepend_path("pandorasdk_DIR", self.spec['pandorasdk'].prefix.lib)
++        spack_env.prepend_path("PandoraMonitoring_DIR", self.spec['pandora'].prefix)
++        spack_env.prepend_path("sbnanaobj_DIR", self.spec['sbnanaobj'].prefix.lib.sbnanaobj.cmake)
+         # Binaries.
+         spack_env.prepend_path("PATH", os.path.join(self.build_directory, "bin"))
+         spack_env.prepend_path("SBNDCODE_DIR", str(self.build_directory))
+@@ -187,36 +205,47 @@ class Sbndcode(CMakePackage):
+             root=False, cover="nodes", order="post", deptype=("link"), direction="children"
+         ):
+             spack_env.prepend_path("ROOT_INCLUDE_PATH", str(self.spec[d.name].prefix.include))
++        spack_env.prepend_path("CMAKE_INCLUDE_PATH", str(self.spec['hep-hpc'].prefix.include))
++
++        spack_env.prepend_path("CPLUS_INCLUDE_PATH", os.path.join(self.spec['hep-hpc'].prefix.include))
++        spack_env.prepend_path("C_INCLUDE_PATH", os.path.join(self.spec['hep-hpc'].prefix.include))
+         # Perl modules.
+         spack_env.prepend_path("PERL5LIB", os.path.join(self.build_directory, "perllib"))
+         spack_env.prepend_path("GENIE_INC", str(self.spec["genie"].prefix.include))
+         spack_env.prepend_path("hep_hpc_DIR", str(self.spec["hep-hpc"].prefix))
+         spack_env.prepend_path("LD_LIBRARY_PATH", "{0}/lib/python{1}/site-packages/tensorflow".format(self.spec["py-tensorflow"].prefix, "3.9"))
+         # Cleaup.
+-        sanitize_environments(spack_env)
++        #sanitize_environments(spack_env)
+ 
+     def setup_run_environment(self, run_env):
+         # Binaries.
+         run_env.prepend_path("PATH", os.path.join(self.prefix, "bin"))
++        run_env.prepend_path("PATH", os.path.join(self.prefix, "gdml"))
+         # Ensure we can find plugin libraries.
+         run_env.prepend_path("CET_PLUGIN_PATH", self.prefix.lib)
++        run_env.prepend_path("CET_PLUGIN_PATH", self['nusystematics'].prefix.lib)
+         # Ensure Root can find headers for autoparsing.
+         for d in self.spec.traverse(
+             root=False, cover="nodes", order="post", deptype=("link"), direction="children"
+         ):
+             run_env.prepend_path("ROOT_INCLUDE_PATH", str(self.spec[d.name].prefix.include))
+         run_env.prepend_path("ROOT_INCLUDE_PATH", self.prefix.include)
++        run_env.prepend_path("CMAKE_INCLUDE_PATH", str(self.spec['hep-hpc'].prefix.include))
+         # Perl modules.
+         run_env.prepend_path("PERL5LIB", os.path.join(self.prefix, "perllib"))
+         # sbnd_data path       
+         run_env.prepend_path("FW_SEARCH_PATH", os.path.join(self.spec['sbnd-data'].prefix))
++        run_env.prepend_path("FW_SEARCH_PATH", os.path.join(self.spec['sbndcode'].prefix.fw))
++        run_env.prepend_path("FW_SEARCH_PATH", os.path.join(self.spec['sbndcode'].prefix))
++        run_env.prepend_path("FW_SEARCH_PATH", os.path.join(self.spec['sbndcode'].prefix.gdml))
+         # fcl file prefix
+         run_env.prepend_path("FHICL_FILE_PATH", self.prefix.fcl)
+         run_env.prepend_path("FHICL_INCLUDE_PATH", self.prefix.fcl)
++        run_env.prepend_path("FHICL_INCLUDE_PATH", self.prefix.gdml)
+         # Add to wire-cell path
+         run_env.prepend_path("WIRECELL_PATH", os.path.join(self.spec['wirecell'].prefix))
+         # Cleaup.
+-        sanitize_environments(run_env)
++        #sanitize_environments(run_env)
+ 
+ 
+     def setup_dependent_build_environment(self, spack_env, dependent_spec):
+@@ -229,4 +258,4 @@ class Sbndcode(CMakePackage):
+         # Perl modules.
+         spack_env.prepend_path("PERL5LIB", os.path.join(self.prefix, "perllib"))
+         # Cleanup.
+-        sanitize_environments(spack_env) 
++        #sanitize_environments(spack_env) 
+diff --git a/fnal_art/packages/sbnobj/package.py b/fnal_art/packages/sbnobj/package.py
+index 1d03c15..a8568da 100644
+--- a/fnal_art/packages/sbnobj/package.py
++++ b/fnal_art/packages/sbnobj/package.py
+@@ -18,20 +18,20 @@ def patcher(x):
+     cetmodules_20_migrator(".", "artg4tk", "9.07.01")
+ 
+ 
+-def sanitize_environments(*args):
+-    for env in args:
+-        for var in (
+-            "PATH",
+-            "CET_PLUGIN_PATH",
+-            "LDSHARED",
+-            "LD_LIBRARY_PATH",
+-            "DYLD_LIBRARY_PATH",
+-            "LIBRARY_PATH",
+-            "CMAKE_PREFIX_PATH",
+-            "ROOT_INCLUDE_PATH",
+-        ):
+-            env.prune_duplicate_paths(var)
+-            env.deprioritize_system_paths(var)
++#def sanitize_environments(*args):
++#    for env in args:
++#        for var in (
++#            "PATH",
++#            "CET_PLUGIN_PATH",
++#            "LDSHARED",
++#            "LD_LIBRARY_PATH",
++#            "DYLD_LIBRARY_PATH",
++#            "LIBRARY_PATH",
++#            "CMAKE_PREFIX_PATH",
++#            "ROOT_INCLUDE_PATH",
++#        ):
++#            env.prune_duplicate_paths(var)
++#            env.deprioritize_system_paths(var)
+ 
+ 
+ class Sbnobj(CMakePackage):
+@@ -50,6 +50,7 @@ class Sbnobj(CMakePackage):
+         get_full_repo=True,
+     )
+     version("10.01.00", sha256="f0df159da2b94dbd77c61f065d18b3124d44b90aee229fa4ca67c9f3aadbff53")
++    version("10.00.07", sha256="46634ccb717fc2875c9e84435c85678d72d1d63d95dc85636a55b6839b14d5f7")
+     version("09.19.05", sha256="2e520d8cf0433790964bbb911e4f7d36cc4b0cc29133c11df838684fdbe195c0")
+     version("09.19.04", sha256="78b7c15159ec33db8beb5105795ff026a5e251dc0a1bbe4845725e1a02633ba1")
+     version("09.19.02", sha256="292e37da8f10549d4cdfbfef4743419d974076b4c0333823c9539faa780414bc")
+@@ -84,12 +85,14 @@ class Sbnobj(CMakePackage):
+ 
+     # Build and link dependencies.
+     depends_on("artdaq-core", type=("build", "run"))
++    depends_on("nlohmann-json", type=("build", "run"))
+     depends_on("art-root-io", type=("build", "run"))
+     depends_on("art", type=("build", "run"))
+     depends_on("artdaq-core", type=("build", "run"))
+     depends_on("boost", type=("build", "run"))
+     depends_on("canvas-root-io", type=("build", "run"))
+     depends_on("canvas", type=("build", "run"))
++    depends_on("catch2", type=("build", "run"))
+     depends_on("cetlib", type=("build", "run"))
+     depends_on("cetlib-except", type=("build", "run"))
+     depends_on("clhep", type=("build", "run"))
+@@ -141,14 +144,15 @@ class Sbnobj(CMakePackage):
+ 
+     def cmake_args(self):
+         # Set CMake args.
+-        args = ["-DCMAKE_CXX_STANDARD={0}".format(self.spec.variants["cxxstd"].value)]
++        args = ["-DCMAKE_CXX_STANDARD={0}".format(self.spec.variants["cxxstd"].value),
++                "-DCatch2_FOUND={0}".format(self.spec['catch2'].prefix)]
+         return args
+ 
+     def setup_build_environment(self, spack_env):
+         spack_env.set("CETBUILDTOOLS_VERSION", self.spec["cetmodules"].version)
+         spack_env.set("CETBUILDTOOLS_DIR", self.spec["cetmodules"].prefix)
+         spack_env.prepend_path("LD_LIBRARY_PATH", self.spec["root"].prefix.lib)
+-
++        spack_env.prepend_path("nufinder_DIR", self.spec["nufinder"].prefix.lib.nufinder.cmake)
+         # Binaries.
+         spack_env.prepend_path("PATH", os.path.join(self.build_directory, "bin"))
+         # Ensure we can find plugin libraries.
+@@ -161,7 +165,7 @@ class Sbnobj(CMakePackage):
+         # Perl modules.
+         spack_env.prepend_path("PERL5LIB", os.path.join(self.build_directory, "perllib"))
+         # Cleaup.
+-        sanitize_environments(spack_env)
++        #sanitize_environments(spack_env)
+ 
+     def setup_run_environment(self, run_env):
+         run_env.prepend_path("PATH", os.path.join(self.prefix, "bin"))
+@@ -181,7 +185,7 @@ class Sbnobj(CMakePackage):
+         run_env.prepend_path("PERL5LIB", os.path.join(self.prefix, "perllib"))
+         run_env.prepend_path("FHICL_FILE_PATH", self.prefix.fcl)
+         # Cleaup.
+-        sanitize_environments(run_env)
++        #sanitize_environments(run_env)
+ 
+     def setup_dependent_build_environment(self, spack_env, dependent_spec):
+         # Binaries.
+@@ -193,4 +197,4 @@ class Sbnobj(CMakePackage):
+         # Perl modules.
+         spack_env.prepend_path("PERL5LIB", os.path.join(self.prefix, "perllib"))
+         # Cleanup.
+-        sanitize_environments(spack_env)
++        #sanitize_environments(spack_env)
+diff --git a/fnal_art/packages/systematicstools/package.py b/fnal_art/packages/systematicstools/package.py
+index b98ccb2..4d6b635 100644
+--- a/fnal_art/packages/systematicstools/package.py
++++ b/fnal_art/packages/systematicstools/package.py
+@@ -25,7 +25,7 @@ from spack.package import *
+ 
+ class Systematicstools(CMakePackage):
+     url = "https://github.com/LArSoft/systematicstools/archive/refs/tags/v01_04_02.tar.gz"
+-    version("v01_04_04", sha256="7436341f63ea205d8b901b75859a26ec81f29fd272bf324c7bdcde713a3b937c")
++    version("01_04_04", sha256="7436341f63ea205d8b901b75859a26ec81f29fd272bf324c7bdcde713a3b937c")
+     version("v01_04_02", sha256="0e14b9736b31b7911307e8703d0f386f2a1fb5c1dcaa69a8d7ce9916afb974cd")
+ 
+     depends_on("art-root-io")
+diff --git a/fnal_art/packages/triton/package.py b/fnal_art/packages/triton/package.py
+index 8187670..e285985 100644
+--- a/fnal_art/packages/triton/package.py
++++ b/fnal_art/packages/triton/package.py
+@@ -44,8 +44,10 @@ class Triton(CMakePackage):
+ 
+     def patch(self):
+         # clean out all the third-party stuff...
++        #filter_file( '-DProtobuf_DIR:PATH=${_FINDPACKAGE_PROTOBUF_CONFIG_DIR}', '-DProtobuf_DIR:PATH='+self.spec['protobuf'].prefix+'/protobuf/cmake', 'CMakeLists.txt')
+         filter_file( r'^ *-D[^C].*:PATH.*', '', 'CMakeLists.txt')
+         filter_file( r'^ *-DC[^M].*:PATH.*', '', 'CMakeLists.txt')
++        #filter_file( r'FetchContent_MakeAvailable\(repo-third-party\)', 'find_package(Protobuf REQUIRED EXPORT)\ntarget_link_libraries(cc-clients protobuf::libprotobuf)', 'CMakeLists.txt')
+         filter_file( r'FetchContent_MakeAvailable\(repo-third-party\)', '', 'CMakeLists.txt')
+ 
+         filter_file( r'DEPENDS \${_.._client_depends}', '', 'CMakeLists.txt')
+@@ -59,7 +61,10 @@ class Triton(CMakePackage):
+         patchelf = which("patchelf")
+         with working_dir(self.prefix.lib64):
+             patchelf("--add-rpath", ":".join(rp), "libgrpcclient.so")
+-        
++
++    def setup_build_environment(self, env):
++        env.set("CMAKE_TLS_VERIFY", "0")
++
+     def build(self, pkg, spec):
+         # this package writes a cmake_isntall.cmake that tries to put
+         # external third-party bits (which we aren't building) in the
+@@ -70,6 +75,7 @@ class Triton(CMakePackage):
+             make = which("ninja")
+ 
+         with working_dir(self.build_directory):
++            make("cc-clients")
+             try:
+                 make("cc-clients")
+             except:
+@@ -89,10 +95,13 @@ class Triton(CMakePackage):
+         urlf = "https://github.com/triton-inference-server/client/archive/refs/heads/r{0}.zip"
+         return urlf.format(version)
+ 
+-    # root_cmakelists_dir = "src/c++"
+-
+     def cmake_args(self):
++        #print("prefix: ",self.spec['protobuf'].prefix)
+         args = [
++            #"-DProtobuf_DIR={0}".format(self.spec['protobuf'].prefix),
++            #"-DProtobuf_PROTOC_EXECUTABLE={0}".format(self.spec['protobuf'].prefix.bin),
++            #"-DProtobuf_LIBRARIES={0}".format(self.spec['protobuf'].prefix.lib),
++            #"-DProtobuf_INCLUDE_DIRS={0}".format(self.spec['protobuf'].prefix.include),
+             "-DTRITON_COMMON_REPO_TAG=r{0}".format(self.spec.version),
+             "-DTRITON_THIRD_PARTY_REPO_TAG=r{0}".format(self.spec.version),
+             "-DTRITON_CORE_REPO_TAG=r{0}".format(self.spec.version),
+@@ -103,6 +112,7 @@ class Triton(CMakePackage):
+             "-DTRITON_ENABLE_PYTHON_GRPC=ON",
+             "-DThreads_FOUND=ON",
+             "-DCMAKE_THREAD_LIBS_INIT=-lpthread",
++            "-DCMAKE_PREFIX_PATH=r{0}".format(self.spec['protobuf'].prefix),
+             "-DCMAKE_USE_PTHREADS_INIT=ON",
+             "-DTRITON_USE_THIRD_PARTY=OFF",
+             "-DCMAKE_INSTALL_LOCAL_ONLY=ON",
+diff --git a/spack_check_installed.py b/spack_check_installed.py
+index 2ed9a0c..986d7b2 100755
+--- a/spack_check_installed.py
++++ b/spack_check_installed.py
+@@ -157,15 +157,20 @@ def OutputFinishedSpec(packages, output_file):
+                print("Creating spec for " + package.name)
+                return_str = package.name + "@"+ package.version + return_str
+            elif package.name == "root":
+-                return_str += " ^" + package.name + "@" + package.version +" cxxstd==17 ~jemalloc +spectrum"
++                return_str += " ^" + package.name + "@" + package.version +" cxxstd==17 ~jemalloc +spectrum ~davix ~postgres"
+            elif package.name == "wirecell":
+-                return_str += " ^" + package.name + "@" + package.version +" +root +cuda +torch "
++                return_str += " ^" + package.name + "@" + package.version +" +root +cuda +torch ~emacs"
+            elif package.name == "py-torch":
+                 return_str += " ^" + package.name + "@" + package.version +" cuda_arch=80 "
++           elif package.name == "larsoft":
++                return_str += " ^" + package.name + "@" + package.version +" ^cmake ~qtgui "
++           #elif package.name == "pythia8":
++           #     return_str += " ^" + package.name + "@" + package.version +" ~evtgen "
+ 
+            else:
+                return_str += " ^" + package.name + "@"+ package.version
+ 
++    return_str += " ^openmpi schedulers=none" # openmpi gets included as dep of pytorch. turn off schedulers for this.
+     print("Final spec output to:", output_file)
+     with open(output_file, 'w') as f:
+         f.write(return_str)
+diff --git a/versioning_tools.py b/versioning_tools.py
+index ac7fba5..072d185 100644
+--- a/versioning_tools.py
++++ b/versioning_tools.py
+@@ -37,6 +37,7 @@ ignorable_packages = [
+         "upd",
+         "gitflow",
+         "larbatch",
++        "larsoftobj", # https://github.com/LArSoft/larsoft-spack-recipes/pull/15
+         "scitokens_cpp",
+         "scitokens-cpp", 
+         "cetmodules", # spack build and manifest disagree, shouldn't matter  

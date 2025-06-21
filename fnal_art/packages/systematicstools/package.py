@@ -25,7 +25,7 @@ from spack.package import *
 
 class Systematicstools(CMakePackage):
     url = "https://github.com/LArSoft/systematicstools/archive/refs/tags/v01_04_02.tar.gz"
-    version("v01_04_04", sha256="7436341f63ea205d8b901b75859a26ec81f29fd272bf324c7bdcde713a3b937c")
+    version("01_04_04", sha256="7436341f63ea205d8b901b75859a26ec81f29fd272bf324c7bdcde713a3b937c")
     version("v01_04_02", sha256="0e14b9736b31b7911307e8703d0f386f2a1fb5c1dcaa69a8d7ce9916afb974cd")
 
     depends_on("art-root-io")

@@ -37,6 +37,7 @@ ignorable_packages = [
         "upd",
         "gitflow",
         "larbatch",
+        "larsoftobj", # https://github.com/LArSoft/larsoft-spack-recipes/pull/15
         "scitokens_cpp",
         "scitokens-cpp", 
         "cetmodules", # spack build and manifest disagree, shouldn't matter  

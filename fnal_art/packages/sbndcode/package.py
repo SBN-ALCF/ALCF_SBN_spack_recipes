@@ -15,20 +15,20 @@ if libdir not in sys.path:
     sys.path.append(libdir)
 
 
-def sanitize_environments(*args):
-    for env in args:
-        for var in (
-            "PATH",
-            "CET_PLUGIN_PATH",
-            "LDSHARED",
-            "LD_LIBRARY_PATH",
-            "DYLD_LIBRARY_PATH",
-            "LIBRARY_PATH",
-            "CMAKE_PREFIX_PATH",
-            "ROOT_INCLUDE_PATH",
-        ):
-            env.prune_duplicate_paths(var)
-            env.deprioritize_system_paths(var)
+#def sanitize_environments(*args):
+#    for env in args:
+#        for var in (
+#            "PATH",
+#            "CET_PLUGIN_PATH",
+#            "LDSHARED",
+#            "LD_LIBRARY_PATH",
+#            "DYLD_LIBRARY_PATH",
+#            "LIBRARY_PATH",
+#            "CMAKE_PREFIX_PATH",
+#            "ROOT_INCLUDE_PATH",
+#        ):
+#            env.prune_duplicate_paths(var)
+#            env.deprioritize_system_paths(var)
 
 
 class Sbndcode(CMakePackage):
@@ -72,6 +72,8 @@ class Sbndcode(CMakePackage):
     # Build-only dependencies.
     depends_on("cmake@3.11:")
     depends_on("cetmodules", type="build")
+    depends_on("catch2", type="build")
+    depends_on("nlohmann-json", type="build")
     depends_on("cetbuildtools", type="build")
     depends_on("libjpeg", type="build")
     depends_on("libpng", type="build")
@@ -137,6 +139,9 @@ class Sbndcode(CMakePackage):
     depends_on("vdt", type=("build", "run"))
 
     depends_on("sbncode", type=("build", "run"))
+    depends_on("protobuf", type=("build", "run"))
+    depends_on("grpc", type=("build", "run"))
+    depends_on("pandorasdk", type=("build", "run"))
 
     if "SPACKDEV_GENERATOR" in os.environ:
         generator = os.environ["SPACKDEV_GENERATOR"]
@@ -177,6 +182,19 @@ class Sbndcode(CMakePackage):
         return args
 
     def setup_build_environment(self, spack_env):
+        spack_env.prepend_path("nurandom_DIR", self.spec['nurandom'].prefix.lib.nurandom.cmake)
+        spack_env.prepend_path("nusimdata_DIR", self.spec['nusimdata'].prefix.lib.nusimdata.cmake)
+        spack_env.prepend_path("nufinder_DIR", self.spec['nufinder'].prefix.lib.nufinder.cmake)
+        spack_env.prepend_path("larfinder_DIR", self.spec['larfinder'].prefix.lib.larfinder.cmake)
+        spack_env.prepend_path("larvecutils_DIR", self.spec['larvecutils'].prefix.lib.larvecutils.cmake)
+        spack_env.prepend_path("artg4tk_DIR", self.spec['artg4tk'].prefix.lib.artg4tk.cmake)
+        spack_env.prepend_path("TorchScatter_DIR", self.spec['torch-scatter'].prefix.share.cmake.TorchScatter)
+        spack_env.prepend_path("CMAKE_PREFIX_PATH", self.spec['larpandora'].prefix)
+        spack_env.prepend_path("larpandora_DIR", self.spec['larpandora'].prefix.lib.larpandora.cmake)
+        spack_env.prepend_path("larpandoracontent_DIR", self.spec['larpandoracontent'].prefix.lib.larpandoracontent.cmake)
+        spack_env.prepend_path("pandorasdk_DIR", self.spec['pandorasdk'].prefix.lib)
+        spack_env.prepend_path("PandoraMonitoring_DIR", self.spec['pandora'].prefix)
+        spack_env.prepend_path("sbnanaobj_DIR", self.spec['sbnanaobj'].prefix.lib.sbnanaobj.cmake)
         # Binaries.
         spack_env.prepend_path("PATH", os.path.join(self.build_directory, "bin"))
         spack_env.prepend_path("SBNDCODE_DIR", str(self.build_directory))
@@ -187,36 +205,47 @@ class Sbndcode(CMakePackage):
             root=False, cover="nodes", order="post", deptype=("link"), direction="children"
         ):
             spack_env.prepend_path("ROOT_INCLUDE_PATH", str(self.spec[d.name].prefix.include))
+        spack_env.prepend_path("CMAKE_INCLUDE_PATH", str(self.spec['hep-hpc'].prefix.include))
+
+        spack_env.prepend_path("CPLUS_INCLUDE_PATH", os.path.join(self.spec['hep-hpc'].prefix.include))
+        spack_env.prepend_path("C_INCLUDE_PATH", os.path.join(self.spec['hep-hpc'].prefix.include))
         # Perl modules.
         spack_env.prepend_path("PERL5LIB", os.path.join(self.build_directory, "perllib"))
         spack_env.prepend_path("GENIE_INC", str(self.spec["genie"].prefix.include))
         spack_env.prepend_path("hep_hpc_DIR", str(self.spec["hep-hpc"].prefix))
         spack_env.prepend_path("LD_LIBRARY_PATH", "{0}/lib/python{1}/site-packages/tensorflow".format(self.spec["py-tensorflow"].prefix, "3.9"))
         # Cleaup.
-        sanitize_environments(spack_env)
+        #sanitize_environments(spack_env)
 
     def setup_run_environment(self, run_env):
         # Binaries.
         run_env.prepend_path("PATH", os.path.join(self.prefix, "bin"))
+        run_env.prepend_path("PATH", os.path.join(self.prefix, "gdml"))
         # Ensure we can find plugin libraries.
         run_env.prepend_path("CET_PLUGIN_PATH", self.prefix.lib)
+        run_env.prepend_path("CET_PLUGIN_PATH", self['nusystematics'].prefix.lib)
         # Ensure Root can find headers for autoparsing.
         for d in self.spec.traverse(
             root=False, cover="nodes", order="post", deptype=("link"), direction="children"
         ):
             run_env.prepend_path("ROOT_INCLUDE_PATH", str(self.spec[d.name].prefix.include))
         run_env.prepend_path("ROOT_INCLUDE_PATH", self.prefix.include)
+        run_env.prepend_path("CMAKE_INCLUDE_PATH", str(self.spec['hep-hpc'].prefix.include))
         # Perl modules.
         run_env.prepend_path("PERL5LIB", os.path.join(self.prefix, "perllib"))
         # sbnd_data path       
         run_env.prepend_path("FW_SEARCH_PATH", os.path.join(self.spec['sbnd-data'].prefix))
+        run_env.prepend_path("FW_SEARCH_PATH", os.path.join(self.spec['sbndcode'].prefix.fw))
+        run_env.prepend_path("FW_SEARCH_PATH", os.path.join(self.spec['sbndcode'].prefix))
+        run_env.prepend_path("FW_SEARCH_PATH", os.path.join(self.spec['sbndcode'].prefix.gdml))
         # fcl file prefix
         run_env.prepend_path("FHICL_FILE_PATH", self.prefix.fcl)
         run_env.prepend_path("FHICL_INCLUDE_PATH", self.prefix.fcl)
+        run_env.prepend_path("FHICL_INCLUDE_PATH", self.prefix.gdml)
         # Add to wire-cell path
         run_env.prepend_path("WIRECELL_PATH", os.path.join(self.spec['wirecell'].prefix))
         # Cleaup.
-        sanitize_environments(run_env)
+        #sanitize_environments(run_env)
 
 
     def setup_dependent_build_environment(self, spack_env, dependent_spec):
@@ -229,4 +258,4 @@ class Sbndcode(CMakePackage):
         # Perl modules.
         spack_env.prepend_path("PERL5LIB", os.path.join(self.prefix, "perllib"))
         # Cleanup.
-        sanitize_environments(spack_env) 
+        #sanitize_environments(spack_env) 

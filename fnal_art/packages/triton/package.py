@@ -44,8 +44,10 @@ class Triton(CMakePackage):
 
     def patch(self):
         # clean out all the third-party stuff...
+        #filter_file( '-DProtobuf_DIR:PATH=${_FINDPACKAGE_PROTOBUF_CONFIG_DIR}', '-DProtobuf_DIR:PATH='+self.spec['protobuf'].prefix+'/protobuf/cmake', 'CMakeLists.txt')
         filter_file( r'^ *-D[^C].*:PATH.*', '', 'CMakeLists.txt')
         filter_file( r'^ *-DC[^M].*:PATH.*', '', 'CMakeLists.txt')
+        #filter_file( r'FetchContent_MakeAvailable\(repo-third-party\)', 'find_package(Protobuf REQUIRED EXPORT)\ntarget_link_libraries(cc-clients protobuf::libprotobuf)', 'CMakeLists.txt')
         filter_file( r'FetchContent_MakeAvailable\(repo-third-party\)', '', 'CMakeLists.txt')
 
         filter_file( r'DEPENDS \${_.._client_depends}', '', 'CMakeLists.txt')
@@ -59,7 +61,10 @@ class Triton(CMakePackage):
         patchelf = which("patchelf")
         with working_dir(self.prefix.lib64):
             patchelf("--add-rpath", ":".join(rp), "libgrpcclient.so")
-        
+
+    def setup_build_environment(self, env):
+        env.set("CMAKE_TLS_VERIFY", "0")
+
     def build(self, pkg, spec):
         # this package writes a cmake_isntall.cmake that tries to put
         # external third-party bits (which we aren't building) in the
@@ -70,6 +75,7 @@ class Triton(CMakePackage):
             make = which("ninja")
 
         with working_dir(self.build_directory):
+            make("cc-clients")
             try:
                 make("cc-clients")
             except:
@@ -89,10 +95,13 @@ class Triton(CMakePackage):
         urlf = "https://github.com/triton-inference-server/client/archive/refs/heads/r{0}.zip"
         return urlf.format(version)
 
-    # root_cmakelists_dir = "src/c++"
-
     def cmake_args(self):
+        #print("prefix: ",self.spec['protobuf'].prefix)
         args = [
+            #"-DProtobuf_DIR={0}".format(self.spec['protobuf'].prefix),
+            #"-DProtobuf_PROTOC_EXECUTABLE={0}".format(self.spec['protobuf'].prefix.bin),
+            #"-DProtobuf_LIBRARIES={0}".format(self.spec['protobuf'].prefix.lib),
+            #"-DProtobuf_INCLUDE_DIRS={0}".format(self.spec['protobuf'].prefix.include),
             "-DTRITON_COMMON_REPO_TAG=r{0}".format(self.spec.version),
             "-DTRITON_THIRD_PARTY_REPO_TAG=r{0}".format(self.spec.version),
             "-DTRITON_CORE_REPO_TAG=r{0}".format(self.spec.version),
@@ -103,6 +112,7 @@ class Triton(CMakePackage):
             "-DTRITON_ENABLE_PYTHON_GRPC=ON",
             "-DThreads_FOUND=ON",
             "-DCMAKE_THREAD_LIBS_INIT=-lpthread",
+            "-DCMAKE_PREFIX_PATH=r{0}".format(self.spec['protobuf'].prefix),
             "-DCMAKE_USE_PTHREADS_INIT=ON",
             "-DTRITON_USE_THIRD_PARTY=OFF",
             "-DCMAKE_INSTALL_LOCAL_ONLY=ON",
