@@ -209,9 +209,9 @@ class Icaruscode(CMakePackage):
         return args
 
     def setup_build_environment(self, spack_env):
+        #spack_env.prepend_path("JSONCPP_LIB", os.path.join(self.spec['jsoncpp'].prefix.lib64))
+        #spack_env.prepend_path("JSONCPP_INC", os.path.join(self.spec['jsoncpp'].prefix.include))
 
-        spack_env.prepend_path("JSONCPP_LIB", os.path.join(self.spec['jsoncpp'].prefix.lib64))
-        spack_env.prepend_path("JSONCPP_INC", os.path.join(self.spec['jsoncpp'].prefix.include))
         spack_env.prepend_path("ROOT_INCLUDE_PATH", os.path.join(self.spec['larcoreobj'].prefix.include))
         spack_env.prepend_path("CPLUS_INCLUDE_PATH", os.path.join(self.spec['larcoreobj'].prefix.include))
         spack_env.prepend_path("C_INCLUDE_PATH", os.path.join(self.spec['larcoreobj'].prefix.include))
@@ -219,28 +219,36 @@ class Icaruscode(CMakePackage):
         spack_env.prepend_path("LARCOREOBJ_LIB", os.path.join(self.spec['larcoreobj'].prefix.lib))
         spack_env.prepend_path("LARDATAOBJ_INC", os.path.join(self.spec['lardataobj'].prefix.include))
         spack_env.prepend_path("LARDATAOBJ_LIB", os.path.join(self.spec['lardataobj'].prefix.lib))
-        spack_env.prepend_path("WIRECELL_PATH", os.path.join(self.spec['wirecell'].prefix))
-        spack_env.prepend_path("WIRECELL_LIB", os.path.join(self.spec['wirecell'].prefix.lib))
-        spack_env.prepend_path("LD_LIBRARY_PATH", os.path.join(self.spec['wirecell'].prefix.lib))
-        spack_env.prepend_path("LD_LIBRARY_PATH", os.path.join(self.spec['jsoncpp'].prefix.lib64))
-        spack_env.prepend_path("WIRECELL_INC", os.path.join(self.spec['wirecell'].prefix.include))
-        spack_env.prepend_path("LARWIRECELL_INC", os.path.join(self.spec['larwirecell'].prefix.include))
-        spack_env.prepend_path("LARWIRECELL_LIB", os.path.join(self.spec['larwirecell'].prefix.lib))
+        #spack_env.prepend_path("WIRECELL_PATH", os.path.join(self.spec['wirecell'].prefix))
+        #spack_env.prepend_path("WIRECELL_LIB", os.path.join(self.spec['wirecell'].prefix.lib))
+        #spack_env.prepend_path("LD_LIBRARY_PATH", os.path.join(self.spec['wirecell'].prefix.lib))
+        #spack_env.prepend_path("LD_LIBRARY_PATH", os.path.join(self.spec['jsoncpp'].prefix.lib64))
+        #spack_env.prepend_path("WIRECELL_INC", os.path.join(self.spec['wirecell'].prefix.include))
+        #spack_env.prepend_path("LARWIRECELL_INC", os.path.join(self.spec['larwirecell'].prefix.include))
+        #spack_env.prepend_path("LARWIRECELL_LIB", os.path.join(self.spec['larwirecell'].prefix.lib))
+
+        spack_env.set("WIRECELL_PATH", os.path.join(self.spec['wirecell'].prefix.share.wirecell))
+        spack_env.set("WIRECELL_LIB", os.path.join(self.spec['wirecell'].prefix.lib))
+        spack_env.set("WIRECELL_INC", os.path.join(self.spec['wirecell'].prefix.include))
+        spack_env.set("LARWIRECELL_INC", os.path.join(self.spec['larwirecell'].prefix.include))
+        spack_env.set("LARWIRECELL_LIB", os.path.join(self.spec['larwirecell'].prefix.lib))
+        spack_env.set("JSONCPP_LIB", os.path.join(self.spec['jsoncpp'].prefix.lib64))
+        spack_env.set("JSONCPP_INC", os.path.join(self.spec['jsoncpp'].prefix.include))
 
         spack_env.set("CETBUILDTOOLS_VERSION", self.spec["cetmodules"].version)
         spack_env.set("SPDLOG_INC", self.spec["spdlog"].prefix.include)
         spack_env.set("SPDLOG_LIB", self.spec["spdlog"].prefix.lib)
         spack_env.set("CETBUILDTOOLS_DIR", self.spec["cetmodules"].prefix)
-        spack_env.prepend_path("LD_LIBRARY_PATH", self.spec["root"].prefix.lib)
+        #spack_env.prepend_path("LD_LIBRARY_PATH", self.spec["root"].prefix.lib)
         # Binaries.
         spack_env.prepend_path("PATH", os.path.join(self.build_directory, "bin"))
         # Ensure we can find plugin libraries.
         spack_env.prepend_path("CET_PLUGIN_PATH", os.path.join(self.build_directory, "lib"))
         # Ensure Root can find headers for autoparsing.
-        for d in self.spec.traverse(
-            root=False, cover="nodes", order="post", deptype=("link"), direction="children"
-        ):
-            spack_env.prepend_path("ROOT_INCLUDE_PATH", str(self.spec[d.name].prefix.include))
+        #for d in self.spec.traverse(
+        #    root=False, cover="nodes", order="post", deptype=("link"), direction="children"
+        #):
+        #    spack_env.prepend_path("ROOT_INCLUDE_PATH", str(self.spec[d.name].prefix.include))
         # Perl modules.
         spack_env.prepend_path("PERL5LIB", os.path.join(self.build_directory, "perllib"))
         # FW search path
@@ -261,14 +269,14 @@ class Icaruscode(CMakePackage):
         # Ensure we can find plugin libraries.
         run_env.prepend_path("CET_PLUGIN_PATH", self.prefix.lib)
         # Ensure Root can find headers for autoparsing.
-        for d in self.spec.traverse(
-            root=False,
-            cover="nodes",
-            order="post",
-            deptype=("link"),
-            direction="children",
-        ):
-            run_env.prepend_path("ROOT_INCLUDE_PATH", str(self.spec[d.name].prefix.include))
+        #for d in self.spec.traverse(
+        #    root=False,
+        #    cover="nodes",
+        #    order="post",
+        #    deptype=("link"),
+        #    direction="children",
+        #):
+        #    run_env.prepend_path("ROOT_INCLUDE_PATH", str(self.spec[d.name].prefix.include))
         run_env.prepend_path("ROOT_INCLUDE_PATH", self.prefix.include)
         run_env.prepend_path("PERL5LIB", os.path.join(self.prefix, "perllib"))
         # FW search path
@@ -276,16 +284,16 @@ class Icaruscode(CMakePackage):
         # fcls
         run_env.prepend_path("FHICL_FILE_PATH", self.prefix.fcl)
         # Add to wire-cell path
-        run_env.prepend_path("JSONCPP_LIB", os.path.join(self.spec['jsoncpp'].prefix.lib))
-        run_env.prepend_path("JSONCPP_INC", os.path.join(self.spec['jsoncpp'].prefix.include))
-        run_env.prepend_path("WIRECELL_PATH", os.path.join(self.spec['wirecell'].prefix))
-        run_env.prepend_path("WIRECELL_LIB", os.path.join(self.spec['wirecell'].prefix.lib))
-        run_env.prepend_path("LD_LIBRARY_PATH", os.path.join(self.spec['wirecell'].prefix.lib))
-        run_env.prepend_path("LD_LIBRARY_PATH", os.path.join(self.spec['jsoncpp'].prefix.lib))
-        run_env.prepend_path("WIRECELL_INC", os.path.join(self.spec['wirecell'].prefix.include))
-        run_env.prepend_path("LARWIRECELL_INC", os.path.join(self.spec['larwirecell'].prefix.include))
-        run_env.prepend_path("LARWIRECELL_LIB", os.path.join(self.spec['larwirecell'].prefix.lib))
-        # Cleaup.
+        #run_env.prepend_path("JSONCPP_LIB", os.path.join(self.spec['jsoncpp'].prefix.lib))
+        #run_env.prepend_path("JSONCPP_INC", os.path.join(self.spec['jsoncpp'].prefix.include))
+        #run_env.prepend_path("WIRECELL_PATH", os.path.join(self.spec['wirecell'].prefix))
+        #run_env.prepend_path("WIRECELL_LIB", os.path.join(self.spec['wirecell'].prefix.lib))
+        #run_env.prepend_path("LD_LIBRARY_PATH", os.path.join(self.spec['wirecell'].prefix.lib))
+        #run_env.prepend_path("LD_LIBRARY_PATH", os.path.join(self.spec['jsoncpp'].prefix.lib))
+        #run_env.prepend_path("WIRECELL_INC", os.path.join(self.spec['wirecell'].prefix.include))
+        #run_env.prepend_path("LARWIRECELL_INC", os.path.join(self.spec['larwirecell'].prefix.include))
+        #run_env.prepend_path("LARWIRECELL_LIB", os.path.join(self.spec['larwirecell'].prefix.lib))
+        ## Cleaup.
         sanitize_environments(run_env)
 
     def setup_dependent_build_environment(self, spack_env, dependent_spec):

@@ -26,13 +26,11 @@ import glob
 class SbndData(Package):
     """FIXME: Put a proper description of your package here."""
 
-    # FIXME: Add a proper url for your package's homepage here.
-    # homepage = "https://scisoft.fnal.gov/scisoft/packages/sbnd_data/v01_24_00"
     url_base = "https://scisoft.fnal.gov/scisoft/packages/sbnd_data/"
-    # url = "https://scisoft.fnal.gov/scisoft/packages/sbnd_data/v01_24_00/sbnd_data-01.24.00-noarch.tar.bz2"
 
-    version("01_29_00", sha256="23930cea80f89e8bd38eadf9d4e0d5b55dc68d75e357286ea2e7408d8a17441b") # FIXME
-    version("01_28_00", sha256="d50716c03feff2dde14d372884cae93f006da5761ed7e3ef501f62c59b6ad1d6") # FIXME
+    version("01_31_00", sha256="90cd9a83b935988821020ee925cbefc8f3f40ea2d9340ce4eaaae465bf398088") # FIXME
+    version("01_29_00", sha256="23930cea80f89e8bd38eadf9d4e0d5b55dc68d75e357286ea2e7408d8a17441b")
+    version("01_28_00", sha256="d50716c03feff2dde14d372884cae93f006da5761ed7e3ef501f62c59b6ad1d6")
     version("01_26_00", sha256="984dcde0bde1430558a9e2dd4ee8ca5ee63122a4a7aa391051f763510f58cf80", url=url_base+"v01_26_00/sbnd_data-01.26.00-noarch.tar.bz2")
     version("01_25_00", sha256="84bc68f77366c38beb1695e0c635d7ec2c8b1ff02548c03b9f79a5b9b188c4b0", url=url_base+"v01_25_00/sbnd_data-01.25.00-noarch.tar.bz2")
     version("01_24_00", sha256="36659fd880d34f7a987fc395b20abdcbc9a39a8b318ba8e47312a0d3e7893ddb", url=url_base+"v01_24_00/sbnd_data-01.24.00-noarch.tar.bz2")

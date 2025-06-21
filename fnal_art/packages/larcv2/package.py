@@ -73,7 +73,7 @@ class Larcv2(MakefilePackage):
         env.prepend_path("PATH", self.prefix+"/bin")
         env.prepend_path("LD_LIBRARY_PATH", self.prefix+"/build/lib")
         env.prepend_path("PYTHONPATH", self.prefix+"/python")
-        env.set("LARCV_CXX", "clang++")
+        env.set("LARCV_CXX", "g++")# was clang++ before
 
     def build(self, spec, prefix):
         os.system('cp -r '+self.stage.path+'/spack-src/* '+prefix)
@@ -111,4 +111,4 @@ class Larcv2(MakefilePackage):
         env.prepend_path("PATH", self.prefix+"/bin")
         env.prepend_path("LD_LIBRARY_PATH", self.prefix+"/build/lib")
         env.prepend_path("PYTHONPATH", self.prefix+"/python")
-        env.set("LARCV_CXX", "clang++")
+        env.set("LARCV_CXX", "g++")# was clang++ before

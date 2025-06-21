@@ -3,6 +3,7 @@
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
 
+from spack import *
 from spack.package import *
 from spack.pkg.fnal_art.fnal_github_package import *
 
@@ -13,18 +14,17 @@ def _dependencies_for(cxxstd):
 
 
 class Larsoftobj(BundlePackage, FnalGithubPackage):
-    """Deprecated bundle package for art-independent LArSoft packages"""
+    """Bundle package for art-independent LArSoft packages"""
 
     repo = "LArSoft/larsoftobj"
-    version_patterns = ["09.35.00"]
+    version_patterns = ["v09_00_00", "09.35.00"]
 
-    with default_args(deprecated=True):
-        # All versions are deprecated as larsoftobj is no longer necessary
-        version("10.00.03")
-        version("10.00.02")
-        version("10.00.00")
-        version("09.36.00")
-        version("09.35.03")
+    version("10.01.00")
+    version("10.00.05")
+    version("10.00.04")
+    version("09.36.00")
+    version("09.35.03")
+    version("develop", branch="develop", get_full_repo=True)
 
     cxxstd_variant("17", "20", default="17")
 

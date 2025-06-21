@@ -36,10 +36,9 @@ class Sbndcode(CMakePackage):
     framework for particle physics experiments.
     """
 
-    homepage = "https://cdcvs.fnal.gov/redmine/projects/sbncode"
     git_base = "https://github.com/SBNSoftware/sbndcode.git"
 
-    version("develop", branch="develop", git=git_base, get_full_repo=True)
+    version("10.06.00.01", sha256="5ad9dfb9e96adf82a9f0a6fcbcb8042664b1349fe4f44374462f17fce2d95b51")
     version("10.04.07", tag="v10_04_07", git=git_base, get_full_repo=True)
     version("10.04.06.01",tag="v10_04_06_01", git=git_base, get_full_repo=True)
     version("09.93.01.02.01", tag="v09_93_01_02p01", git=git_base, get_full_repo=True)
@@ -69,74 +68,36 @@ class Sbndcode(CMakePackage):
         description="Use the specified C++ standard when building.",
     )
 
-    # Build-only dependencies.
     depends_on("cmake@3.11:")
     depends_on("cetmodules", type="build")
     depends_on("cetbuildtools", type="build")
     depends_on("libjpeg", type="build")
     depends_on("libpng", type="build")
     depends_on("giflib", type="build")
-
-    # Build and link dependencies.
-    depends_on("artdaq-core", type=("build", "run"))
-    depends_on("art-root-io", type=("build", "run"))
-    depends_on("art", type=("build", "run"))
-    depends_on("artdaq-core", type=("build", "run"))
-    depends_on("boost", type=("build", "run"))
-    depends_on("canvas-root-io", type=("build", "run"))
-    depends_on("canvas", type=("build", "run"))
-    depends_on("cetlib-except", type=("build", "run"))
-    depends_on("clhep", type=("build", "run"))
-    depends_on("cppgsl", type=("build", "run"))
     depends_on("eigen", type=("build", "run"))
-    depends_on("fftw", type=("build", "run"))
-    depends_on("hep-concurrency", type=("build", "run"))
-    depends_on("ifdh-art", type=("build", "run"))
-    depends_on("tbb", type=("build", "run"))
-    depends_on("geant4", type=("build", "run"))
-    depends_on("xerces-c", type=("build", "run"))
-    depends_on("larana", type=("build", "run"))
-    depends_on("larcoreobj", type=("build", "run"))
-    depends_on("larcore", type=("build", "run"))
-    depends_on("lardataobj", type=("build", "run"))
-    depends_on("lardata", type=("build", "run"))
-    depends_on("larevt", type=("build", "run"))
-    depends_on("larreco", type=("build", "run"))
-    depends_on("larsimdnn", type=("build", "run"))
-    depends_on("larrecodnn", type=("build", "run"))# Apr26
-    depends_on("larsim", type=("build", "run"))
     depends_on("libwda", type=("build", "run"))
     depends_on("marley", type=("build", "run"))
-    depends_on("nug4", type=("build", "run"))
-    depends_on("genie", type=("build", "run"))
-    depends_on("ifdhc", type=("build", "run"))
-    depends_on("libxml2", type=("build", "run"))
-    depends_on("nutools", type=("build", "run"))
     depends_on("postgresql", type=("build", "run"))
-    depends_on("range-v3", type=("build", "run"))
-    depends_on("sbndaq-artdaq-core", type=("build", "run"))
-    depends_on("sqlite", type=("build", "run"))
-    depends_on("trace", type=("build", "run"))
     depends_on("dk2nudata", type=("build", "run"))
 
-    # added for polaris
-    depends_on("larg4", type=("build", "run"))
-    depends_on("larcorealg", type=("build", "run"))
-    depends_on("nuevdb", type=("build", "run"))
+    #depends_on("larg4", type=("build", "run"))
+    #depends_on("larcorealg", type=("build", "run"))
+    #depends_on("nuevdb", type=("build", "run"))
     depends_on("cry", type=("build", "run"))
     depends_on("dk2nugenie", type=("build", "run"))
-    depends_on("log4cpp", type=("build", "run"))
+    #depends_on("log4cpp", type=("build", "run"))
     depends_on("rstartree", type=("build", "run"))
-    depends_on("wirecell", type=("build", "run"))
-    depends_on("hdf5", type=("build", "run"))
-    depends_on("hep-hpc", type=("build", "run"))
-    depends_on("genie-xsec", type=("build", "run"))
-    depends_on("nugen", type=("build", "run"))
-    depends_on("larsimdnn", type=("build", "run"))
-    depends_on("sbnd-data", type=("build", "run"))
-    depends_on("vdt", type=("build", "run"))
+    #depends_on("wirecell", type=("build", "run"))
+    #depends_on("hdf5", type=("build", "run"))
+    #depends_on("hep-hpc", type=("build", "run"))
+    #depends_on("genie-xsec", type=("build", "run"))
+    #depends_on("nugen", type=("build", "run"))
+    #depends_on("larsimdnn", type=("build", "run"))
 
+    depends_on("vdt", type=("build", "run"))
     depends_on("sbncode", type=("build", "run"))
+    depends_on("sbnd-data", type=("build", "run"))
+    depends_on("cetmodules", type=("build", "run"))
 
     if "SPACKDEV_GENERATOR" in os.environ:
         generator = os.environ["SPACKDEV_GENERATOR"]
@@ -179,7 +140,7 @@ class Sbndcode(CMakePackage):
     def setup_build_environment(self, spack_env):
         # Binaries.
         spack_env.prepend_path("PATH", os.path.join(self.build_directory, "bin"))
-        spack_env.prepend_path("SBNDCODE_DIR", str(self.build_directory))
+        spack_env.set("SBNDCODE_DIR", str(self.build_directory))
         # Ensure we can find plugin libraries.
         spack_env.prepend_path("CET_PLUGIN_PATH", os.path.join(self.build_directory, "lib"))
         # Ensure Root can find headers for autoparsing.
@@ -201,10 +162,10 @@ class Sbndcode(CMakePackage):
         # Ensure we can find plugin libraries.
         run_env.prepend_path("CET_PLUGIN_PATH", self.prefix.lib)
         # Ensure Root can find headers for autoparsing.
-        for d in self.spec.traverse(
-            root=False, cover="nodes", order="post", deptype=("link"), direction="children"
-        ):
-            run_env.prepend_path("ROOT_INCLUDE_PATH", str(self.spec[d.name].prefix.include))
+        #for d in self.spec.traverse(
+        #    root=False, cover="nodes", order="post", deptype=("link"), direction="children"
+        #):
+        #    run_env.prepend_path("ROOT_INCLUDE_PATH", str(self.spec[d.name].prefix.include))
         run_env.prepend_path("ROOT_INCLUDE_PATH", self.prefix.include)
         # Perl modules.
         run_env.prepend_path("PERL5LIB", os.path.join(self.prefix, "perllib"))
@@ -216,7 +177,7 @@ class Sbndcode(CMakePackage):
         # Add to wire-cell path
         run_env.prepend_path("WIRECELL_PATH", os.path.join(self.spec['wirecell'].prefix))
         # Cleaup.
-        sanitize_environments(run_env)
+        # sanitize_environments(run_env)
 
 
     def setup_dependent_build_environment(self, spack_env, dependent_spec):

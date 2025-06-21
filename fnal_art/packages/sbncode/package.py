@@ -218,14 +218,14 @@ class Sbncode(CMakePackage):
         # Ensure we can find plugin libraries.
         spack_env.prepend_path("CET_PLUGIN_PATH", os.path.join(self.build_directory, "lib"))
         # Ensure Root can find headers for autoparsing.
-        for d in self.spec.traverse(
-            root=False, cover="nodes", order="post", deptype=("link"), direction="children"
-        ):
-            spack_env.prepend_path("ROOT_INCLUDE_PATH", str(self.spec[d.name].prefix.include))
-        spack_env.prepend_path("ROOT_INCLUDE_PATH", self.prefix.include)
-        spack_env.prepend_path("ROOT_LIBRARY_PATH", self.spec["root"].prefix.lib.root)
-        spack_env.prepend_path("ROOT_LIBRARY_PATH", self.spec["nusimdata"].prefix.lib.nusimdata)
-        spack_env.prepend_path("ROOT_INCLUDE_PATH", self.spec["nusimdata"].prefix.include.nusimdata)
+        #for d in self.spec.traverse(
+        #    root=False, cover="nodes", order="post", deptype=("link"), direction="children"
+        #):
+        #    spack_env.prepend_path("ROOT_INCLUDE_PATH", str(self.spec[d.name].prefix.include))
+        #spack_env.prepend_path("ROOT_INCLUDE_PATH", self.prefix.include)
+        #spack_env.prepend_path("ROOT_LIBRARY_PATH", self.spec["root"].prefix.lib.root)
+        #spack_env.prepend_path("ROOT_LIBRARY_PATH", self.spec["nusimdata"].prefix.lib.nusimdata)
+        #spack_env.prepend_path("ROOT_INCLUDE_PATH", self.spec["nusimdata"].prefix.include.nusimdata)
 
         # Perl modules.
         spack_env.prepend_path("PERL5LIB", os.path.join(self.build_directory, "perllib"))
@@ -248,14 +248,14 @@ class Sbncode(CMakePackage):
         # Ensure we can find plugin libraries.
         run_env.prepend_path("CET_PLUGIN_PATH", self.prefix.lib)
         # Ensure Root can find headers for autoparsing.
-        for d in self.spec.traverse(
-            root=False, cover="nodes", order="post", deptype=("link"), direction="children"
-        ):
-            run_env.prepend_path("ROOT_INCLUDE_PATH", str(self.spec[d.name].prefix.include))
-            run_env.prepend_path("ROOT_INCLUDE_PATH", self.prefix.include)
-            run_env.prepend_path("ROOT_LIBRARY_PATH", self.spec["root"].prefix.lib.root)
-            # run_env.prepend_path("ROOT_LIBRARY_PATH", self.spec["nusimdata"].prefix.lib.nusimdata)
-            # run_env.prepend_path("ROOT_INCLUDE_PATH", self.spec["nusimdata"].prefix.include.nusimdata)
+        #for d in self.spec.traverse(
+        #    root=False, cover="nodes", order="post", deptype=("link"), direction="children"
+        #):
+        #    run_env.prepend_path("ROOT_INCLUDE_PATH", str(self.spec[d.name].prefix.include))
+        #    run_env.prepend_path("ROOT_INCLUDE_PATH", self.prefix.include)
+        #    run_env.prepend_path("ROOT_LIBRARY_PATH", self.spec["root"].prefix.lib.root)
+        #    # run_env.prepend_path("ROOT_LIBRARY_PATH", self.spec["nusimdata"].prefix.lib.nusimdata)
+        #    # run_env.prepend_path("ROOT_INCLUDE_PATH", self.spec["nusimdata"].prefix.include.nusimdata)
         # Perl modules.
         run_env.prepend_path("PERL5LIB", os.path.join(self.prefix, "perllib"))
         # Larcv modules
@@ -264,6 +264,8 @@ class Sbncode(CMakePackage):
         # fcl file prefix
         run_env.prepend_path("FHICL_FILE_PATH", self.prefix.fcl)
         run_env.prepend_path("FHICL_INCLUDE_PATH", self.prefix.fcl)
+        run_env.prepend_path("ROOT_INCLUDE_PATH", self.spec['artdaq-core'].prefix.include)
+        run_env.prepend_path("ROOT_LIBRARY_PATH", self.spec['artdaq-core'].prefix.lib)
         # Cleaup.
         sanitize_environments(run_env)
 

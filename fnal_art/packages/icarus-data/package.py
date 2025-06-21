@@ -8,11 +8,10 @@ class IcarusData(Package):
     """Bundle of data files for icarus"""
 
     homepage = "https://icarus.fnal.gov/"
-
     version(
-        "09.42.00",
-        sha256="69efe77bff79829b0cd8b005e4f1f0a7da23247d59d0b4413a1042061cad7221",
-        url="https://scisoft.fnal.gov/scisoft/packages/icarus_data/v09_42_00/icarus_data-v09.42.00-noarch.tar.bz2",
+        "09.93.05",
+        sha256="2cd66f3e36aa95496c47b790a9dd1e53eb2712b075d7c81aa75e334cc9f4acaf",
+        url="https://scisoft.fnal.gov/scisoft/packages/icarus_data/v09_93_05/icarus_data-09.93.05-noarch.tar.bz2",
     )
     version(
         "09.42.00",
@@ -54,29 +53,30 @@ class IcarusData(Package):
         install_tree(src, prefix)
 
     def setup_run_environment(self, env):
-        print("echo IGNORING SPACK ICARUS-DATA DUE TO SCISOFT MISSING VERSION.")
-        print("echo USING LOCAL VERSION v09_93_05 INSTEAD.")
-        local_build = "/eagle/neutrinoGPU/icarus/icarus_data/v09_93_05"
-        env.set("ICARUS_DATA_VERSION", "v%s" % "09.93.05")
-        env.prepend_path("WIRECELL_PATH", "%s/icarus_data/WirecellData" % local_build)
-        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data" % local_build)
-        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/NoiseHistos" % local_build)
-        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/Responses" % local_build)
-        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/PhotonLibrary" % local_build)
-        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/CRT" % local_build)
-        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/PandoraMVAs" % local_build)
-        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/database" % local_build)
-        env.prepend_path("CMAKE_PREFIX_PATH", "%s" % local_build)
-        env.prepend_path("PKG_CONFIG_PATH", "%s" % local_build)
+        #local_build = "/eagle/neutrinoGPU/icarus/icarus_testing"
+        #print("echo IGNORING SPACK ICARUS-DATA DUE TO SCISOFT MISSING VERSION.")
+        #print("echo USING LOCAL VERSION v09_93_05 INSTEAD.")
+        #print("ls %s/icarus_data/WirecellData" % local_build)
+        #env.set("ICARUS_DATA_VERSION", "v%s" % "09.93.05")
+        #env.prepend_path("WIRECELL_PATH", "%s/icarus_data/WirecellData" % local_build)
+        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data" % local_build)
+        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/NoiseHistos" % local_build)
+        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/Responses" % local_build)
+        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/PhotonLibrary" % local_build)
+        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/CRT" % local_build)
+        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/PandoraMVAs" % local_build)
+        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/database" % local_build)
+        #env.prepend_path("CMAKE_PREFIX_PATH", "%s" % local_build)
+        #env.prepend_path("PKG_CONFIG_PATH", "%s" % local_build)
 
-        #env.set("ICARUS_DATA_VERSION", "v%s" % self.version.underscored)
-        #env.prepend_path("WIRECELL_PATH", "%s/icarus_data/WirecellData" % self.prefix)
-        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data" % self.prefix)
-        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/NoiseHistos" % self.prefix)
-        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/Responses" % self.prefix)
-        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/PhotonLibrary" % self.prefix)
-        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/CRT" % self.prefix)
-        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/PandoraMVAs" % self.prefix)
-        #env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/database" % self.prefix)
-        #env.prepend_path("CMAKE_PREFIX_PATH", "%s" % self.prefix)
-        #env.prepend_path("PKG_CONFIG_PATH", "%s" % self.prefix)
+        env.set("ICARUS_DATA_VERSION", "v%s" % self.version.underscored)
+        env.prepend_path("WIRECELL_PATH", "%s/icarus_data/WirecellData" % self.prefix)
+        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data" % self.prefix)
+        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/NoiseHistos" % self.prefix)
+        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/Responses" % self.prefix)
+        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/PhotonLibrary" % self.prefix)
+        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/CRT" % self.prefix)
+        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/PandoraMVAs" % self.prefix)
+        env.prepend_path("FW_SEARCH_PATH", "%s/icarus_data/database" % self.prefix)
+        env.prepend_path("CMAKE_PREFIX_PATH", "%s" % self.prefix)
+        env.prepend_path("PKG_CONFIG_PATH", "%s" % self.prefix)

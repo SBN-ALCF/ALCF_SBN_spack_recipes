@@ -1,0 +1,7 @@
+diff --git a/ALCF_SBN_spack_recipes b/ALCF_SBN_spack_recipes
+deleted file mode 160000
+index 6ded1ae..0000000
+--- a/ALCF_SBN_spack_recipes
++++ /dev/null
+@@ -1 +0,0 @@
+-Subproject commit 6ded1ae722d66dbad679712496f6b77efcaf32b0

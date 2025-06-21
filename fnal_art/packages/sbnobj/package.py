@@ -49,7 +49,7 @@ class Sbnobj(CMakePackage):
         git=git_base,
         get_full_repo=True,
     )
-    version("10.01.00", sha256="f0df159da2b94dbd77c61f065d18b3124d44b90aee229fa4ca67c9f3aadbff53")
+    version("10.01.00", sha256="f0df159da2b94dbd77c61f065d18b3124d44b90aee229fa4ca67c9f3aadbff53") # FIXME
     version("09.19.05", sha256="2e520d8cf0433790964bbb911e4f7d36cc4b0cc29133c11df838684fdbe195c0")
     version("09.19.04", sha256="78b7c15159ec33db8beb5105795ff026a5e251dc0a1bbe4845725e1a02633ba1")
     version("09.19.02", sha256="292e37da8f10549d4cdfbfef4743419d974076b4c0333823c9539faa780414bc")
@@ -179,7 +179,6 @@ class Sbnobj(CMakePackage):
         run_env.prepend_path("ROOT_INCLUDE_PATH", self.prefix.include)
         # Perl modules.
         run_env.prepend_path("PERL5LIB", os.path.join(self.prefix, "perllib"))
-        run_env.prepend_path("FHICL_FILE_PATH", self.prefix.fcl)
         # Cleaup.
         sanitize_environments(run_env)
 

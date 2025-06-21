@@ -22,7 +22,7 @@ while [[ $# -gt 0 ]]; do
     -h|--help)
       echo "USAGE: Script for creation, acivation, and adding spec
             -e, --env: Name of spack environment to be created
-	    -i, --input: input spec (can be piped from file using cat)"
+	    -i, --input: input spec file (output from spack_check_installed.py)"
       exit 1
       ;;
     -*|--*)
@@ -35,11 +35,12 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+
 . /lus/grand/projects/neutrinoGPU/software/spack_builds/spack/share/spack/setup-env.sh
-#spack env create "${ENV}"
+spack env create "${ENV}"
 spack env activate "${ENV}"
-#INPUT=${INPUT%-spec*}
-#echo Adding "${INPUT}"
+INPUT=${INPUT%-spec*}
+echo Adding "${INPUT}"
 spack add "${INPUT}"
 spack concretize -f
 spack install

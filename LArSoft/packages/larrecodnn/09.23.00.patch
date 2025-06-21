@@ -1,0 +1,31 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d0763643..eb8c37f4 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -51,7 +51,7 @@ find_package(ROOT COMPONENTS Core Hist Tree REQUIRED EXPORT)
+ find_package(TBB REQUIRED EXPORT)
+ find_package(TritonCommon QUIET EXPORT)
+ find_package(TritonClient QUIET EXPORT)
+-find_package(TensorFlow 2.6.0 QUIET EXPORT)
++find_package(TensorFlow 2.6.0 REQUIRED EXPORT)
+ find_package(Torch QUIET EXPORT)
+ find_package(TorchScatter QUIET EXPORT)
+ find_package(Threads REQUIRED EXPORT)
+diff --git a/larrecodnn/CVN/interfaces/CMakeLists.txt b/larrecodnn/CVN/interfaces/CMakeLists.txt
+index 2cf5f348..8cc5b9c7 100644
+--- a/larrecodnn/CVN/interfaces/CMakeLists.txt
++++ b/larrecodnn/CVN/interfaces/CMakeLists.txt
+@@ -1,3 +1,4 @@
++find_package(ZLIB REQUIRED EXPORT)
+ 
+ cet_make_library(SOURCE
+   ICVNMapper.cxx
+@@ -24,7 +25,7 @@ cet_make_library(SOURCE
+   larcore::Geometry_Geometry_service
+   larcorealg::Geometry
+   larrecodnn::ImagePatternAlgs_Tensorflow_TF
+-  ${ZLIB_LIBRARIES}
++  ZLIB::ZLIB
+   PRIVATE
+   larsim::MCCheater_BackTrackerService_service
+   larsim::MCCheater_ParticleInventoryService_service

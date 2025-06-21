@@ -17,13 +17,14 @@ class Lardataobj(CMakePackage, FnalGithubPackage):
 
     version("10.01.00", sha256="1d0306c0c0ae270335bf869852295d5c25a95d2acb99c8836f7144bac06063ec")
     version("10.00.04", sha256="07be6a3d3f2b1d5eee905058b68066d39f2083c22ab2d9d595f5181b3a80e3ff")
-    version("10.00.02", sha256="5c4022c33be601fc3e7e5f06dd3a5cff2564264753868bd7ea4fbb8cd4df13a4")
-    version("10.00.00", sha256="13d44ca0292338454e4857de555bb3fb8033b70bed5ed61012f2ad0c1b60e376")
+    version("10.00.03", sha256="b6fa481c9eb3a519b74731c85ba6697bf28f3623edbcdc02cef6c04d545cbc9d")
     version("09.19.00", sha256="8e689900cef678fb25c161f7fc676be25b64f1d79e65a9839d4c7e5b1a7c1040")
     version("09.18.03", sha256="032a4c48473dc87c204c3aaef4bdf4953599de26cd1642cb51fd6f7692adcb6d")
     version("develop", branch="develop", get_full_repo=True)
 
     cxxstd_variant("17", "20", default="17")
+
+    patch("dk2nu.patch")
 
     depends_on("cetmodules", type="build")
 
@@ -35,12 +36,10 @@ class Lardataobj(CMakePackage, FnalGithubPackage):
     depends_on("nusimdata")
     depends_on("larcorealg")
     depends_on("larcoreobj")
+    depends_on("dk2nudata", type="build")
+    depends_on("nufinder", type="build")
     depends_on("messagefacility")
     depends_on("root")
-
-    def patch(self):
-        for file in ['lardataobj/Simulation/CMakeLists.txt', 'lardataobj/AnalysisBase/CMakeLists.txt']:
-            filter_file('nusimdata::SimulationBase', 'nusimdata::SimulationBase dk2nu::Tree', file)
 
     @cmake_preset
     def cmake_args(self):

@@ -46,7 +46,6 @@ class Pandora(CMakePackage):
 
     depends_on("eigen")
 
-
     def patch(self):
         # Build larpandoracontent as part of pandora
         filter_file(
@@ -57,6 +56,7 @@ class Pandora(CMakePackage):
             'Eigen3_version "{0}"'.format(self.spec["eigen"].version),
             "CMakeLists.txt",
         )
+        print("PATCHED:", self.spec["eigen"].version)
         filter_file(
             r"            EXPORT_LIBRARY_DEPENDENCIES\((.*)\)",
             """
@@ -89,7 +89,7 @@ class Pandora(CMakePackage):
                 if g:
                    gd = g[0]
                 else:
-                   gd = "PandoraSDK"
+                   gd = "PandoraSDK-v03-04-01"
                 filter_file(
                     '#include <vector>',
                     '#include <vector>\n#include <cstdint>',

@@ -51,7 +51,7 @@ class Castxml(CMakePackage):
     )
 
     # FIXME: Add dependencies if required.
-    depends_on('llvm')
+    depends_on('llvm@15.0.7')
 
     patch("std.patch", when="@0.5.1")
 

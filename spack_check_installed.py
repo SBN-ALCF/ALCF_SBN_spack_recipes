@@ -155,7 +155,7 @@ def OutputFinishedSpec(packages, output_file):
         if(not package.name+"@" in return_str):
            if package.name == "sbndcode" or package.name == "icaruscode":
                print("Creating spec for " + package.name)
-               return_str = package.name + "@"+ package.version + return_str
+               return_str = package.name + "@"+ package.version + "%gcc@=12.1.0" + return_str
            elif package.name == "root":
                 return_str += " ^" + package.name + "@" + package.version +" cxxstd==17 ~jemalloc +spectrum"
            elif package.name == "wirecell":
@@ -166,6 +166,7 @@ def OutputFinishedSpec(packages, output_file):
            else:
                return_str += " ^" + package.name + "@"+ package.version
 
+    return_str += " ^llvm@15.0.7"
     print("Final spec output to:", output_file)
     with open(output_file, 'w') as f:
         f.write(return_str)

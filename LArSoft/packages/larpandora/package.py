@@ -16,13 +16,10 @@ class Larpandora(CMakePackage, FnalGithubPackage):
     version_patterns = ["v09_00_00", "09.21.20"]
 
     version("10.00.19", sha256="5e6545f40d3b95eb562eaae9953f5826a7a95c03694b6769f77a19fe4ed6ad34")
-    version("10.00.18", sha256="2216b7fb87d07f37886185b5e7e2cef004f2cd3e6671a75f4ec2cc8c5470011f")
+    version("10.00.16", sha256="c07a29dc5f6e6d99f44e89231df97519f98edeebd26de0ea0d1d7be952b61eff")
     version("10.00.15", sha256="8ce74273915b0a5e9fbdf038ad26f8ce3edbcce11506442793fe580e03fb93ba")
-    version("10.00.10", sha256="07d56719314815a89d320cfb94b48b6cbc9eb426ba937afff16ca490eba49b8a")
-    version("10.00.09", sha256="95bfdec4c15fbffbedcd4a317f7bc7a7d07af9054ebc5f5ca956d547186af87e")
-    version("10.00.02", sha256="f9b4d96f58a34a4778c665a7ae4e22a42a8952c3b42b565cae0a92c8065a328f")
-    version("09.22.15", sha256="23cc678cdeae444dd3b8af9ebb6e1d93e7eb35569723ae6ff2727d438342628b")
-    version("09.22.11.01", sha256="fe3a77801433a9740effb134de16387bbe4a3172d197f8d260cf4871e77af81a")
+    version("10.00.13", sha256="69934564560eb5d29b5c8197e21399d06be3d886b8f462d09c3f4121a8aa4155")
+    version("09.22.16", sha256="b314b802a1e8459a50ae87a8982db9b9b02ffb06f5e60bdee3a2c98d04f80855")
     version(
         "09.22.05.01", sha256="6d63211e74842fe3de783078733092f082df84be7a384b6d17cc42ed61eca33e"
     )
@@ -58,14 +55,13 @@ class Larpandora(CMakePackage, FnalGithubPackage):
     depends_on("clhep")
     depends_on("cetmodules")
 
-    @property
-    def cmake_prefix_paths(self):
-        return "{0}".format(self.spec["py-torch"].package.cmake_prefix_paths[0])
-
     @cmake_preset
     def cmake_args(self):
         return [
             self.define_from_variant("CMAKE_CXX_STANDARD", "cxxstd"),
+            self.define(
+                "CMAKE_PREFIX_PATH", self.spec["py-torch"].package.cmake_prefix_paths[0]
+            ),
             self.define("IGNORE_ABSOLUTE_TRANSITIVE_DEPENDENCIES", True),
         ]
 
