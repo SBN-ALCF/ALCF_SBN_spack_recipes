@@ -49,6 +49,7 @@ class Icaruscode(CMakePackage):
         get_full_repo=True,
     )
 
+    version("10.06.00.01", sha256="03c7d0f86e0247e04acc0f58c57c85d1ab735f65df8b375966bcb1135a0da22a")
     version("10.04.04", sha256="0b59e6ee4b1c04a6d146514a4e574882bf70de4c8956d08e357e2dee4de595e5")
     version("09.91.02.01", "77048becd1a960b9e4e19e110d05fca135457b224507f9feaada8d98d2f1cc2b")
     version(

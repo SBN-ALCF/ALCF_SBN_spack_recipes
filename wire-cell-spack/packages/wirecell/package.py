@@ -18,6 +18,7 @@ class Wirecell(Package, CudaPackage):
     maintainers = ['brettviren']
 
     version("master", branch="master")
+    version("0.30.3", sha256="cc95044a9de15cab33992084de94e07716a5c14cf2d3486b993c6ef6bad57027")
     version("0.30.2", sha256="51cf692a9687e3124439ce824597c47e8dea38d7178161e3717602c330d74dc2")
     version("0.29.5", sha256="2a16ae4b4e69bb570d79881f32ceb4868d2a9a16699419dd097765d45da06d03")
     version("0.28.0", sha256="62f07ad8bf726ef8aaec428a84cae0ca61ca7b33d5c58f35d2c056f342fdc22c")

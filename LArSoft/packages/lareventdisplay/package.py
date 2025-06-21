@@ -15,9 +15,12 @@ class Lareventdisplay(CMakePackage, FnalGithubPackage):
     version_patterns = ["v09_00_00", "09.10.19"]
 
     version("10.00.15", sha256="e58f098e4f82daa0116a20be1f5d40d5b90ec38ff0c921664d7d5ab99d6aa1fe")
-    version("10.00.12", sha256="714839a4002f8045685f3e15f97d92657f7de8a9acffdc3c82254ea9517983d6")
+    version("10.00.14", sha256="56509d9f5fa720189d5c7619a2a4deb016d883804b0254850a441cb87210fed4")
+    version("10.00.13", sha256="9058d99f79b11ff161edd28db8db62592fe75d004854547c9225da25f30c24cb")
     version("10.00.11", sha256="f6a0c694a97636ac79edafe884c8cf8a7674fbd985524328882029efdcf04f2e")
-    version("10.00.09", sha256="dad20b9224e2778b4ec9b2e029490c4913efcc101cc6958f6c5de6c75339bc33")
+    version("10.00.07", sha256="c8059f5c26c7858a78616ecaa8fa4460a921a70d5690f0d46b12f8edfb654054")
+    version("10.00.06", sha256="8ab21409bd86e86a1d60856f59c384b46659d9fae92ccdbb7bd9e096819dd151")
+    version("10.00.02", sha256="798b53cccc653f946082da1cb2cef5f645e2ada7318c1a21bd60c05f15b2e756")
     version("09.11.14", sha256="8b4f8dc4006014801795c9455718031c6de302150b49dbf08ec55fe6c801668a")
     version("09.11.05", sha256="ed021c8b5632e435026b5ebe4eb33dfceaed8764e2fa90d9735d764e93938253")
     version("develop", branch="develop", get_full_repo=True)
